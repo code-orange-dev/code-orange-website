@@ -1,0 +1,227 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
+import { ArrowRight, MapPin, MessageCircle, Zap } from 'lucide-react'
+import { SOCIAL, STATS } from '@/lib/constants'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Code Orange Dev School was built in Bali to grow Bitcoin\'s developer and node-running ecosystem across Southeast Asia.',
+}
+
+const VALUES = [
+  {
+    icon: '₿',
+    title: 'Bitcoin Only',
+    desc: 'We teach Bitcoin. Not crypto, not blockchain, not web3. The signal, not the noise.',
+  },
+  {
+    icon: '🛠️',
+    title: 'Hands-On First',
+    desc: 'Every session ends with something built, deployed, or running. No theory without practice.',
+  },
+  {
+    icon: '🌐',
+    title: 'Open Source',
+    desc: 'Our graduates contribute to Bitcoin open source software. Code in the open, always.',
+  },
+  {
+    icon: '🔐',
+    title: 'Sovereignty',
+    desc: 'Run your own node. Hold your own keys. Control your own money. Full sovereignty, no shortcuts.',
+  },
+  {
+    icon: '🤝',
+    title: 'Community First',
+    desc: 'The school is the community. We grow together — developers teaching developers, Bitcoiners supporting Bitcoiners.',
+  },
+  {
+    icon: '🌴',
+    title: 'Built for Asia',
+    desc: 'We\'re based in Bali because Asia needs more Bitcoin builders. We\'re here for the long game.',
+  },
+]
+
+export default function AboutPage() {
+  return (
+    <div className="pt-16">
+      {/* Hero */}
+      <section className="section bg-grid relative overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-orange-DEFAULT/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="container-custom relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="badge badge-orange mb-6">
+                <Zap className="w-3 h-3" />
+                Our Story
+              </div>
+              <h1
+                className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight"
+                style={{ fontFamily: 'var(--font-nunito)' }}
+              >
+                Built in Bali,{' '}
+                <span className="text-gradient-orange">for Asia&apos;s Bitcoiners.</span>
+              </h1>
+              <div className="space-y-4 text-text-muted leading-relaxed">
+                <p>
+                  Code Orange started with a simple observation: Bitcoin adoption in Southeast Asia was growing fast, but the technical expertise wasn&apos;t keeping up.
+                </p>
+                <p>
+                  Developers were interested but didn&apos;t know where to start. Bitcoiners were stacking but relying on custodians. Node runners were rare. Open source contributors were even rarer.
+                </p>
+                <p>
+                  We built Code Orange to fix that — starting right here in{' '}
+                  <span className="text-white font-medium">Canggu, Bali</span>, at Bitcoin House Bali, and expanding online to reach Bitcoiners across the region.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="relative h-56 col-span-2 rounded-xl overflow-hidden">
+                <Image
+                  src="/images/workshop-1.jpg"
+                  alt="Code Orange community session at Bitcoin House Bali"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <span className="badge badge-orange text-xs">
+                    <MapPin className="w-3 h-3" /> Bitcoin House Bali, Canggu
+                  </span>
+                </div>
+              </div>
+              {STATS.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="card p-5 text-center"
+                >
+                  <div
+                    className="text-3xl font-extrabold text-orange-DEFAULT mb-1"
+                    style={{ fontFamily: 'var(--font-nunito)' }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-text-muted text-xs uppercase tracking-wider font-semibold">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="badge badge-orange mx-auto mb-4">Our Values</div>
+            <h2
+              className="text-4xl font-extrabold text-white"
+              style={{ fontFamily: 'var(--font-nunito)' }}
+            >
+              What we believe
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {VALUES.map((v) => (
+              <div key={v.title} className="card p-6">
+                <div className="text-3xl mb-4">{v.icon}</div>
+                <h3
+                  className="text-white font-bold text-lg mb-2"
+                  style={{ fontFamily: 'var(--font-nunito)' }}
+                >
+                  {v.title}
+                </h3>
+                <p className="text-text-muted text-sm leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bitcoin House Bali */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative h-72 rounded-xl overflow-hidden">
+              <Image
+                src="/images/workshop-2.jpg"
+                alt="Hands-on session at Code Orange"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <div className="badge badge-orange mb-6">
+                <MapPin className="w-3 h-3" />
+                Home Base
+              </div>
+              <h2
+                className="text-4xl font-extrabold text-white mb-6"
+                style={{ fontFamily: 'var(--font-nunito)' }}
+              >
+                Bitcoin House Bali
+              </h2>
+              <div className="space-y-4 text-text-muted leading-relaxed">
+                <p>
+                  Our in-person workshops and events are hosted at Bitcoin House Bali in Canggu — one of Southeast Asia&apos;s most active Bitcoin community spaces.
+                </p>
+                <p>
+                  The space is equipped with hardware wallets, ASIC miners, Raspberry Pi nodes, and all the tools needed for hands-on Bitcoin education. Real hardware, real practice.
+                </p>
+                <p>
+                  Online programs are run on Discord, open to anyone in Asia and beyond.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {[
+                  'Canggu, Bali 🌴',
+                  'Hardware Labs',
+                  'Node Farm',
+                  'Open to all',
+                ].map((tag) => (
+                  <span key={tag} className="badge badge-white">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom text-center">
+          <h2
+            className="text-4xl font-extrabold text-white mb-4"
+            style={{ fontFamily: 'var(--font-nunito)' }}
+          >
+            Come build with us.
+          </h2>
+          <p className="text-text-muted text-lg max-w-xl mx-auto mb-8">
+            Whether you&apos;re a developer wanting to go deep on Bitcoin, or a bitcoiner looking to get more sovereign — there&apos;s a place for you here.
+          </p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Link
+              href={SOCIAL.discord}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Join the Community
+            </Link>
+            <Link href="/programs" className="btn-secondary">
+              Browse Programs <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
