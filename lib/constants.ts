@@ -26,9 +26,9 @@ export const SOCIAL = {
 }
 
 export const STATS = [
-  { value: '2+', label: 'Cohorts Run' },
-  { value: '12+', label: 'Graduates' },
-  { value: '8+', label: 'Weekly Programs' },
+  { value: '5+', label: 'Cohorts Run' },
+  { value: '50+', label: 'Graduates' },
+  { value: '8+', label: 'Monthly Programs' },
   { value: 'Bali', label: 'Based In' },
 ]
 
@@ -169,6 +169,7 @@ export const PROGRAMS = [
     ],
     cta: 'Join Club',
     icon: '📚',
+    poster: '/images/posters/reading-club.jpg',
   },
   {
     slug: 'talk-a-bit',
@@ -191,6 +192,30 @@ export const PROGRAMS = [
     ],
     cta: 'Join Meetup',
     icon: '🌏',
+    poster: '/images/posters/talk-a-bit.jpg',
+  },
+  {
+    slug: 'accountability-sessions',
+    name: 'Accountability Sessions',
+    subtitle: 'AIR Tool',
+    tagline: 'Work Smarter',
+    description:
+      'Weekly 60-minute accountability sessions using the AIR framework (Actions, Intentions, Reflections). Work smarter, grow faster alongside a community of Bitcoiners on Discord.',
+    duration: 'Monthly',
+    format: 'Online • Discord',
+    schedule: 'Every 1st Tuesday, 11:00 UTC',
+    level: 'All levels',
+    color: '#D4A017',
+    topics: [
+      'Actions, Intentions, Reflections',
+      'Goal Setting',
+      'Progress Tracking',
+      'Peer Accountability',
+      'Community Growth',
+    ],
+    cta: 'Join Session',
+    icon: '🎯',
+    poster: '/images/posters/accountability.jpg',
   },
 ]
 

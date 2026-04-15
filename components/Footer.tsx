@@ -1,24 +1,17 @@
 import Link from 'next/link'
-import { Github, Twitter, Instagram, Zap, MessageCircle } from 'lucide-react'
-import { SITE, SOCIAL } from '@/lib/constants'
-
-const footerLinks = {
-  Programs: [
-    { label: 'rawBit Study Cohort', href: '/programs/rawbit' },
-    { label: 'Sovereign Bitcoiner', href: '/programs/sovereign-bitcoiner' },
-    { label: 'OpenClaw Workshop', href: '/programs/openclaw' },
-    { label: 'Vibe Coding on Nostr', href: '/programs/vibe-coding' },
-    { label: 'Bitcoin Basics', href: '/programs/bitcoin-basics' },
-    { label: 'All Programs', href: '/programs' },
-  ],
-  School: [
-    { label: 'About', href: '/about' },
-    { label: 'Community', href: '/community' },
-    { label: 'Apply', href: '/apply' },
-    { label: 'Bitcoin House Bali', href: 'https://bitcoinhouse.bali', external: true },
-    { label: 'Support on Geyser', href: SOCIAL.geyser, external: true },
-  ],
-}
+import {
+  Github,
+  Twitter,
+  Instagram,
+  Zap,
+  MessageCircle,
+  MapPin,
+  Mail,
+  ArrowRight,
+  Calendar,
+  Clock,
+} from 'lucide-react'
+import { SITE, SOCIAL, PROGRAMS } from '@/lib/constants'
 
 const socialLinks = [
   { icon: Twitter, href: SOCIAL.twitter, label: 'X (Twitter)' },
@@ -27,114 +20,276 @@ const socialLinks = [
   { icon: MessageCircle, href: SOCIAL.discord, label: 'Discord' },
 ]
 
+const schoolLinks = [
+  { label: 'About the School', href: '/about' },
+  { label: 'Community', href: '/community' },
+  { label: 'Apply to a Program', href: '/apply' },
+  { label: 'Bitcoin House Bali', href: 'https://bitcoinhouse.bali', external: true },
+  { label: 'Support on Geyser ⚡', href: SOCIAL.geyser, external: true },
+]
+
+const recurringEvents = [
+  { name: 'Sovereign Bitcoiner', day: 'Every 2nd Wed', time: '11:00 UTC', href: '/programs/sovereign-bitcoiner' },
+  { name: 'OpenClaw Workshop', day: 'Every 3rd Wed', time: '12:00 UTC', href: '/programs/openclaw' },
+  { name: 'Vibe Coding on Nostr', day: 'Every 4th Tue', time: '5:00 PM WITA', href: '/programs/vibe-coding' },
+  { name: 'Bitcoin Reading Club', day: 'Every 4th Wed', time: '12:00 UTC', href: '/programs/bitcoin-reading-club' },
+  { name: 'Accountability Sessions', day: 'Every 1st Tue', time: '11:00 UTC', href: '/programs/accountability-sessions' },
+  { name: 'Talk-a-Bit Meetup', day: 'Every 15th', time: '19:00 WIB', href: '/programs/talk-a-bit' },
+]
+
 export default function Footer() {
   return (
-    <footer className="bg-[#080808] border-t border-[#1a1a1a]">
-      {/* Main footer content */}
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center leading-none mb-4">
-              <span
-                className="text-white text-2xl font-display"
-                style={{ fontFamily: 'var(--font-permanent-marker)' }}
-              >
-                /Code_
-              </span>
-              <span
-                className="text-orange-DEFAULT text-2xl font-extrabold"
+    <footer>
+      {/* ── Pre-footer CTA ─────────────────────────────────────── */}
+      <div className="relative overflow-hidden bg-[#0d0d0d] border-t border-orange-DEFAULT/20">
+        {/* Glow */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-orange-DEFAULT/10 blur-[80px] rounded-full pointer-events-none" />
+        <div className="container-custom relative z-10 py-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-orange-DEFAULT animate-pulse" />
+                <span className="text-orange-DEFAULT text-sm font-mono tracking-wider uppercase">
+                  Sessions running every week
+                </span>
+              </div>
+              <h3
+                className="text-3xl md:text-4xl font-extrabold text-white mb-2"
                 style={{ fontFamily: 'var(--font-nunito)' }}
               >
-                Orange
-              </span>
-            </Link>
-            <p className="text-text-muted text-sm leading-relaxed max-w-xs mb-6">
-              {SITE.description}
-            </p>
-            <div className="flex items-center gap-4 mb-6">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] text-text-muted hover:text-orange-DEFAULT hover:border-orange-DEFAULT/50 transition-all"
-                >
-                  <Icon className="w-4 h-4" />
-                </Link>
-              ))}
+                Never miss a Bitcoin session.
+              </h3>
+              <p className="text-text-muted text-base max-w-md">
+                Join Discord for live reminders, cohort announcements, and deep Bitcoin discussions with builders from around Asia.
+              </p>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="badge badge-orange">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-DEFAULT animate-pulse" />
-                Bali, Indonesia 🇮🇩
-              </span>
-              <span className="badge badge-white">Bitcoin Only</span>
+            <div className="flex items-center gap-3 shrink-0">
+              <a
+                href={SOCIAL.discord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm px-6 py-3"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Join Discord
+              </a>
+              <Link href="/apply" className="btn-secondary text-sm px-6 py-3">
+                Apply Now
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Links columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="text-white text-sm font-semibold mb-4 tracking-wide uppercase">
-                {category}
+      {/* ── Main footer grid ───────────────────────────────────── */}
+      <div className="bg-[#050505] border-t border-[#111]">
+        <div className="container-custom py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+
+            {/* Brand — 4 cols */}
+            <div className="lg:col-span-4">
+              <Link href="/" className="inline-flex items-center leading-none mb-5">
+                <span
+                  className="text-white text-2xl font-display"
+                  style={{ fontFamily: 'var(--font-permanent-marker)' }}
+                >
+                  /Code_
+                </span>
+                <span
+                  className="text-orange-DEFAULT text-2xl font-extrabold"
+                  style={{ fontFamily: 'var(--font-nunito)' }}
+                >
+                  Orange
+                </span>
+              </Link>
+
+              <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-sm">
+                {SITE.description}
+              </p>
+
+              {/* Location */}
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-orange-muted flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-orange-DEFAULT" />
+                </div>
+                <div>
+                  <p className="text-white text-sm font-medium">Bitcoin House Bali</p>
+                  <p className="text-text-muted text-xs">Canggu, Bali, Indonesia 🇮🇩</p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <a
+                href={`mailto:${SITE.email}`}
+                className="flex items-center gap-3 mb-4 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#1a1a1a] flex items-center justify-center shrink-0 group-hover:bg-orange-DEFAULT/10 transition-colors">
+                  <Mail className="w-4 h-4 text-text-muted group-hover:text-orange-DEFAULT transition-colors" />
+                </div>
+                <p className="text-text-muted text-sm group-hover:text-white transition-colors">
+                  {SITE.email}
+                </p>
+              </a>
+
+              {/* Nostr */}
+              <a
+                href={`https://njump.me/${SOCIAL.nostr.npub}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 mb-8 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#1a1a1a] flex items-center justify-center shrink-0 group-hover:bg-orange-DEFAULT/10 transition-colors">
+                  <Zap className="w-4 h-4 text-text-muted group-hover:text-orange-DEFAULT transition-colors" />
+                </div>
+                <p className="text-text-dim text-xs font-mono group-hover:text-orange-DEFAULT/70 transition-colors">
+                  {SOCIAL.nostr.npub.slice(0, 26)}…
+                </p>
+              </a>
+
+              {/* Social icons */}
+              <div className="flex items-center gap-2">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#111] border border-[#222] text-text-muted hover:text-orange-DEFAULT hover:border-orange-DEFAULT/40 transition-all"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Programs — 3 cols */}
+            <div className="lg:col-span-3">
+              <h4 className="text-white text-xs font-bold mb-6 tracking-widest uppercase flex items-center gap-2">
+                <span className="w-1 h-4 bg-orange-DEFAULT rounded-full" />
+                Programs
               </h4>
               <ul className="space-y-3">
-                {links.map((link) => (
+                {PROGRAMS.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/programs/${p.slug}`}
+                      className="text-text-muted hover:text-white transition-colors text-sm flex items-start gap-2 group"
+                    >
+                      <span className="text-orange-DEFAULT/30 group-hover:text-orange-DEFAULT transition-colors mt-0.5 shrink-0">›</span>
+                      <span>
+                        <span>{p.name}</span>
+                        <span className="text-text-dim text-xs ml-1">{p.subtitle}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+                <li className="pt-1">
+                  <Link
+                    href="/programs"
+                    className="text-orange-DEFAULT text-sm font-semibold hover:text-orange-light transition-colors flex items-center gap-1"
+                  >
+                    View all programs <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* School — 2 cols */}
+            <div className="lg:col-span-2">
+              <h4 className="text-white text-xs font-bold mb-6 tracking-widest uppercase flex items-center gap-2">
+                <span className="w-1 h-4 bg-orange-DEFAULT rounded-full" />
+                School
+              </h4>
+              <ul className="space-y-3">
+                {schoolLinks.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
                       target={'external' in link && link.external ? '_blank' : undefined}
                       rel={'external' in link && link.external ? 'noopener noreferrer' : undefined}
-                      className="text-text-muted hover:text-white transition-colors text-sm"
+                      className="text-text-muted hover:text-white transition-colors text-sm flex items-start gap-2 group"
                     >
+                      <span className="text-orange-DEFAULT/30 group-hover:text-orange-DEFAULT transition-colors mt-0.5 shrink-0">›</span>
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* CTA bar */}
-      <div className="border-t border-[#1a1a1a]">
-        <div className="container-custom py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-              <p className="text-white font-semibold">Ready to become a Bitcoin builder?</p>
-              <p className="text-text-muted text-sm">Join a cohort or drop into a workshop.</p>
+            {/* Schedule — 3 cols */}
+            <div className="lg:col-span-3">
+              <h4 className="text-white text-xs font-bold mb-6 tracking-widest uppercase flex items-center gap-2">
+                <span className="w-1 h-4 bg-orange-DEFAULT rounded-full" />
+                Weekly Schedule
+              </h4>
+              <div className="space-y-2">
+                {recurringEvents.map((event) => (
+                  <Link
+                    key={event.name}
+                    href={event.href}
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#0e0e0e] border border-[#1a1a1a] hover:border-orange-DEFAULT/30 hover:bg-[#111] transition-all group"
+                  >
+                    <div className="min-w-0 flex-1">
+                      <p className="text-white text-xs font-medium group-hover:text-orange-DEFAULT transition-colors truncate">
+                        {event.name}
+                      </p>
+                      <p className="text-text-dim text-xs mt-0.5 flex items-center gap-1">
+                        <Calendar className="w-2.5 h-2.5 shrink-0" />
+                        {event.day}
+                      </p>
+                    </div>
+                    <div className="text-right shrink-0 ml-3">
+                      <p className="text-orange-DEFAULT text-xs font-mono font-semibold flex items-center gap-1 justify-end">
+                        <Clock className="w-2.5 h-2.5" />
+                        {event.time}
+                      </p>
+                      <p className="text-text-dim text-xs">Discord</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-3">
-              <Link
-                href={SOCIAL.discord}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary text-sm py-2.5 px-5"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Join Discord
-              </Link>
-              <Link href="/apply" className="btn-primary text-sm py-2.5 px-5">
-                <Zap className="w-4 h-4" />
-                Apply Now
-              </Link>
-            </div>
+
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-[#1a1a1a]">
+      {/* ── Bitcoin ethos strip ────────────────────────────────── */}
+      <div className="bg-[#030303] border-t border-[#0f0f0f]">
+        <div className="container-custom py-3">
+          <div className="flex items-center justify-center gap-4 md:gap-8 overflow-x-auto scrollbar-hide">
+            {[
+              '₿ Bitcoin Only',
+              '🔑 Self Custody',
+              '🌿 Open Source',
+              '🛡️ No KYC',
+              '⚡ Lightning Native',
+              '🌴 Bali, Indonesia',
+              '🦞 Nostr Native',
+              '🚫 No Shitcoins',
+            ].map((item) => (
+              <span key={item} className="text-text-dim text-xs font-mono whitespace-nowrap shrink-0">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Bottom bar ─────────────────────────────────────────── */}
+      <div className="bg-[#020202] border-t border-[#0a0a0a]">
         <div className="container-custom py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-text-dim">
-            <p>© {new Date().getFullYear()} Code Orange Dev School. Built with ⚡ in Bali.</p>
-            <p className="font-mono text-orange-DEFAULT/60">
-              Bitcoin Only • No KYC • No Shitcoins
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p className="text-text-dim text-xs">
+              © {new Date().getFullYear()} Code Orange Dev School · Built with ⚡ in Bali, Indonesia
             </p>
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-DEFAULT animate-pulse" />
+              <span className="text-orange-DEFAULT/60 font-mono text-xs">Sessions live every week</span>
+            </div>
           </div>
         </div>
       </div>

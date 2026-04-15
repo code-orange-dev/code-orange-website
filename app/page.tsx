@@ -41,21 +41,11 @@ const TICKER_ITEMS = [
   '🤝 Community First',
 ]
 
-// Featured programs for homepage (first 4)
+// Featured programs for homepage (first 4 — rawBit, Sovereign Bitcoiner, OpenClaw, Vibe Coding)
 const FEATURED_PROGRAMS = PROGRAMS.slice(0, 4)
 
-// All unique workshop/event types for the events section
+// All unique workshop/event types for the events section (with poster images)
 const EVENTS = [
-  {
-    name: 'Bitcoin Basics',
-    schedule: 'Every 1st Thursday',
-    time: '11:00 UTC',
-    format: 'Online',
-    platform: 'Discord',
-    host: 'The Quiet Satoshi',
-    level: 'Beginner',
-    href: '/programs/bitcoin-basics',
-  },
   {
     name: 'Sovereign Bitcoiner Workshop',
     schedule: 'Every 2nd Wednesday',
@@ -65,16 +55,29 @@ const EVENTS = [
     host: 'Razor',
     level: 'Intermediate',
     href: '/programs/sovereign-bitcoiner',
+    poster: '/images/posters/sovereign-bitcoiner.jpg',
   },
   {
-    name: 'OpenClaw Workshop',
-    schedule: 'Every 3rd Wednesday',
-    time: '12:00 UTC',
-    format: 'Online',
-    platform: 'Discord',
+    name: 'OpenClaw & Vibe Coding',
+    schedule: 'Every 4th Tuesday',
+    time: '5:00 PM WITA',
+    format: 'In-Person',
+    platform: 'Bitcoin House Bali',
     host: 'Code Orange',
     level: 'All levels',
     href: '/programs/openclaw',
+    poster: '/images/posters/openclaw.jpg',
+  },
+  {
+    name: 'Bitcoin Privacy with Fedi',
+    schedule: 'Every 1st Thursday',
+    time: '11:00 UTC',
+    format: 'Online',
+    platform: 'Discord',
+    host: 'The Quiet Satoshi',
+    level: 'Beginner',
+    href: '/programs/bitcoin-basics',
+    poster: '/images/posters/bitcoin-privacy.jpg',
   },
   {
     name: 'Bitcoin Reading Club',
@@ -85,16 +88,18 @@ const EVENTS = [
     host: 'Alex',
     level: 'All levels',
     href: '/programs/bitcoin-reading-club',
+    poster: '/images/posters/reading-club.jpg',
   },
   {
-    name: 'Vibe Coding on Nostr',
-    schedule: 'Every 4th Tuesday',
-    time: '5:00 PM WITA',
-    format: 'In-Person',
-    platform: 'Bitcoin House Bali',
+    name: 'Accountability Sessions',
+    schedule: 'Every 1st Tuesday',
+    time: '11:00 UTC',
+    format: 'Online',
+    platform: 'Discord',
     host: 'Code Orange',
-    level: 'No code needed',
-    href: '/programs/vibe-coding',
+    level: 'All levels',
+    href: '/programs/accountability-sessions',
+    poster: '/images/posters/accountability.jpg',
   },
   {
     name: 'Talk-a-Bit Meetup',
@@ -105,6 +110,7 @@ const EVENTS = [
     host: 'einsamwolf28',
     level: 'All levels',
     href: '/programs/talk-a-bit',
+    poster: '/images/posters/talk-a-bit.jpg',
   },
 ]
 
@@ -316,34 +322,37 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
             {FEATURED_PROGRAMS.map((program) => (
-              <Link key={program.slug} href={`/programs/${program.slug}`} className="card p-6 group flex flex-col h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="badge badge-orange text-xs">{program.tagline}</span>
-                    </div>
-                    <h3 className="text-white text-xl font-bold group-hover:text-orange-DEFAULT transition-colors" style={{ fontFamily: 'var(--font-nunito)' }}>
-                      {program.name}
-                    </h3>
-                    <p className="text-text-muted text-sm">{program.subtitle}</p>
+              <Link
+                key={program.slug}
+                href={`/programs/${program.slug}`}
+                className="relative rounded-2xl overflow-hidden group h-80 block border border-[#222] hover:border-orange-DEFAULT/40 transition-colors"
+              >
+                {/* Poster image */}
+                {'poster' in program && program.poster ? (
+                  <Image
+                    src={program.poster as string}
+                    alt={program.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]" />
+                )}
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 to-[#0A0A0A]/10" />
+                {/* Content pinned to bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="badge badge-orange text-xs">{program.tagline}</span>
+                    <span className="text-text-dim text-xs">{program.duration}</span>
                   </div>
-                  <span className="text-3xl">{program.icon}</span>
-                </div>
-                <p className="text-text-muted text-sm leading-relaxed mb-4 flex-1">
-                  {program.description}
-                </p>
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#222]">
-                  <div className="flex items-center gap-3 text-xs text-text-muted">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" /> {program.duration}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Globe className="w-3 h-3" /> {program.format.split('•')[0].trim()}
-                    </span>
+                  <h3 className="text-white text-xl font-bold mb-1 group-hover:text-orange-DEFAULT transition-colors" style={{ fontFamily: 'var(--font-nunito)' }}>
+                    {program.name} <span className="text-text-muted font-normal text-base">{program.subtitle}</span>
+                  </h3>
+                  <p className="text-text-muted text-sm leading-relaxed line-clamp-2 mb-3">{program.description}</p>
+                  <div className="flex items-center gap-1 text-orange-DEFAULT text-sm font-semibold">
+                    Learn more <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
-                  <span className="text-orange-DEFAULT text-sm font-medium group-hover:gap-2 flex items-center gap-1 transition-all">
-                    Learn more <ChevronRight className="w-4 h-4" />
-                  </span>
                 </div>
               </Link>
             ))}
@@ -381,34 +390,51 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {EVENTS.map((event) => (
-              <Link key={event.name} href={event.href} className="card p-5 flex flex-col gap-3 group">
-                <div className="flex items-start justify-between">
+              <Link key={event.name} href={event.href} className="rounded-2xl overflow-hidden border border-[#222] hover:border-orange-DEFAULT/40 transition-all group flex flex-col">
+                {/* Poster image */}
+                <div className="relative h-44 overflow-hidden">
+                  {event.poster ? (
+                    <Image
+                      src={event.poster}
+                      alt={event.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d]" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111]/80 to-transparent" />
+                  <div className="absolute top-3 right-3">
+                    <span className={`badge text-xs ${event.format === 'In-Person' ? 'badge-orange' : 'badge-white'}`}>
+                      {event.format}
+                    </span>
+                  </div>
+                </div>
+                {/* Card body */}
+                <div className="bg-[#111] p-4 flex flex-col gap-3 flex-1">
                   <div>
                     <h4 className="text-white font-semibold text-sm group-hover:text-orange-DEFAULT transition-colors leading-tight">
                       {event.name}
                     </h4>
                     <p className="text-text-muted text-xs mt-0.5">Hosted by {event.host}</p>
                   </div>
-                  <span className={`badge text-xs shrink-0 ml-2 ${event.format === 'In-Person' ? 'badge-orange' : 'badge-white'}`}>
-                    {event.format}
-                  </span>
-                </div>
-                <div className="space-y-1.5 text-xs text-text-muted">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-3 h-3 text-orange-DEFAULT shrink-0" />
-                    <span>{event.schedule}</span>
+                  <div className="space-y-1.5 text-xs text-text-muted">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-3 h-3 text-orange-DEFAULT shrink-0" />
+                      <span>{event.schedule}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-3 h-3 text-orange-DEFAULT shrink-0" />
+                      <span>{event.time}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-3 h-3 text-orange-DEFAULT shrink-0" />
+                      <span>{event.platform}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-3 h-3 text-orange-DEFAULT shrink-0" />
-                    <span>{event.time}</span>
+                  <div className="pt-2 border-t border-[#1a1a1a] mt-auto">
+                    <span className="badge badge-white text-xs">{event.level}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-3 h-3 text-orange-DEFAULT shrink-0" />
-                    <span>{event.platform}</span>
-                  </div>
-                </div>
-                <div className="pt-2 border-t border-[#1a1a1a]">
-                  <span className="badge badge-white text-xs">{event.level}</span>
                 </div>
               </Link>
             ))}
