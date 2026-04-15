@@ -34,7 +34,7 @@ const VALUES = [
   {
     icon: '🤝',
     title: 'Community First',
-    desc: 'The school is the community. We grow together — developers teaching developers, Bitcoiners supporting Bitcoiners.',
+    desc: 'The school is the community. We grow together, developers teaching developers, Bitcoiners supporting Bitcoiners.',
   },
   {
     icon: '🌴',
@@ -71,7 +71,7 @@ export default function AboutPage() {
                   Developers were interested but didn&apos;t know where to start. Bitcoiners were stacking but relying on custodians. Node runners were rare. Open source contributors were even rarer.
                 </p>
                 <p>
-                  We built Code Orange to fix that — starting right here in{' '}
+                  We built Code Orange to fix that, starting right here in{' '}
                   <span className="text-white font-medium">Canggu, Bali</span>, at Bitcoin House Bali, and expanding online to reach Bitcoiners across the region.
                 </p>
               </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  Our in-person workshops and events are hosted at Bitcoin House Bali in Canggu — one of Southeast Asia&apos;s most active Bitcoin community spaces.
+                  Our in-person workshops and events are hosted at Bitcoin House Bali in Canggu, one of Southeast Asia&apos;s most active Bitcoin community spaces.
                 </p>
                 <p>
                   The space is equipped with hardware wallets, ASIC miners, Raspberry Pi nodes, and all the tools needed for hands-on Bitcoin education. Real hardware, real practice.
@@ -204,7 +204,7 @@ export default function AboutPage() {
             Come build with us.
           </h2>
           <p className="text-text-muted text-lg max-w-xl mx-auto mb-8">
-            Whether you&apos;re a developer wanting to go deep on Bitcoin, or a bitcoiner looking to get more sovereign — there&apos;s a place for you here.
+            Whether you&apos;re a developer wanting to go deep on Bitcoin, or a bitcoiner looking to get more sovereign, there&apos;s a place for you here.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link

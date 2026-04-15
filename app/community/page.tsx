@@ -7,7 +7,7 @@ import NostrFeed from '@/components/NostrFeed'
 export const metadata: Metadata = {
   title: 'Community',
   description:
-    'Join the Code Orange Dev School community — on Discord, Nostr, X, Instagram, and GitHub.',
+    'Join the Code Orange Dev School community, on Discord, Nostr, X, Instagram, and GitHub.',
 }
 
 const PLATFORMS = [
@@ -87,7 +87,7 @@ export default function CommunityPage() {
             <span className="text-gradient-orange">community</span>
           </h1>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            Developers, node runners, and Bitcoiners from across Southeast Asia and beyond — all in one place. Free, open, and Bitcoin-native.
+            Developers, node runners, and Bitcoiners from across Southeast Asia and beyond, all in one place. Free, open, and Bitcoin-native.
           </p>
         </div>
       </section>
@@ -195,7 +195,7 @@ export default function CommunityPage() {
                 Latest from the school
               </h2>
               <p className="text-text-muted text-sm leading-relaxed mb-8">
-                Real-time posts from Code Orange on Nostr — the censorship-resistant social protocol built by Bitcoiners, for Bitcoiners.
+                Real-time posts from Code Orange on Nostr, the censorship-resistant social protocol built by Bitcoiners, for Bitcoiners.
               </p>
               <NostrFeed limit={8} />
             </div>

@@ -12,7 +12,7 @@ const STEPS = [
   {
     n: '01',
     title: 'Join Discord',
-    desc: 'The first step is always the same — join our Discord server and introduce yourself.',
+    desc: 'The first step is always the same, join our Discord server and introduce yourself.',
   },
   {
     n: '02',
@@ -159,10 +159,10 @@ export default function ApplyPage() {
                     <option value="">Select a program...</option>
                     {PROGRAMS.map((p) => (
                       <option key={p.slug} value={p.slug}>
-                        {p.name} — {p.subtitle}
+                        {p.name}, {p.subtitle}
                       </option>
                     ))}
-                    <option value="not_sure">Not sure yet — help me pick</option>
+                    <option value="not_sure">Not sure yet, help me pick</option>
                   </select>
                 </div>
 
@@ -249,7 +249,7 @@ export default function ApplyPage() {
                 <h3 className="text-white font-bold mb-4">What to expect</h3>
                 <ul className="space-y-3">
                   {[
-                    'Rolling admissions — apply anytime',
+                    'Rolling admissions, apply anytime',
                     'No technical screening',
                     'Response within 48 hours',
                     'Start with the next session',

@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} — ${SITE.tagline}`,
+    default: `${SITE.name}, ${SITE.tagline}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: SITE.url,
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name}, ${SITE.tagline}`,
     description: SITE.description,
     siteName: SITE.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name}, ${SITE.tagline}`,
     description: SITE.description,
     creator: '@codeorangedevs',
   },
@@ -74,6 +74,13 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 }
 

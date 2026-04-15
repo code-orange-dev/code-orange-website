@@ -1,12 +1,12 @@
 // ============================================================
-// SITE CONSTANTS — update these to change across the whole site
+// SITE CONSTANTS, update these to change across the whole site
 // ============================================================
 
 export const SITE = {
   name: 'Code Orange Dev School',
   tagline: "Asia's Bitcoin Developer School",
   description:
-    "Bitcoin lacks developers and node runners in Asia. Code Orange fixes this — training developers and bitcoiners into builders who strengthen Bitcoin's network through advanced self-custody, node running, and community leadership.",
+    "Bitcoin lacks developers and node runners in Asia. Code Orange fixes this, training developers and bitcoiners into builders who strengthen Bitcoin's network through advanced self-custody, node running, and community leadership.",
   url: 'https://codeorange.dev',
   location: 'Canggu, Bali, Indonesia',
   email: 'codeorangedevs@gmail.com',
@@ -54,6 +54,7 @@ export const PROGRAMS = [
     ],
     cta: 'Apply to rawBit',
     icon: '₿',
+    poster: '/images/posters/rawbit.jpg',
   },
   {
     slug: 'sovereign-bitcoiner',
@@ -76,6 +77,7 @@ export const PROGRAMS = [
     ],
     cta: 'Join Workshop',
     icon: '🛡️',
+    poster: '/images/posters/sovereign-bitcoiner.jpg',
   },
   {
     slug: 'openclaw',
@@ -98,6 +100,7 @@ export const PROGRAMS = [
     ],
     cta: 'Join Workshop',
     icon: '🦞',
+    poster: '/images/posters/openclaw.jpg',
   },
   {
     slug: 'vibe-coding',
@@ -105,7 +108,7 @@ export const PROGRAMS = [
     subtitle: 'Workshop',
     tagline: 'No Code Required',
     description:
-      'Build censorship-resistant apps on the p2p internet using AI tools. No coding experience needed — just a curiosity for freedom tech. Build on Nostr using Shakespeare.DIY.',
+      'Build censorship-resistant apps on the p2p internet using AI tools. No coding experience needed, just a curiosity for freedom tech. Build on Nostr using Shakespeare.DIY.',
     duration: 'Monthly',
     format: 'In-Person • Bitcoin House Bali',
     schedule: 'Every 4th Tuesday, 5:00 PM WITA',
@@ -120,6 +123,7 @@ export const PROGRAMS = [
     ],
     cta: 'Join Workshop',
     icon: '⚡',
+    poster: '/images/posters/vibe-coding.jpg',
   },
   {
     slug: 'bitcoin-basics',
@@ -127,7 +131,7 @@ export const PROGRAMS = [
     subtitle: 'Online Meetup',
     tagline: 'For Everyone',
     description:
-      'A welcoming intro to Bitcoin technical fundamentals. Hosted by The Quiet Satoshi — perfect for curious newcomers ready to go deeper than just buying BTC.',
+      'A welcoming intro to Bitcoin technical fundamentals. Hosted by The Quiet Satoshi, perfect for curious newcomers ready to go deeper than just buying BTC.',
     duration: 'Monthly',
     format: 'Online • Discord',
     schedule: 'Every 1st Thursday, 11:00 UTC',
@@ -142,6 +146,7 @@ export const PROGRAMS = [
     ],
     cta: 'Join Meetup',
     icon: '📖',
+    poster: '/images/posters/bitcoin-privacy.jpg',
   },
   {
     slug: 'bitcoin-reading-club',

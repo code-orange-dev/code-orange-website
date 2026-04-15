@@ -22,7 +22,7 @@ import { SITE, SOCIAL, STATS, PROGRAMS } from '@/lib/constants'
 import NostrFeed from '@/components/NostrFeed'
 
 export const metadata: Metadata = {
-  title: `${SITE.name} — ${SITE.tagline}`,
+  title: `${SITE.name}, ${SITE.tagline}`,
 }
 
 // Ticker tape items
@@ -165,7 +165,7 @@ export default function HomePage() {
             >
               Bitcoin lacks developers and node runners in Asia.{' '}
               <span className="text-white font-medium">We fix this.</span>{' '}
-              Train to become a builder who strengthens the network — through advanced self-custody,
+              Train to become a builder who strengthens the network, through advanced self-custody,
               node running, and open source contribution.
             </p>
 
@@ -276,7 +276,7 @@ export default function HomePage() {
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  Southeast Asia is one of the fastest-growing regions for Bitcoin adoption — but it lacks the developers, node runners, and technical educators to support it.
+                  Southeast Asia is one of the fastest-growing regions for Bitcoin adoption, but it lacks the developers, node runners, and technical educators to support it.
                 </p>
                 <p>
                   Code Orange was built in Bali to change that. We run hands-on cohorts, weekly workshops, and in-person sessions at{' '}
@@ -586,7 +586,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-4">
                   <MessageCircle className="w-5 h-5" />
-                  Join Discord — It&apos;s Free
+                  Join Discord, It&apos;s Free
                 </Link>
                 <Link href="/apply" className="btn-secondary text-base px-8 py-4">
                   Apply to a Program

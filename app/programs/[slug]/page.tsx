@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   ArrowLeft,
   ArrowRight,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const program = PROGRAMS.find((p) => p.slug === params.slug)
   if (!program) return {}
   return {
-    title: `${program.name} — ${program.subtitle}`,
+    title: `${program.name}, ${program.subtitle}`,
     description: program.description,
   }
 }
@@ -70,6 +71,20 @@ export default function ProgramDetailPage({ params }: Props) {
                 </div>
               </div>
 
+              {/* Poster image (mobile, shown above title) */}
+              {'poster' in program && program.poster && (
+                <div className="lg:hidden relative h-64 rounded-xl overflow-hidden mb-6">
+                  <Image
+                    src={program.poster as string}
+                    alt={`${program.name} poster`}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority
+                  />
+                </div>
+              )}
+
               <h1
                 className="text-5xl font-extrabold text-white mb-2 leading-tight"
                 style={{ fontFamily: 'var(--font-nunito)' }}
@@ -96,7 +111,20 @@ export default function ProgramDetailPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Details card */}
+            {/* Poster + Details card */}
+            <div className="space-y-4">
+              {'poster' in program && program.poster && (
+                <div className="hidden lg:block relative h-72 rounded-xl overflow-hidden border border-[#222]">
+                  <Image
+                    src={program.poster as string}
+                    alt={`${program.name} poster`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                  />
+                </div>
+              )}
             <div className="card p-6">
               <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
                 Program Details
@@ -143,6 +171,7 @@ export default function ProgramDetailPage({ params }: Props) {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>

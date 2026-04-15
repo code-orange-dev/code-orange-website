@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Clock, Globe, MapPin, Users, Zap } from 'lucide-react'
 import { PROGRAMS, SOCIAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Programs',
   description:
-    'Explore all Code Orange Dev School programs — from the rawBit developer cohort to Sovereign Bitcoiner workshops, Vibe Coding on Nostr, and more.',
+    'Explore all Code Orange Dev School programs, from the rawBit developer cohort to Sovereign Bitcoiner workshops, Vibe Coding on Nostr, and more.',
 }
 
 const LEVELS = ['All levels', 'Beginner', 'Intermediate', 'Developer', 'No code needed']
@@ -66,8 +67,26 @@ export default function ProgramsPage() {
                 <Link
                   key={program.slug}
                   href={`/programs/${program.slug}`}
-                  className="card p-6 flex flex-col group h-full"
+                  className="card overflow-hidden flex flex-col group h-full"
                 >
+                  {/* Poster image */}
+                  {'poster' in program && program.poster ? (
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={program.poster as string}
+                        alt={`${program.name} poster`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="badge badge-orange text-xs">{program.tagline}</span>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  <div className={`${'poster' in program && program.poster ? 'p-5' : 'p-6'} flex flex-col flex-1`}>
                   {/* Program icon & name */}
                   <div className="flex items-start gap-4 mb-4">
                     <div
@@ -125,6 +144,7 @@ export default function ProgramsPage() {
                     <span className="text-orange-DEFAULT text-sm font-semibold group-hover:text-orange-light flex items-center gap-1 transition-colors">
                       Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
+                  </div>
                   </div>
                 </Link>
               ))}
