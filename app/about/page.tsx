@@ -72,7 +72,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   We built Code Orange to fix that, starting right here in{' '}
-                  <span className="text-white font-medium">Canggu, Bali</span>, at Bitcoin House Bali, and expanding online to reach Bitcoiners across the region.
+                  <span className="text-white font-medium">Canggu, Bali, Indonesia</span>, at Code Orange Dev School, and expanding online to reach Bitcoiners across the region.
                 </p>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function AboutPage() {
               <div className="relative h-56 col-span-2 rounded-xl overflow-hidden">
                 <Image
                   src="/images/workshop-1.jpg"
-                  alt="Code Orange community session at Bitcoin House Bali"
+                  alt="Code Orange community session at Code Orange Dev School"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -88,7 +88,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
                   <span className="badge badge-orange text-xs">
-                    <MapPin className="w-3 h-3" /> Bitcoin House Bali, Canggu
+                    <MapPin className="w-3 h-3" /> Code Orange Dev School, Canggu
                   </span>
                 </div>
               </div>
@@ -164,11 +164,11 @@ export default function AboutPage() {
                 className="text-4xl font-extrabold text-white mb-6"
                 style={{ fontFamily: 'var(--font-nunito)' }}
               >
-                Bitcoin House Bali
+                Code Orange Dev School
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  Our in-person workshops and events are hosted at Bitcoin House Bali in Canggu, one of Southeast Asia&apos;s most active Bitcoin community spaces.
+                  Our in-person workshops and events are hosted at Code Orange Dev School in Canggu, Bali, Indonesia, one of Southeast Asia&apos;s most active Bitcoin community spaces.
                 </p>
                 <p>
                   The space is equipped with hardware wallets, ASIC miners, Raspberry Pi nodes, and all the tools needed for hands-on Bitcoin education. Real hardware, real practice.

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Github,
   Twitter,
@@ -60,7 +61,7 @@ export default function Footer() {
                 Never miss a Bitcoin session.
               </h3>
               <p className="text-text-muted text-base max-w-md">
-                Join Discord for live reminders, cohort announcements, and deep Bitcoin discussions with builders from around Asia.
+                Join Discord for live workshops, study cohorts and meet fellow bitcoiners to discuss current opportunities in Bitcoin Open Source Software.
               </p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
@@ -89,19 +90,14 @@ export default function Footer() {
 
             {/* Brand — 4 cols */}
             <div className="lg:col-span-4">
-              <Link href="/" className="inline-flex items-center leading-none mb-5">
-                <span
-                  className="text-white text-2xl font-display"
-                  style={{ fontFamily: 'var(--font-permanent-marker)' }}
-                >
-                  /Code_
-                </span>
-                <span
-                  className="text-orange-DEFAULT text-2xl font-extrabold"
-                  style={{ fontFamily: 'var(--font-nunito)' }}
-                >
-                  Orange
-                </span>
+              <Link href="/" className="inline-flex items-center mb-5">
+                <Image
+                  src="/images/logo.png"
+                  alt="Code Orange Dev School"
+                  width={140}
+                  height={48}
+                  className="h-12 w-auto object-contain"
+                />
               </Link>
 
               <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-sm">
@@ -109,15 +105,20 @@ export default function Footer() {
               </p>
 
               {/* Location */}
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-orange-muted flex items-center justify-center shrink-0 mt-0.5">
+              <a
+                href="https://share.google/O9MpHcSlHLHPdLhCn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 mb-4 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-orange-muted flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-orange-DEFAULT/20 transition-colors">
                   <MapPin className="w-4 h-4 text-orange-DEFAULT" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">Bitcoin House Bali</p>
+                  <p className="text-white text-sm font-medium group-hover:text-orange-DEFAULT transition-colors">Code Orange Dev School</p>
                   <p className="text-text-muted text-xs">Canggu, Bali, Indonesia 🇮🇩</p>
                 </div>
-              </div>
+              </a>
 
               {/* Email */}
               <a

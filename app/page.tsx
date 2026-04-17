@@ -241,7 +241,7 @@ export default function HomePage() {
               <div className="col-span-2 relative h-64 rounded-xl overflow-hidden">
                 <Image
                   src="/images/workshop-1.jpg"
-                  alt="Code Orange Workshop at Bitcoin House Bali"
+                  alt="Code Orange Workshop at Code Orange Dev School"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -250,7 +250,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <span className="badge badge-orange text-xs">
-                    <MapPin className="w-3 h-3" /> Bitcoin House Bali
+                    <MapPin className="w-3 h-3" /> Code Orange Dev School, Canggu
                   </span>
                 </div>
               </div>
@@ -264,7 +264,7 @@ export default function HomePage() {
                 />
               </div>
               <div className="relative h-44 rounded-xl overflow-hidden bg-[#111] border border-[#222] flex flex-col items-center justify-center p-6 text-center">
-                <div className="text-4xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>12+</div>
+                <div className="text-4xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>50+</div>
                 <div className="text-white font-semibold text-sm">Graduates</div>
                 <div className="text-text-muted text-xs mt-1">building on Bitcoin</div>
               </div>
@@ -286,7 +286,7 @@ export default function HomePage() {
                 </p>
                 <p>
                   Code Orange was built in Bali to change that. We run hands-on cohorts, weekly workshops, and in-person sessions at{' '}
-                  <span className="text-white">Bitcoin House Bali in Canggu</span> to turn regular people into sovereign Bitcoiners and capable builders.
+                  <span className="text-white">Code Orange Dev School in Canggu, Bali, Indonesia</span> to turn regular people into sovereign Bitcoiners and capable builders.
                 </p>
                 <p>
                   <span className="text-orange-DEFAULT font-semibold">No shitcoins. No fluff.</span> Just deep, practical Bitcoin education for people who want to strengthen the network.

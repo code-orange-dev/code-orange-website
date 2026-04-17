@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Zap } from 'lucide-react'
 import { SOCIAL } from '@/lib/constants'
@@ -39,21 +40,15 @@ export default function Navbar() {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="flex items-center leading-none">
-                <span
-                  className="text-white text-xl font-display tracking-tight"
-                  style={{ fontFamily: 'var(--font-permanent-marker)' }}
-                >
-                  /Code_
-                </span>
-                <span
-                  className="text-orange-DEFAULT text-xl font-extrabold"
-                  style={{ fontFamily: 'var(--font-nunito)' }}
-                >
-                  Orange
-                </span>
-              </div>
+            <Link href="/" className="flex items-center group">
+              <Image
+                src="/images/logo.png"
+                alt="Code Orange Dev School"
+                width={120}
+                height={40}
+                className="h-9 w-auto object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop nav */}
