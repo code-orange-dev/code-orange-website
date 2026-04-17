@@ -38,13 +38,9 @@ export default function Navbar() {
         }`}
       >
         <div className="container-custom">
-          {/* relative so the logo can be absolutely centered on mobile */}
-          <div className="relative flex items-center justify-between h-16">
-            {/* Logo — centered on mobile, left-aligned on desktop */}
-            <Link
-              href="/"
-              className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center"
-            >
+          <div className="flex items-center justify-between h-16">
+            {/* Logo — hidden on mobile, shown on desktop */}
+            <Link href="/" className="hidden md:flex items-center">
               <Image
                 src="/images/logo.png"
                 alt="Code Orange Dev School"
@@ -54,9 +50,6 @@ export default function Navbar() {
                 priority
               />
             </Link>
-
-            {/* Invisible spacer keeps hamburger pushed to the right on mobile */}
-            <div className="w-10 md:hidden" />
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-1">

@@ -133,10 +133,6 @@ export default function HomePage() {
               <span className="text-orange-DEFAULT text-sm font-semibold tracking-wide">
                 Asia&apos;s Bitcoin Developer School
               </span>
-              <span className="text-text-dim">•</span>
-              <span className="flex items-center gap-1 text-text-muted text-xs">
-                <MapPin className="w-3 h-3" /> Bali, Indonesia
-              </span>
             </div>
 
             {/* Hero logo image */}
