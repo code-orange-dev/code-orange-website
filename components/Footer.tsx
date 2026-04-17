@@ -9,33 +9,22 @@ import {
   MapPin,
   Mail,
   ArrowRight,
-  Calendar,
-  Clock,
 } from 'lucide-react'
 import { SITE, SOCIAL, PROGRAMS } from '@/lib/constants'
+import ScheduleDropdown from './ScheduleDropdown'
 
 const socialLinks = [
-  { icon: Twitter, href: SOCIAL.twitter, label: 'X (Twitter)' },
-  { icon: Instagram, href: SOCIAL.instagram, label: 'Instagram' },
-  { icon: Github, href: SOCIAL.github, label: 'GitHub' },
-  { icon: MessageCircle, href: SOCIAL.discord, label: 'Discord' },
+  { icon: Twitter,        href: SOCIAL.twitter,   label: 'X (Twitter)' },
+  { icon: Instagram,      href: SOCIAL.instagram, label: 'Instagram' },
+  { icon: Github,         href: SOCIAL.github,    label: 'GitHub' },
+  { icon: MessageCircle,  href: SOCIAL.discord,   label: 'Discord' },
 ]
 
 const schoolLinks = [
-  { label: 'About the School', href: '/about' },
-  { label: 'Community', href: '/community' },
-  { label: 'Apply to a Program', href: '/apply' },
-  { label: 'Bitcoin House Bali', href: 'https://bitcoinhouse.bali', external: true },
+  { label: 'About the School',    href: '/about' },
+  { label: 'Community',           href: '/community' },
+  { label: 'Apply to a Program',  href: '/apply' },
   { label: 'Support on Geyser ⚡', href: SOCIAL.geyser, external: true },
-]
-
-const recurringEvents = [
-  { name: 'Sovereign Bitcoiner', day: 'Every 2nd Wed', time: '11:00 UTC', href: '/programs/sovereign-bitcoiner' },
-  { name: 'OpenClaw Workshop', day: 'Every 3rd Wed', time: '12:00 UTC', href: '/programs/openclaw' },
-  { name: 'Vibe Coding on Nostr', day: 'Every 4th Tue', time: '5:00 PM WITA', href: '/programs/vibe-coding' },
-  { name: 'Bitcoin Reading Club', day: 'Every 4th Wed', time: '12:00 UTC', href: '/programs/bitcoin-reading-club' },
-  { name: 'Accountability Sessions', day: 'Every 1st Tue', time: '11:00 UTC', href: '/programs/accountability-sessions' },
-  { name: 'Talk-a-Bit Meetup', day: 'Every 15th', time: '19:00 WIB', href: '/programs/talk-a-bit' },
 ]
 
 export default function Footer() {
@@ -43,7 +32,6 @@ export default function Footer() {
     <footer>
       {/* ── Pre-footer CTA ─────────────────────────────────────── */}
       <div className="relative overflow-hidden bg-[#0d0d0d] border-t border-orange-DEFAULT/20">
-        {/* Glow */}
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-orange-DEFAULT/10 blur-[80px] rounded-full pointer-events-none" />
         <div className="container-custom relative z-10 py-12">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -90,19 +78,15 @@ export default function Footer() {
 
             {/* Brand — 4 cols */}
             <div className="lg:col-span-4">
-              <Link href="/" className="inline-flex items-center mb-5">
+              <Link href="/" className="inline-flex items-center mb-6">
                 <Image
                   src="/images/logo.png"
                   alt="Code Orange Dev School"
-                  width={160}
-                  height={56}
-                  className="h-14 w-auto object-contain"
+                  width={200}
+                  height={70}
+                  className="h-20 w-auto object-contain"
                 />
               </Link>
-
-              <p className="text-text-muted text-sm leading-relaxed mb-6 max-w-sm">
-                {SITE.description}
-              </p>
 
               {/* Location */}
               <a
@@ -115,7 +99,9 @@ export default function Footer() {
                   <MapPin className="w-4 h-4 text-orange-DEFAULT" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium group-hover:text-orange-DEFAULT transition-colors">Code Orange Dev School</p>
+                  <p className="text-white text-sm font-medium group-hover:text-orange-DEFAULT transition-colors">
+                    Code Orange Dev School
+                  </p>
                   <p className="text-text-muted text-xs">Canggu, Bali, Indonesia 🇮🇩</p>
                 </div>
               </a>
@@ -220,38 +206,9 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Schedule — 3 cols */}
+            {/* Schedule — 3 cols (interactive dropdown) */}
             <div className="lg:col-span-3">
-              <h4 className="text-white text-xs font-bold mb-6 tracking-widest uppercase flex items-center gap-2">
-                <span className="w-1 h-4 bg-orange-DEFAULT rounded-full" />
-                Weekly Schedule
-              </h4>
-              <div className="space-y-2">
-                {recurringEvents.map((event) => (
-                  <Link
-                    key={event.name}
-                    href={event.href}
-                    className="flex items-center justify-between p-3 rounded-xl bg-[#0e0e0e] border border-[#1a1a1a] hover:border-orange-DEFAULT/30 hover:bg-[#111] transition-all group"
-                  >
-                    <div className="min-w-0 flex-1">
-                      <p className="text-white text-xs font-medium group-hover:text-orange-DEFAULT transition-colors truncate">
-                        {event.name}
-                      </p>
-                      <p className="text-text-dim text-xs mt-0.5 flex items-center gap-1">
-                        <Calendar className="w-2.5 h-2.5 shrink-0" />
-                        {event.day}
-                      </p>
-                    </div>
-                    <div className="text-right shrink-0 ml-3">
-                      <p className="text-orange-DEFAULT text-xs font-mono font-semibold flex items-center gap-1 justify-end">
-                        <Clock className="w-2.5 h-2.5" />
-                        {event.time}
-                      </p>
-                      <p className="text-text-dim text-xs">Discord</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+              <ScheduleDropdown />
             </div>
 
           </div>
