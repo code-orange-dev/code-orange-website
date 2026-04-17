@@ -94,9 +94,9 @@ export default function Footer() {
                 <Image
                   src="/images/logo.png"
                   alt="Code Orange Dev School"
-                  width={140}
-                  height={48}
-                  className="h-12 w-auto object-contain"
+                  width={160}
+                  height={56}
+                  className="h-14 w-auto object-contain"
                 />
               </Link>
 

@@ -139,30 +139,17 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Logo / Heading */}
-            <h1 className="mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-              <div className="leading-none mb-1">
-                <span
-                  className="text-white text-6xl md:text-8xl font-display block"
-                  style={{ fontFamily: 'var(--font-permanent-marker)' }}
-                >
-                  /Code_
-                </span>
-                <span
-                  className="text-orange-DEFAULT text-7xl md:text-9xl font-extrabold block leading-none"
-                  style={{ fontFamily: 'var(--font-nunito)' }}
-                >
-                  Orange
-                </span>
-                <span
-                  className="text-text-muted text-2xl md:text-3xl font-mono block mt-2"
-                  style={{ fontFamily: 'var(--font-jetbrains-mono)' }}
-                >
-                  dev school
-                  <span className="inline-block w-[3px] h-[1em] bg-orange-DEFAULT ml-1 animate-blink align-middle" />
-                </span>
-              </div>
-            </h1>
+            {/* Hero logo image */}
+            <div className="mb-6 animate-fade-up flex justify-center" style={{ animationDelay: '0.1s' }}>
+              <Image
+                src="/images/logo.png"
+                alt="Code Orange Dev School"
+                width={480}
+                height={180}
+                className="w-[260px] sm:w-[340px] md:w-[440px] h-auto object-contain drop-shadow-[0_0_40px_rgba(247,147,26,0.15)]"
+                priority
+              />
+            </div>
 
             {/* Tagline */}
             <p
