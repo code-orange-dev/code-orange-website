@@ -227,7 +227,6 @@ export default function Footer() {
               '⚡ Lightning Native',
               '🌴 Bali, Indonesia',
               '🦞 Nostr Native',
-              '🚫 No Shitcoins',
             ].map((item) => (
               <span key={item} className="text-text-dim text-xs font-mono whitespace-nowrap shrink-0">
                 {item}

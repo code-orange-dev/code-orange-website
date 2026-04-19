@@ -19,7 +19,16 @@ import {
   Calendar,
 } from 'lucide-react'
 import { SITE, SOCIAL, STATS, PROGRAMS } from '@/lib/constants'
-import NostrFeed from '@/components/NostrFeed'
+import NostrDropdown from '@/components/NostrDropdown'
+
+const GALLERY_PHOTOS = [
+  { src: '/images/gallery/photo-1.jpg', alt: 'Code Orange workshop session' },
+  { src: '/images/gallery/photo-2.jpg', alt: 'Hands-on Bitcoin hardware session' },
+  { src: '/images/gallery/photo-3.jpg', alt: 'SeedHammer & hardware wallets workshop' },
+  { src: '/images/gallery/photo-4.jpg', alt: 'ASIC mining workshop with coconuts' },
+  { src: '/images/gallery/photo-5.jpg', alt: 'rawBit study cohort' },
+  { src: '/images/gallery/photo-6.jpg', alt: 'Sovereign Bitcoiner group session' },
+]
 
 export const metadata: Metadata = {
   title: `${SITE.name}, ${SITE.tagline}`,
@@ -142,7 +151,7 @@ export default function HomePage() {
                 alt="Code Orange Dev School"
                 width={480}
                 height={180}
-                className="w-[260px] sm:w-[340px] md:w-[440px] h-auto object-contain drop-shadow-[0_0_40px_rgba(247,147,26,0.15)]"
+                className="w-[300px] sm:w-[420px] md:w-[560px] h-auto object-contain drop-shadow-[0_0_60px_rgba(247,147,26,0.18)]"
                 priority
               />
             </div>
@@ -435,24 +444,75 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          NOSTR FEED + COMMUNITY SECTION
+          GALLERY SECTION
       ============================================================ */}
       <section className="section bg-[#080808]">
         <div className="container-custom">
+          <div className="text-center mb-10">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Users className="w-3 h-3" />
+              In the field
+            </div>
+            <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Real sessions. Real hardware.
+            </h2>
+            <p className="text-text-muted mt-3 max-w-lg mx-auto">
+              From ASIC miners on the floor to SeedHammer engravings — this is what Bitcoin education looks like.
+            </p>
+          </div>
+
+          {/* Masonry-style grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {GALLERY_PHOTOS.map((photo, i) => (
+              <div
+                key={photo.src}
+                className={`relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group ${
+                  i === 0 ? 'row-span-2 col-span-1' : ''
+                }`}
+                style={{ minHeight: i === 0 ? '420px' : '200px' }}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          NOSTR FEED + COMMUNITY SECTION
+      ============================================================ */}
+      <section className="section">
+        <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Nostr Feed */}
+            {/* Nostr Feed — collapsible */}
             <div>
               <div className="badge badge-orange mb-4">
                 <Zap className="w-3 h-3" />
-                Latest from Nostr
+                Nostr
               </div>
               <h2 className="text-3xl font-extrabold text-white mb-2" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Follow us on Nostr
               </h2>
-              <p className="text-text-muted text-sm mb-8">
+              <p className="text-text-muted text-sm mb-6">
                 Uncensorable. Decentralized. The way it should be.
               </p>
-              <NostrFeed limit={5} />
+              <NostrDropdown />
+              <a
+                href={`https://njump.me/${SOCIAL.nostr.npub}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-orange-DEFAULT text-sm font-semibold hover:text-orange-light transition-colors"
+              >
+                <Zap className="w-3.5 h-3.5" />
+                View full Nostr profile
+              </a>
             </div>
 
             {/* Community join */}
