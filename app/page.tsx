@@ -147,10 +147,19 @@ export default function HomePage() {
               />
             </div>
 
+            {/* Primary headline */}
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight max-w-3xl mx-auto mb-5 animate-fade-up"
+              style={{ fontFamily: 'var(--font-nunito)', animationDelay: '0.2s' }}
+            >
+              A Bitcoin OSS contributor pipeline{' '}
+              <span className="text-gradient-orange">with a fellowship layer.</span>
+            </h1>
+
             {/* Tagline */}
             <p
               className="text-text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up"
-              style={{ animationDelay: '0.2s' }}
+              style={{ animationDelay: '0.3s' }}
             >
               Bitcoin lacks developers and node runners in Asia.{' '}
               <span className="text-white font-medium">We fix this.</span>{' '}
@@ -161,7 +170,7 @@ export default function HomePage() {
             {/* CTAs */}
             <div
               className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up"
-              style={{ animationDelay: '0.3s' }}
+              style={{ animationDelay: '0.4s' }}
             >
               <Link href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-4">
                 <MessageCircle className="w-5 h-5" />
