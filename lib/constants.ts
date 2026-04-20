@@ -39,10 +39,10 @@ export const PROGRAMS = [
     subtitle: 'Study Cohort',
     tagline: 'For Developers',
     description:
-      'A 10-week deep dive turning developers into Bitcoin builders. Self-study Transactions, Scripts, Taproot, and PSBTs through hands-on Discord sessions. Graduates contribute to Bitcoin open source software.',
+      'A 10-week protocol deep-dive turning developers into Bitcoin builders. Cover Transactions, Scripts, Taproot, PSBTs, and P2P networking through weekly Discord sessions. Complete homework assignments and earn sats. Graduates contribute to Bitcoin open source.',
     duration: '10 weeks',
     format: 'Online • Discord',
-    schedule: 'Every Monday, 11:00 UTC',
+    schedule: 'Next cohort: May 11, 2026 — Mondays, 11:00 UTC',
     level: 'Developer',
     color: '#F7931A',
     topics: [

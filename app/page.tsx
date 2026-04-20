@@ -127,6 +127,17 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ============================================================
+          ANNOUNCEMENT BAR
+      ============================================================ */}
+      <div className="bg-orange-DEFAULT text-black py-2.5 px-4 text-center text-sm font-bold tracking-wide flex items-center justify-center gap-2 flex-wrap">
+        <span className="animate-pulse">🔥</span>
+        <span>rawBit Study Cohort — next cohort starts <strong>May 11, 2026</strong></span>
+        <Link href="/programs/rawbit" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">
+          Apply now →
+        </Link>
+      </div>
+
+      {/* ============================================================
           HERO SECTION
       ============================================================ */}
       <section className="relative min-h-screen flex flex-col justify-center bg-grid overflow-hidden">
@@ -481,6 +492,193 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          BITCOIN DOJO — PAST COHORT SHOWCASE
+      ============================================================ */}
+      <section className="section">
+        <div className="container-custom">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Shield className="w-3 h-3" />
+              Proof it works
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Bitcoin Dojo Cohort{' '}
+              <span className="text-gradient-orange">— 21 graduates</span>
+            </h2>
+            <p className="text-text-muted text-lg max-w-2xl mx-auto">
+              In partnership with Chaincode Labs BOSS Challenge, we ran an 8-week protocol deep-dive.
+              49 enrolled. 21 finished with a clear plan to contribute to Bitcoin open source.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            {/* Stats column */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: '49', label: 'Enrolled', icon: '👥' },
+                { value: '21', label: 'Graduated', icon: '🎓' },
+                { value: '8', label: 'Weeks', icon: '📅' },
+                { value: '100%', label: 'Bitcoin Only', icon: '₿' },
+              ].map(({ value, label, icon }) => (
+                <div key={label} className="card p-6 text-center">
+                  <div className="text-3xl mb-2">{icon}</div>
+                  <div className="text-4xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>{value}</div>
+                  <div className="text-text-muted text-sm">{label}</div>
+                </div>
+              ))}
+
+              {/* Partner badge */}
+              <div className="col-span-2 card p-4 border-orange-DEFAULT/20 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-orange-muted flex items-center justify-center text-xl shrink-0">🔗</div>
+                <div>
+                  <p className="text-white text-sm font-semibold">Part of Chaincode Labs BOSS Challenge</p>
+                  <p className="text-text-muted text-xs">Preparing devs to contribute to Bitcoin open source</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Curriculum column */}
+            <div>
+              <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <span className="w-1 h-4 bg-orange-DEFAULT rounded-full" />
+                What we covered
+              </h3>
+              <div className="space-y-2">
+                {[
+                  { week: 'Wk 1–2', topic: 'Finite fields, elliptic curves, secp256k1' },
+                  { week: 'Wk 3',   topic: 'ECDSA: signing, verification, the discrete log problem' },
+                  { week: 'Wk 4',   topic: 'Bitcoin addresses, SHA256, RIPEMD160, HD wallets' },
+                  { week: 'Wk 5',   topic: 'Transactions, UTXO set, sighash flags, timelocks' },
+                  { week: 'Wk 6',   topic: 'Bitcoin Script, P2PKH, P2SH, P2WPKH, P2TR' },
+                  { week: 'Wk 7',   topic: 'P2P network, mempool propagation, compact blocks' },
+                  { week: 'Wk 8',   topic: 'Mining, difficulty adjustment, Stratum V2, Taproot' },
+                ].map(({ week, topic }) => (
+                  <div key={week} className="flex items-start gap-3 p-3 rounded-xl bg-[#0e0e0e] border border-[#1a1a1a]">
+                    <span className="text-orange-DEFAULT font-mono text-xs shrink-0 pt-0.5 w-12">{week}</span>
+                    <span className="text-text-muted text-sm">{topic}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 rounded-xl bg-orange-muted border border-orange-DEFAULT/20">
+                <p className="text-orange-DEFAULT text-sm font-semibold mb-1">What graduates did next</p>
+                <p className="text-text-muted text-xs leading-relaxed">
+                  Contributing to Good First Issues · Joining rawBit cohort · Applying for grants · Building open source projects · Attending hackathons
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          ECOSYSTEM PARTNERS + STUDENT PIPELINE
+      ============================================================ */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Globe className="w-3 h-3" />
+              Ecosystem
+            </div>
+            <h2 className="text-4xl font-extrabold text-white mb-3" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Where our graduates go
+            </h2>
+            <p className="text-text-muted max-w-xl mx-auto">
+              Code Orange is a pipeline into the broader Bitcoin developer ecosystem. Graduates don't just finish a cohort — they plug into a global network.
+            </p>
+          </div>
+
+          {/* Pipeline steps */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+            {[
+              {
+                icon: '₿',
+                org: 'rawBit Study Cohort',
+                desc: 'Our flagship 10-week protocol cohort. Deep dive into Transactions, Scripts, Taproot, and PSBTs. Next cohort: May 11, 2026.',
+                href: '/programs/rawbit',
+                cta: 'Apply now',
+                highlight: true,
+              },
+              {
+                icon: '🔗',
+                org: 'Chaincode Labs',
+                desc: 'Apply to the BOSS Challenge or Chaincode Seminars — our cohort graduates are prepared and have priority support.',
+                href: 'https://learning.chaincode.com',
+                cta: 'Learn more',
+              },
+              {
+                icon: '🎓',
+                org: 'Bitshala',
+                desc: 'Join a Bitshala study cohort focused on Bitcoin protocol development. Strong overlap with our curriculum.',
+                href: 'https://bitshala.org',
+                cta: 'Learn more',
+              },
+              {
+                icon: '🛠️',
+                org: 'Good First Issues',
+                desc: 'Start contributing to real Bitcoin open source projects. We help you find your first PR on Bitcoin Core and surrounding ecosystem.',
+                href: 'https://bitcoindevs.xyz/good-first-issues',
+                cta: 'Find issues',
+              },
+              {
+                icon: '🎯',
+                org: 'AIR Accountability Sessions',
+                desc: 'Stay on track after graduation. Weekly sessions using the AIR framework — Actions, Intentions, Reflections.',
+                href: '/programs/accountability-sessions',
+                cta: 'Join sessions',
+              },
+              {
+                icon: '📖',
+                org: 'Bitcoin Reading Club',
+                desc: 'Keep learning between cohorts. Monthly deep-reads of the best Bitcoin books and papers, hosted by Alex.',
+                href: '/programs/bitcoin-reading-club',
+                cta: 'Join club',
+              },
+            ].map(({ icon, org, desc, href, cta, highlight }) => (
+              <a
+                key={org}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className={`card p-5 flex flex-col gap-3 group hover:border-orange-DEFAULT/40 transition-all ${highlight ? 'border-orange-DEFAULT/30 bg-orange-muted/10' : ''}`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#1a1a1a] flex items-center justify-center text-lg shrink-0">{icon}</div>
+                  <p className={`font-semibold text-sm ${highlight ? 'text-orange-DEFAULT' : 'text-white'} group-hover:text-orange-DEFAULT transition-colors`}>{org}</p>
+                </div>
+                <p className="text-text-muted text-xs leading-relaxed flex-1">{desc}</p>
+                <span className="text-orange-DEFAULT text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                  {cta} <ArrowRight className="w-3 h-3" />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* Open-source slides callout */}
+          <div className="rounded-2xl bg-[#0e0e0e] border border-[#222] p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="w-12 h-12 rounded-xl bg-orange-muted flex items-center justify-center text-2xl shrink-0">📐</div>
+            <div className="flex-1">
+              <p className="text-white font-bold text-base mb-1">Our curriculum is open source</p>
+              <p className="text-text-muted text-sm leading-relaxed">
+                All Code Orange workshop slides are free for any community leader to use — run your own Bitcoin workshop in your city.
+                Built on Canva, downloadable and editable.
+              </p>
+            </div>
+            <a
+              href="https://x.com/CodeOrangeDevs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary shrink-0 text-sm"
+            >
+              Get the slides <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
