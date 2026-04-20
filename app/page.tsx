@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/0 via-bg/0 to-bg pointer-events-none" />
 
-        <div className="container-custom relative z-10 pt-24 pb-16">
+        <div className="container-custom relative z-10 pt-36 md:pt-44 pb-16">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-orange-muted border border-orange-DEFAULT/30 animate-fade-in">
@@ -290,7 +290,7 @@ export default function HomePage() {
                   <span className="text-white">Code Orange Dev School in Canggu, Bali, Indonesia</span> to turn regular people into sovereign Bitcoiners and capable builders.
                 </p>
                 <p>
-                  <span className="text-orange-DEFAULT font-semibold">No shitcoins. No fluff.</span> Just deep, practical Bitcoin education for people who want to strengthen the network.
+                  <span className="text-orange-DEFAULT font-semibold">Bitcoin only. No fluff.</span> Just deep, practical Bitcoin education for people who want to strengthen the network.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -513,6 +513,25 @@ export default function HomePage() {
                 <Zap className="w-3.5 h-3.5" />
                 View full Nostr profile
               </a>
+
+              {/* Bitcoin Keys partner link */}
+              <a
+                href="https://bitcoin-keys.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex items-center gap-3 p-4 rounded-xl bg-[#111] border border-[#222] hover:border-orange-DEFAULT/40 transition-all group"
+              >
+                <div className="w-9 h-9 rounded-lg bg-orange-muted flex items-center justify-center shrink-0">
+                  <span className="text-orange-DEFAULT text-base">🔑</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-sm font-semibold group-hover:text-orange-DEFAULT transition-colors">
+                    Bitcoin Keys
+                  </p>
+                  <p className="text-text-muted text-xs">Bitcoin consultancy, private keys &amp; node running</p>
+                </div>
+                <ChevronRight className="w-4 h-4 text-orange-DEFAULT/50 group-hover:text-orange-DEFAULT group-hover:translate-x-1 transition-all shrink-0" />
+              </a>
             </div>
 
             {/* Community join */}
@@ -524,10 +543,6 @@ export default function HomePage() {
               <h2 className="text-3xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Join the Bitcoin builders community
               </h2>
-              <p className="text-text-muted leading-relaxed mb-8">
-                Connect with developers, node runners, and Bitcoiners across Southeast Asia and beyond. Ask questions, share progress, and build together.
-              </p>
-
               {/* Social links */}
               <div className="space-y-3 mb-8">
                 {[
@@ -652,7 +667,7 @@ export default function HomePage() {
             <div className="relative z-10">
               <div className="badge badge-orange mx-auto mb-6">
                 <Shield className="w-3 h-3" />
-                Bitcoin Only. No Shitcoins.
+                Bitcoin Only.
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Ready to become a{' '}
