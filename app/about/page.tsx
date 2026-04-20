@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, MapPin, MessageCircle, Zap } from 'lucide-react'
+import { ArrowRight, MapPin, MessageCircle, Zap, Globe, Users } from 'lucide-react'
 import { SOCIAL, STATS } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   We built Code Orange to fix that, starting right here in{' '}
-                  <span className="text-white font-medium">Canggu, Bali, Indonesia</span>, at Code Orange Dev School, and expanding online to reach Bitcoiners across the region.
+                  <span className="text-white font-medium">Canggu, Bali, Indonesia</span>, and expanding online and across the region — with workshops in Thai, Vietnamese, Indonesian, Malay, English, and Mandarin.
                 </p>
               </div>
             </div>
@@ -190,6 +190,94 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Zap className="w-3 h-3" />
+              What We Do
+            </div>
+            <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Six pillars of the school
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                icon: '🎓',
+                title: 'Advanced Bitcoin Dev Education',
+                desc: '8-week protocol deep-dive cohorts and 5-week Sovereign Bitcoiner crash courses. Weekly sessions, homework, and graduates who contribute to open source.',
+              },
+              {
+                icon: '🔧',
+                title: 'Hands-On Workshops',
+                desc: 'In-person and online sessions covering node running, mining, multisig, private eCash, Fedimint, Nostr, and Lightning — keeping the network decentralised.',
+              },
+              {
+                icon: '🌏',
+                title: 'Community Hubs',
+                desc: 'Partnering with Bitcoin House Bali, Bitcoin Learning Centers, and community hubs to deliver workshops in Thai, Vietnamese, Indonesian, Malay, English, and Mandarin.',
+              },
+              {
+                icon: '🛠️',
+                title: 'Talent Scouting',
+                desc: 'Training developers with resources from Chaincode Labs, base58, ₿Trust/Qala, and Vinteum. Guiding graduates to contribute to Bitcoin Core, Lightning, Fedimint, and more.',
+              },
+              {
+                icon: '👥',
+                title: 'Train-the-Trainer',
+                desc: 'Headhunting and empowering technical community leaders at Bitcoin hubs across Asia. Monthly quality sessions + "Sovereign Bitcoiner" packs with SeedSigners, T-shirts, and workshop guides.',
+              },
+              {
+                icon: '⚡',
+                title: 'Local Bitcoin Payments',
+                desc: 'Empowering everyday people with tools like Fedi\'s federated mints, Koral, and PlebQR for smoother, more private Bitcoin payments in local economies.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="card p-6">
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="text-white font-bold text-base mb-2" style={{ fontFamily: 'var(--font-nunito)' }}>{item.title}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Goals */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Globe className="w-3 h-3" />
+              The Vision
+            </div>
+            <h2 className="text-4xl font-extrabold text-white mb-3" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Specific goals. Real deadlines.
+            </h2>
+            <p className="text-text-muted max-w-lg mx-auto">
+              We measure success in nodes deployed, pull requests merged, and community leaders empowered — not in course completions.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { value: '21,000', label: 'full Bitcoin nodes deployed', deadline: 'by 2030', icon: '📡' },
+              { value: '2 PRs/wk', label: 'merged to Bitcoin open source', deadline: 'from end of 2026', icon: '🛠️' },
+              { value: '10', label: 'new Bitcoin Houses across Asia', deadline: 'by end of 2026', icon: '🏠' },
+              { value: '15', label: 'gig economy jobs via Train-the-Trainer', deadline: 'by 2026', icon: '🎯' },
+            ].map(({ value, label, deadline, icon }) => (
+              <div key={label} className="card p-6 text-center">
+                <div className="text-3xl mb-3">{icon}</div>
+                <div className="text-3xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>{value}</div>
+                <p className="text-white text-sm font-semibold mb-1">{label}</p>
+                <p className="text-text-dim text-xs font-mono">{deadline}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

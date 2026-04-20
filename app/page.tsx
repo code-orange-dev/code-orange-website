@@ -684,6 +684,156 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
+          TRAIN-THE-TRAINER + REGIONAL REACH
+      ============================================================ */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+            {/* Train-the-Trainer */}
+            <div>
+              <div className="badge badge-orange mb-4">
+                <Users className="w-3 h-3" />
+                Train-the-Trainer
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight" style={{ fontFamily: 'var(--font-nunito)' }}>
+                We train community leaders<br />
+                <span className="text-gradient-orange">to run their own workshops.</span>
+              </h2>
+              <p className="text-text-muted leading-relaxed mb-6">
+                Code Orange doesn&apos;t just teach students — we headhunt and empower technical leaders at Bitcoin hubs across Asia to replicate our workshops in their own cities. Monthly train-the-trainer sessions ensure consistent quality.
+              </p>
+              <div className="space-y-3 mb-6">
+                {[
+                  { icon: '📦', text: '"Sovereign Bitcoiner" packs shipped to hubs — T-shirts, SeedSigners, stickers, and workshop guides' },
+                  { icon: '🌐', text: 'Workshops run in Thai, Vietnamese, Indonesian, Malay, English, and Mandarin' },
+                  { icon: '🎯', text: 'Goal: 15 gig economy jobs created through monthly workshops by 2026' },
+                  { icon: '🏠', text: 'Goal: 10 new Bitcoin Houses across Asia by end of 2026' },
+                ].map(({ icon, text }) => (
+                  <div key={text} className="flex items-start gap-3 p-3 rounded-xl bg-[#0e0e0e] border border-[#1a1a1a]">
+                    <span className="text-lg shrink-0">{icon}</span>
+                    <p className="text-text-muted text-sm leading-relaxed">{text}</p>
+                  </div>
+                ))}
+              </div>
+              <Link href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm inline-flex">
+                <MessageCircle className="w-4 h-4" />
+                Become a community leader
+              </Link>
+            </div>
+
+            {/* Regional reach */}
+            <div>
+              <div className="badge badge-orange mb-4">
+                <Globe className="w-3 h-3" />
+                Regional Reach
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight" style={{ fontFamily: 'var(--font-nunito)' }}>
+                Southeast Asia<br />
+                <span className="text-gradient-orange">is our backyard.</span>
+              </h2>
+              <p className="text-text-muted leading-relaxed mb-6">
+                Based in Bali, active across the region. We partner with Bitcoin community hubs, learning centers, and houses to bring technical education where it&apos;s needed most.
+              </p>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {[
+                  { flag: '🇮🇩', country: 'Indonesia', city: 'Bali, Jakarta' },
+                  { flag: '🇲🇾', country: 'Malaysia', city: 'Kuala Lumpur' },
+                  { flag: '🇹🇭', country: 'Thailand', city: 'Bangkok, Chiang Mai' },
+                  { flag: '🇻🇳', country: 'Vietnam', city: 'Ho Chi Minh City' },
+                  { flag: '🌐', country: 'Online', city: 'Discord — global' },
+                  { flag: '🇵🇭', country: 'Philippines', city: 'Growing' },
+                ].map(({ flag, country, city }) => (
+                  <div key={country} className="card p-4 flex items-center gap-3">
+                    <span className="text-2xl">{flag}</span>
+                    <div>
+                      <p className="text-white text-sm font-semibold">{country}</p>
+                      <p className="text-text-dim text-xs">{city}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="p-4 rounded-xl bg-orange-muted border border-orange-DEFAULT/20">
+                <p className="text-orange-DEFAULT text-xs font-mono font-semibold mb-1">Languages we teach in</p>
+                <p className="text-white text-sm">🇬🇧 English · 🇮🇩 Bahasa · 🇲🇾 Malay · 🇹🇭 Thai · 🇻🇳 Vietnamese · 🇨🇳 Mandarin</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          VISION & GOALS
+      ============================================================ */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Zap className="w-3 h-3" />
+              The Vision
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Specific goals.{' '}
+              <span className="text-gradient-orange">Real deadlines.</span>
+            </h2>
+            <p className="text-text-muted max-w-xl mx-auto">
+              We don&apos;t talk about impact in vague terms. Here&apos;s exactly what we&apos;re building toward.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            {[
+              { value: '21,000', unit: 'nodes', label: 'Additional full Bitcoin nodes deployed', deadline: 'by 2030', icon: '📡' },
+              { value: '2', unit: 'PRs/wk', label: 'GitHub pull requests to Bitcoin OSS', deadline: 'from end of 2026', icon: '🛠️' },
+              { value: '10', unit: 'hubs', label: 'New Bitcoin Houses across Asia', deadline: 'by end of 2026', icon: '🏠' },
+              { value: '15', unit: 'jobs', label: 'Gig economy jobs via Train-the-Trainer', deadline: 'by 2026', icon: '🎯' },
+            ].map(({ value, unit, label, deadline, icon }) => (
+              <div key={label} className="card p-6 flex flex-col gap-4">
+                <div className="text-3xl">{icon}</div>
+                <div>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-4xl font-extrabold text-orange-DEFAULT" style={{ fontFamily: 'var(--font-nunito)' }}>{value}</span>
+                    <span className="text-orange-DEFAULT/60 text-sm font-mono">{unit}</span>
+                  </div>
+                  <p className="text-white text-sm font-semibold mt-1 leading-tight">{label}</p>
+                  <p className="text-text-dim text-xs font-mono mt-1">{deadline}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Ecosystem strip */}
+          <div>
+            <p className="text-text-dim text-xs font-mono uppercase tracking-widest text-center mb-6">Training resources & ecosystem partners</p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                { name: 'Chaincode Labs', href: 'https://learning.chaincode.com' },
+                { name: 'base58⛓️', href: 'https://base58.info' },
+                { name: '₿Trust / Qala', href: 'https://btrust.tech' },
+                { name: 'Vinteum', href: 'https://vinteum.org' },
+                { name: 'rawBit.io', href: 'https://rawbit.io' },
+                { name: 'Summer of Bitcoin', href: 'https://www.summerofbitcoin.org' },
+                { name: 'Bitcoin Dojo', href: 'https://bitcoindojo.dev' },
+                { name: 'Bitshala', href: 'https://bitshala.org' },
+                { name: 'Bitcoin_Devs', href: 'https://bitcoindevs.xyz' },
+              ].map(({ name, href }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-lg bg-[#111] border border-[#222] text-text-muted hover:text-white hover:border-orange-DEFAULT/40 transition-all text-sm font-medium"
+                >
+                  {name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
           NOSTR FEED + COMMUNITY SECTION
       ============================================================ */}
       <section className="section">
