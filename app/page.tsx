@@ -20,14 +20,17 @@ import {
 } from 'lucide-react'
 import { SITE, SOCIAL, STATS, PROGRAMS } from '@/lib/constants'
 import NostrDropdown from '@/components/NostrDropdown'
+import TwitterFeed from '@/components/TwitterFeed'
+import DevCommunity from '@/components/DevCommunity'
 
 const GALLERY_PHOTOS = [
-  { src: '/images/gallery/photo-1.jpg', alt: 'Code Orange workshop session' },
-  { src: '/images/gallery/photo-2.jpg', alt: 'Hands-on Bitcoin hardware session' },
-  { src: '/images/gallery/photo-3.jpg', alt: 'SeedHammer & hardware wallets workshop' },
-  { src: '/images/gallery/photo-4.jpg', alt: 'ASIC mining workshop with coconuts' },
-  { src: '/images/gallery/photo-5.jpg', alt: 'rawBit study cohort' },
-  { src: '/images/gallery/photo-6.jpg', alt: 'Sovereign Bitcoiner group session' },
+  { src: '/images/gallery/photo-1.jpg', alt: 'Code Orange community session' },
+  { src: '/images/gallery/photo-2.jpg', alt: 'Hands-on Bitcoin hardware workshop' },
+  { src: '/images/gallery/photo-3.jpg', alt: 'SeedHammer & hardware wallets' },
+  { src: '/images/gallery/photo-4.jpg', alt: 'ASIC mining workshop' },
+  { src: '/images/gallery/photo-5.jpg', alt: 'rawBit study cohort session' },
+  { src: '/images/gallery/photo-6.jpg', alt: 'Penlock seed backup workshop' },
+  { src: '/images/gallery/photo-7.jpg', alt: 'Sovereign Bitcoiner group session' },
 ]
 
 export const metadata: Metadata = {
@@ -57,6 +60,7 @@ const FEATURED_PROGRAMS = PROGRAMS.slice(0, 4)
 const EVENTS = [
   {
     name: 'Sovereign Bitcoiner Workshop',
+    desc: 'Full technical sovereignty in 5 weeks. Cover full nodes, multisig security with Coldcard and SeedSigner, inheritance planning, Ecash, and Fedimint. Hosted by Razor — one of the sharpest technical educators in the Bitcoin space.',
     schedule: 'Every 2nd Wednesday',
     time: '11:00 UTC',
     format: 'Online',
@@ -64,21 +68,23 @@ const EVENTS = [
     host: 'Razor',
     level: 'Intermediate',
     href: '/programs/sovereign-bitcoiner',
-    poster: '/images/posters/sovereign-bitcoiner.jpg',
+    poster: '/images/gallery/workshops/sovereign-bitcoiner.jpg',
   },
   {
-    name: 'OpenClaw & Vibe Coding',
-    schedule: 'Every 4th Tuesday',
-    time: '5:00 PM WITA',
-    format: 'In-Person',
-    platform: 'Bitcoin House Bali',
+    name: 'OpenClaw Workshop',
+    desc: 'Build real open source Bitcoin tools alongside working developers. Learn the GitHub contribution workflow, dive into Bitcoin libraries, and ship your first meaningful PR to the ecosystem — guided step by step.',
+    schedule: 'Every 3rd Wednesday',
+    time: '12:00 UTC',
+    format: 'Online',
+    platform: 'Discord',
     host: 'Code Orange',
     level: 'All levels',
     href: '/programs/openclaw',
-    poster: '/images/posters/openclaw.jpg',
+    poster: '/images/gallery/workshops/openclaw-bitcoiners.jpg',
   },
   {
     name: 'Bitcoin Privacy with Fedi',
+    desc: 'Practical privacy for everyday Bitcoiners. Learn how Fedimint\'s federated mints work, how to transact without a trace, and how to stack and spend privately. Hosted by The Quiet Satoshi — no jargon, just clarity.',
     schedule: 'Every 1st Thursday',
     time: '11:00 UTC',
     format: 'Online',
@@ -86,10 +92,11 @@ const EVENTS = [
     host: 'The Quiet Satoshi',
     level: 'Beginner',
     href: '/programs/bitcoin-basics',
-    poster: '/images/posters/bitcoin-privacy.jpg',
+    poster: '/images/gallery/workshops/bitcoin-privacy.jpg',
   },
   {
     name: 'Bitcoin Reading Club',
+    desc: 'The best Bitcoin education doesn\'t come from Twitter threads — it comes from books. Monthly deep-reads of the essential Bitcoin canon. Currently working through the classics. Bring your highlights and your opinions.',
     schedule: 'Every 4th Wednesday',
     time: '12:00 UTC',
     format: 'Online',
@@ -97,21 +104,23 @@ const EVENTS = [
     host: 'Alex',
     level: 'All levels',
     href: '/programs/bitcoin-reading-club',
-    poster: '/images/posters/reading-club.jpg',
+    poster: '/images/gallery/workshops/reading-club.jpg',
   },
   {
-    name: 'Accountability Sessions',
-    schedule: 'Every 1st Tuesday',
+    name: 'Bitcoin Basics',
+    desc: 'Where every serious Bitcoiner starts. We go beyond just buying — you\'ll do live on-chain transactions, analyze the mempool, understand how keys and wallets actually work, and walk away with homework that earns sats.',
+    schedule: 'Every 1st Thursday',
     time: '11:00 UTC',
     format: 'Online',
     platform: 'Discord',
-    host: 'Code Orange',
-    level: 'All levels',
-    href: '/programs/accountability-sessions',
-    poster: '/images/posters/accountability.jpg',
+    host: 'The Quiet Satoshi',
+    level: 'Beginner',
+    href: '/programs/bitcoin-basics',
+    poster: '/images/gallery/workshops/bitcoin-basics.jpg',
   },
   {
     name: 'Talk-a-Bit Meetup',
+    desc: 'A free-flowing online meetup where Bitcoiners across Southeast Asia connect, debate, and share. No agenda, no slides — just real conversation about what\'s happening in Bitcoin. Hosted in Bahasa and English by einsamwolf28.',
     schedule: 'Every 15th of the month',
     time: '19:00 WIB',
     format: 'Online',
@@ -119,7 +128,7 @@ const EVENTS = [
     host: 'einsamwolf28',
     level: 'All levels',
     href: '/programs/talk-a-bit',
-    poster: '/images/posters/talk-a-bit.jpg',
+    poster: '/images/gallery/workshops/talk-a-bit.jpg',
   },
 ]
 
@@ -425,26 +434,24 @@ export default function HomePage() {
                 {/* Card body */}
                 <div className="bg-[#111] p-4 flex flex-col gap-3 flex-1">
                   <div>
-                    <h4 className="text-white font-semibold text-sm group-hover:text-orange-DEFAULT transition-colors leading-tight">
+                    <h4 className="text-white font-semibold text-sm group-hover:text-orange-DEFAULT transition-colors leading-tight mb-1">
                       {event.name}
                     </h4>
-                    <p className="text-text-muted text-xs mt-0.5">Hosted by {event.host}</p>
+                    {'desc' in event && event.desc && (
+                      <p className="text-text-muted text-xs leading-relaxed line-clamp-3">{event.desc}</p>
+                    )}
                   </div>
-                  <div className="space-y-1.5 text-xs text-text-muted">
+                  <div className="space-y-1.5 text-xs text-text-muted mt-auto">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-3 h-3 text-orange-DEFAULT shrink-0" />
-                      <span>{event.schedule}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-3 h-3 text-orange-DEFAULT shrink-0" />
-                      <span>{event.time}</span>
+                      <span>{event.schedule} · {event.time}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <MapPin className="w-3 h-3 text-orange-DEFAULT shrink-0" />
-                      <span>{event.platform}</span>
+                      <span>{event.platform} · by {event.host}</span>
                     </div>
                   </div>
-                  <div className="pt-2 border-t border-[#1a1a1a] mt-auto">
+                  <div className="pt-2 border-t border-[#1a1a1a]">
                     <span className="badge badge-white text-xs">{event.level}</span>
                   </div>
                 </div>
@@ -472,26 +479,43 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Masonry-style grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {GALLERY_PHOTOS.map((photo, i) => (
-              <div
-                key={photo.src}
-                className={`relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group ${
-                  i === 0 ? 'row-span-2 col-span-1' : ''
-                }`}
-                style={{ minHeight: i === 0 ? '420px' : '200px' }}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            ))}
+          {/* 7-photo grid: 2 tall on left + 2×2 right + wide bottom */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[200px]">
+            {/* photo-1: tall, spans 2 rows */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group row-span-2">
+              <Image src={GALLERY_PHOTOS[0].src} alt={GALLERY_PHOTOS[0].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            {/* photo-2 */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group">
+              <Image src={GALLERY_PHOTOS[1].src} alt={GALLERY_PHOTOS[1].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            {/* photo-3: tall on right, spans 2 rows */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group row-span-2">
+              <Image src={GALLERY_PHOTOS[2].src} alt={GALLERY_PHOTOS[2].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            {/* photo-4 */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group">
+              <Image src={GALLERY_PHOTOS[3].src} alt={GALLERY_PHOTOS[3].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            {/* photo-5: wide, spans 2 cols */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group col-span-2 md:col-span-2">
+              <Image src={GALLERY_PHOTOS[4].src} alt={GALLERY_PHOTOS[4].alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="66vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            {/* photo-6 */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group">
+              <Image src={GALLERY_PHOTOS[5].src} alt={GALLERY_PHOTOS[5].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            {/* photo-7 */}
+            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group col-span-2">
+              <Image src={GALLERY_PHOTOS[6].src} alt={GALLERY_PHOTOS[6].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="66vw" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
           </div>
         </div>
       </section>
@@ -574,6 +598,28 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          DEVELOPER COMMUNITY
+      ============================================================ */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Code2 className="w-3 h-3" />
+              Developer Community
+            </div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
+              We build the community.{' '}
+              <span className="text-gradient-orange">They build Bitcoin.</span>
+            </h2>
+            <p className="text-text-muted text-lg max-w-2xl mx-auto">
+              Code Orange supports a global network of Bitcoin developers. We provide mentorship, structured cohorts, and a peer community. Their GitHub work is their own — we champion it.
+            </p>
+          </div>
+          <DevCommunity />
         </div>
       </section>
 
@@ -705,10 +751,10 @@ export default function HomePage() {
               </p>
               <div className="space-y-3 mb-6">
                 {[
-                  { icon: '📦', text: '"Sovereign Bitcoiner" packs shipped to hubs — T-shirts, SeedSigners, stickers, and workshop guides' },
-                  { icon: '🌐', text: 'Workshops run in Thai, Vietnamese, Indonesian, Malay, English, and Mandarin' },
-                  { icon: '🎯', text: 'Goal: 15 gig economy jobs created through monthly workshops by 2026' },
-                  { icon: '🏠', text: 'Goal: 10 new Bitcoin Houses across Asia by end of 2026' },
+                  { icon: '🚀', text: 'Build a constant pipeline of new devs going full time into Bitcoin open source' },
+                  { icon: '🛠️', text: 'Goal: 2 quality PRs per week from our community members at Good First Issue' },
+                  { icon: '🎓', text: 'Study cohorts and workshops to train community leaders in advanced self-custody, full nodes, mining, privacy, and payments' },
+                  { icon: '🎯', text: 'Goal: 15 gig economy jobs created through the train-the-trainer program focused on technical monthly workshops by 2026' },
                 ].map(({ icon, text }) => (
                   <div key={text} className="flex items-start gap-3 p-3 rounded-xl bg-[#0e0e0e] border border-[#1a1a1a]">
                     <span className="text-lg shrink-0">{icon}</span>
@@ -782,25 +828,68 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {[
-              { value: '21,000', unit: 'nodes', label: 'Additional full Bitcoin nodes deployed', deadline: 'by 2030', icon: '📡' },
-              { value: '2', unit: 'PRs/wk', label: 'GitHub pull requests to Bitcoin OSS', deadline: 'from end of 2026', icon: '🛠️' },
-              { value: '10', unit: 'hubs', label: 'New Bitcoin Houses across Asia', deadline: 'by end of 2026', icon: '🏠' },
-              { value: '15', unit: 'jobs', label: 'Gig economy jobs via Train-the-Trainer', deadline: 'by 2026', icon: '🎯' },
-            ].map(({ value, unit, label, deadline, icon }) => (
-              <div key={label} className="card p-6 flex flex-col gap-4">
-                <div className="text-3xl">{icon}</div>
-                <div>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl font-extrabold text-orange-DEFAULT" style={{ fontFamily: 'var(--font-nunito)' }}>{value}</span>
-                    <span className="text-orange-DEFAULT/60 text-sm font-mono">{unit}</span>
-                  </div>
-                  <p className="text-white text-sm font-semibold mt-1 leading-tight">{label}</p>
-                  <p className="text-text-dim text-xs font-mono mt-1">{deadline}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+            {/* Card 1: PRs/wk */}
+            <div className="card p-6 flex flex-col gap-4">
+              <div className="text-3xl">🛠️</div>
+              <div>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-4xl font-extrabold text-orange-DEFAULT" style={{ fontFamily: 'var(--font-nunito)' }}>2</span>
+                  <span className="text-orange-DEFAULT/60 text-sm font-mono">PRs/wk</span>
+                </div>
+                <p className="text-white text-sm font-semibold mt-1">GitHub pull requests to Bitcoin open source</p>
+                <p className="text-text-dim text-xs font-mono mt-1">from end of 2026</p>
+              </div>
+            </div>
+
+            {/* Card 2: Study cohorts pipeline */}
+            <div className="card p-6 flex flex-col gap-3 border-orange-DEFAULT/20">
+              <div className="text-3xl">🎓</div>
+              <div>
+                <p className="text-white text-sm font-semibold mb-2">Advanced Bitcoin developer training via</p>
+                <div className="flex flex-col gap-1.5">
+                  {[
+                    { name: 'rawBit', href: 'https://rawbit.io/' },
+                    { name: 'Bitcoin Dojo', href: 'https://bitcoindojo.dev/' },
+                    { name: 'Decoding Bitcoin', href: 'https://bitcoindevs.xyz/decoding' },
+                  ].map(({ name, href }) => (
+                    <a key={name} href={href} target="_blank" rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-orange-DEFAULT text-sm font-semibold hover:text-orange-light transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-orange-DEFAULT shrink-0" />
+                      {name} <ArrowRight className="w-3 h-3 ml-auto opacity-50" />
+                    </a>
+                  ))}
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Card 3: Grant pipeline */}
+            <div className="card p-6 flex flex-col gap-3">
+              <div className="text-3xl">🚀</div>
+              <div>
+                <p className="text-white text-sm font-semibold mb-2">Constant developer pipeline into</p>
+                <div className="flex flex-wrap gap-2">
+                  {['OpenSats', 'HRF', 'Vinteum', 'Brink', 'Spiral'].map((org) => (
+                    <span key={org} className="px-2.5 py-1 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] text-text-muted text-xs font-medium">{org}</span>
+                  ))}
+                  <span className="px-2.5 py-1 rounded-lg bg-[#1a1a1a] border border-[#2a2a2a] text-text-dim text-xs">+ more</span>
+                </div>
+                <p className="text-text-muted text-xs mt-2 leading-relaxed">Grants, fellowships, and full-time roles in Bitcoin open source</p>
+              </div>
+            </div>
+
+            {/* Card 4: Jobs */}
+            <div className="card p-6 flex flex-col gap-4">
+              <div className="text-3xl">🎯</div>
+              <div>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-4xl font-extrabold text-orange-DEFAULT" style={{ fontFamily: 'var(--font-nunito)' }}>15</span>
+                  <span className="text-orange-DEFAULT/60 text-sm font-mono">jobs</span>
+                </div>
+                <p className="text-white text-sm font-semibold mt-1">Gig economy jobs via Train-the-Trainer</p>
+                <p className="text-text-dim text-xs font-mono mt-1">by 2026</p>
+              </div>
+            </div>
           </div>
 
           {/* Ecosystem strip */}
@@ -828,6 +917,54 @@ export default function HomePage() {
                   {name}
                 </a>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          LATEST UPDATES — TWITTER FEED
+      ============================================================ */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="badge badge-orange mb-4">
+                <Zap className="w-3 h-3" />
+                Latest Updates
+              </div>
+              <h2 className="text-4xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
+                What&apos;s happening{' '}
+                <span className="text-gradient-orange">right now.</span>
+              </h2>
+              <p className="text-text-muted leading-relaxed mb-6">
+                Weekly cohort recaps, workshop announcements, and Bitcoin builder updates — straight from our X feed. Follow along to stay in the loop.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { icon: '📡', text: 'Weekly cohort progress updates' },
+                  { icon: '🛠️', text: 'Open source contributions from our devs' },
+                  { icon: '🌏', text: 'Workshop announcements across Asia' },
+                  { icon: '⚡', text: 'Bitcoin builder community highlights' },
+                ].map(({ icon, text }) => (
+                  <div key={text} className="flex items-center gap-3 text-text-muted text-sm">
+                    <span className="text-base shrink-0">{icon}</span>
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </div>
+              <a
+                href={SOCIAL.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 btn-secondary inline-flex text-sm"
+              >
+                <Twitter className="w-4 h-4" />
+                Follow @CodeOrangeDevs
+              </a>
+            </div>
+            <div>
+              <TwitterFeed />
             </div>
           </div>
         </div>
@@ -961,45 +1098,6 @@ export default function HomePage() {
                 </div>
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          WHAT YOU'LL LEARN SECTION
-      ============================================================ */}
-      <section className="section">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <div className="badge badge-orange mx-auto mb-4">
-              <Code2 className="w-3 h-3" />
-              Curriculum
-            </div>
-            <h2 className="text-4xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
-              What you&apos;ll build & learn
-            </h2>
-            <p className="text-text-muted max-w-xl mx-auto">
-              Real skills you can deploy the same day. No theory without practice.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              { icon: '⛏️', title: 'Bitcoin Mining', desc: 'BitAxe, Braiins, ASIC setup' },
-              { icon: '🛡️', title: 'Multisig Security', desc: 'Nunchuk, Casa, Coldcard' },
-              { icon: '📡', title: 'Node Running', desc: 'Umbrel, full node setup' },
-              { icon: '🔐', title: 'Privacy Tools', desc: 'Ecash, Fedimint, Tor' },
-              { icon: '⚡', title: 'Lightning Network', desc: 'Channels, routing, LNbits' },
-              { icon: '🌐', title: 'Nostr Protocol', desc: 'Build censorship-free apps' },
-              { icon: '💻', title: 'Bitcoin Dev', desc: 'Scripts, Taproot, PSBTs' },
-              { icon: '🔑', title: 'Inheritance Planning', desc: 'Multisig + key distribution' },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="card p-5 text-center">
-                <div className="text-3xl mb-3">{icon}</div>
-                <h4 className="text-white font-semibold text-sm mb-1">{title}</h4>
-                <p className="text-text-muted text-xs">{desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
