@@ -5,29 +5,29 @@ import { PROGRAMS, SOCIAL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Apply',
-  description: 'Apply to a Code Orange Dev School program or join the community.',
+  description: 'Apply to a Code Orange Dev School program. Join Discord, pick a program, show up and build.',
 }
 
 const STEPS = [
   {
     n: '01',
     title: 'Join Discord',
-    desc: 'The first step is always the same, join our Discord server and introduce yourself.',
+    desc: 'Jump into the server and introduce yourself in #introductions. Tell us where you\'re from and what brought you to Bitcoin.',
   },
   {
     n: '02',
-    title: 'Pick a program',
-    desc: 'Browse the programs and ask in Discord which one fits your background. No wrong answer.',
+    title: 'Pick your program',
+    desc: 'Browse the programs below or ask in #which-program-is-right-for-me. The community will point you in the right direction.',
   },
   {
     n: '03',
-    title: 'Fill the form below',
-    desc: 'Tell us a bit about yourself, your background, and your goals. Takes 5 minutes.',
+    title: 'Post your application',
+    desc: 'Drop a short message in the program\'s channel: your background, your goal, and when you\'re ready to start.',
   },
   {
     n: '04',
     title: 'Show up and build',
-    desc: 'That\'s it. We\'ll confirm your spot and you start at the next session.',
+    desc: 'That\'s it. We\'ll confirm your spot and you start at the next session. No waitlist, no gatekeeping.',
   },
 ]
 
@@ -50,14 +50,24 @@ export default function ApplyPage() {
               Start your{' '}
               <span className="text-gradient-orange">Bitcoin journey</span>
             </h1>
-            <p className="text-text-muted text-lg leading-relaxed">
-              Applications are rolling. We accept beginners, developers, and everyone in between. The only requirement is that you&apos;re genuinely interested in Bitcoin.
+            <p className="text-text-muted text-lg leading-relaxed mb-8">
+              Applications are rolling. We accept beginners, developers, and everyone in between.
+              The only requirement is that you&apos;re genuinely interested in Bitcoin.
             </p>
+            <Link
+              href={SOCIAL.discord}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-base px-8 py-4 inline-flex"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Join Discord to Apply
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Process */}
+      {/* How it works */}
       <section className="section bg-[#080808]">
         <div className="container-custom">
           <h2
@@ -85,175 +95,71 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* Application form + sidebar */}
+      {/* Discord CTA + sidebar */}
       <section className="section">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Form */}
+
+            {/* Main Discord block */}
             <div className="lg:col-span-2">
               <h2
-                className="text-3xl font-extrabold text-white mb-8"
+                className="text-3xl font-extrabold text-white mb-4"
                 style={{ fontFamily: 'var(--font-nunito)' }}
               >
-                Application Form
+                Everything happens on Discord.
               </h2>
-              <form
-                action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
-                method="POST"
-                className="space-y-6"
+              <p className="text-text-muted leading-relaxed mb-8">
+                Our programs run on Discord — sessions, homework, announcements, and the community itself.
+                Joining the server is step one. It&apos;s free, instant, and you&apos;ll find the right people to help you from there.
+              </p>
+
+              <a
+                href={SOCIAL.discord}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-base px-8 py-4 inline-flex mb-8"
               >
-                {/* Name */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Your name <span className="text-orange-DEFAULT">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Satoshi Nakamoto"
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white placeholder:text-text-dim focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm"
-                  />
-                </div>
+                <MessageCircle className="w-5 h-5" />
+                Join the Discord Server
+              </a>
 
-                {/* Email */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Email <span className="text-orange-DEFAULT">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@example.com"
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white placeholder:text-text-dim focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm"
-                  />
-                </div>
-
-                {/* Nostr npub (optional) */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Nostr npub{' '}
-                    <span className="text-text-muted font-normal">(optional)</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="nostr_npub"
-                    placeholder="npub1..."
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white placeholder:text-text-dim focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm font-mono"
-                  />
-                  <p className="text-text-dim text-xs mt-1">We love Nostr-first applicants.</p>
-                </div>
-
-                {/* Program */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Which program are you applying for?{' '}
-                    <span className="text-orange-DEFAULT">*</span>
-                  </label>
-                  <select
-                    name="program"
-                    required
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm appearance-none cursor-pointer"
+              {/* Program quick links */}
+              <h3 className="text-white font-bold text-lg mb-5" style={{ fontFamily: 'var(--font-nunito)' }}>
+                Browse programs first
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {PROGRAMS.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/programs/${p.slug}`}
+                    className="card p-4 flex items-start gap-3 group hover:border-orange-DEFAULT/40 transition-colors"
                   >
-                    <option value="">Select a program...</option>
-                    {PROGRAMS.map((p) => (
-                      <option key={p.slug} value={p.slug}>
-                        {p.name}, {p.subtitle}
-                      </option>
-                    ))}
-                    <option value="not_sure">Not sure yet, help me pick</option>
-                  </select>
-                </div>
-
-                {/* Background */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Tell us about your background{' '}
-                    <span className="text-orange-DEFAULT">*</span>
-                  </label>
-                  <textarea
-                    name="background"
-                    required
-                    rows={3}
-                    placeholder="Developer? Bitcoiner? Complete beginner? Where are you coming from?"
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white placeholder:text-text-dim focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm resize-none"
-                  />
-                </div>
-
-                {/* Goal */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    What do you want to learn or build?{' '}
-                    <span className="text-orange-DEFAULT">*</span>
-                  </label>
-                  <textarea
-                    name="goal"
-                    required
-                    rows={3}
-                    placeholder="Run a node, build a Bitcoin app, get multisig set up, contribute to open source..."
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white placeholder:text-text-dim focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm resize-none"
-                  />
-                </div>
-
-                {/* Location */}
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Where are you based?{' '}
-                    <span className="text-text-muted font-normal">(optional)</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="location"
-                    placeholder="Bali, Jakarta, Singapore, online..."
-                    className="w-full bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-3 text-white placeholder:text-text-dim focus:border-orange-DEFAULT focus:outline-none transition-colors text-sm"
-                  />
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="btn-primary w-full justify-center py-4 text-base"
-                >
-                  <Zap className="w-5 h-5" />
-                  Submit Application
-                </button>
-
-                <p className="text-text-dim text-xs text-center">
-                  We aim to reply within 48 hours, usually much faster via Discord.
-                </p>
-              </form>
+                    <span className="text-2xl shrink-0">{p.icon}</span>
+                    <div className="min-w-0">
+                      <h4 className="text-white font-semibold text-sm group-hover:text-orange-DEFAULT transition-colors truncate">
+                        {p.name}
+                      </h4>
+                      <p className="text-text-muted text-xs">{p.subtitle} · {p.level}</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-text-dim group-hover:text-orange-DEFAULT transition-colors ml-auto shrink-0 mt-0.5" />
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-5">
-              {/* Discord CTA */}
-              <div className="card p-6">
-                <h3 className="text-white font-bold mb-2">Prefer to chat first?</h3>
-                <p className="text-text-muted text-sm leading-relaxed mb-4">
-                  Join Discord and ask your questions in real time. The community is super friendly and will help you pick the right program.
-                </p>
-                <Link
-                  href={SOCIAL.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary w-full justify-center text-sm py-3"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Join Discord First
-                </Link>
-              </div>
-
               {/* What to expect */}
               <div className="card p-6">
                 <h3 className="text-white font-bold mb-4">What to expect</h3>
                 <ul className="space-y-3">
                   {[
-                    'Rolling admissions, apply anytime',
+                    'Rolling admissions — apply anytime',
                     'No technical screening',
-                    'Response within 48 hours',
-                    'Start with the next session',
+                    'Response within 24 hours on Discord',
+                    'Start at the very next session',
                     'Most programs are free',
+                    'Bitcoin only. No shitcoins.',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-text-muted">
                       <CheckCircle className="w-4 h-4 text-orange-DEFAULT shrink-0 mt-0.5" />
@@ -263,27 +169,18 @@ export default function ApplyPage() {
                 </ul>
               </div>
 
-              {/* Programs quick links */}
-              <div className="card p-6">
-                <h3 className="text-white font-bold mb-4 text-sm">Browse programs first</h3>
-                <div className="space-y-2">
-                  {PROGRAMS.slice(0, 4).map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={`/programs/${p.slug}`}
-                      className="flex items-center gap-2 text-text-muted hover:text-white transition-colors text-sm py-1 group"
-                    >
-                      <span>{p.icon}</span>
-                      <span>{p.name}</span>
-                      <ArrowRight className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  ))}
-                </div>
+              {/* Fellowship pathway */}
+              <div className="card p-6 border border-orange-DEFAULT/20">
+                <h3 className="text-white font-bold mb-2">Looking for a fellowship?</h3>
+                <p className="text-text-muted text-sm leading-relaxed mb-4">
+                  Graduates of our developer programs are eligible to apply for a paid fellowship — $500/month to contribute full-time to Bitcoin open source.
+                </p>
                 <Link
-                  href="/programs"
-                  className="text-orange-DEFAULT hover:text-orange-light text-xs mt-3 inline-flex items-center gap-1 transition-colors"
+                  href="/fellowships"
+                  className="btn-secondary w-full justify-center text-sm py-3"
                 >
-                  View all programs <ArrowRight className="w-3 h-3" />
+                  Learn about Fellowships
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

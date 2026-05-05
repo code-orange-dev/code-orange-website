@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     'Explore all Code Orange Dev School programs, from the rawBit developer cohort to Sovereign Bitcoiner workshops, Vibe Coding on Nostr, and more.',
 }
 
-const LEVELS = ['All levels', 'Beginner', 'Intermediate', 'Developer', 'No code needed']
 
 export default function ProgramsPage() {
   const byAudience = {

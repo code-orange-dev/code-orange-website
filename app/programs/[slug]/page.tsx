@@ -20,7 +20,8 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return PROGRAMS.map((p) => ({ slug: p.slug }))
+  // Exclude privacy-track — it has its own static page at /programs/privacy-track/
+  return PROGRAMS.filter((p) => p.slug !== 'privacy-track').map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

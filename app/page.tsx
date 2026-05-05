@@ -159,9 +159,13 @@ export default function HomePage() {
       ============================================================ */}
       <div className="bg-orange-DEFAULT text-black py-2.5 px-4 text-center text-sm font-bold tracking-wide flex items-center justify-center gap-2 flex-wrap">
         <span className="animate-pulse">🔥</span>
-        <span>rawBit Study Cohort — next cohort starts <strong>May 11, 2026</strong></span>
+        <span>rawBit starts <strong>May 11</strong> · 🔐 Bitcoin Privacy Track now open</span>
+        <span className="text-black/40">·</span>
         <Link href="/programs/rawbit" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">
-          Apply now →
+          rawBit →
+        </Link>
+        <Link href="/programs/privacy-track" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">
+          Privacy Track →
         </Link>
       </div>
 
