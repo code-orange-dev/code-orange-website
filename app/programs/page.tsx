@@ -15,7 +15,7 @@ const LEVELS = ['All levels', 'Beginner', 'Intermediate', 'Developer', 'No code 
 export default function ProgramsPage() {
   const byAudience = {
     Developers: PROGRAMS.filter((p) =>
-      ['rawbit'].includes(p.slug)
+      ['privacy-track', 'rawbit'].includes(p.slug)
     ),
     Bitcoiners: PROGRAMS.filter((p) =>
       ['sovereign-bitcoiner', 'openclaw'].includes(p.slug)
@@ -80,10 +80,7 @@ export default function ProgramsPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3">
-                        <span className="badge badge-orange text-xs">{program.tagline}</span>
-                      </div>
-                    </div>
+                        </div>
                   ) : null}
 
                   <div className={`${'poster' in program && program.poster ? 'p-5' : 'p-6'} flex flex-col flex-1`}>

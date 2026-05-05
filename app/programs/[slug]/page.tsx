@@ -95,7 +95,12 @@ export default function ProgramDetailPage({ params }: Props) {
               <p className="text-white/80 text-lg leading-relaxed mb-8">{program.description}</p>
 
               <div className="flex flex-wrap gap-3">
-                <Link href="/apply" className="btn-primary">
+                <Link
+                  href={SOCIAL.discord}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
                   <Zap className="w-4 h-4" />
                   {program.cta}
                 </Link>
@@ -224,7 +229,12 @@ export default function ProgramDetailPage({ params }: Props) {
                 Apply now or jump into Discord to ask questions first. We&apos;re happy to help you find the right program.
               </p>
               <div className="flex items-center justify-center gap-4 flex-wrap">
-                <Link href="/apply" className="btn-primary">
+                <Link
+                  href={SOCIAL.discord}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
                   <Zap className="w-4 h-4" /> {program.cta}
                 </Link>
                 <Link

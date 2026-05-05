@@ -9,6 +9,7 @@ import { SOCIAL } from '@/lib/constants'
 
 const navLinks = [
   { href: '/programs', label: 'Programs' },
+  { href: '/fellowships', label: 'Fellowships' },
   { href: '/community', label: 'Community' },
   { href: '/about', label: 'About' },
 ]
@@ -44,9 +45,9 @@ export default function Navbar() {
               <Image
                 src="/images/logo.png"
                 alt="Code Orange Dev School"
-                width={160}
-                height={54}
-                className="h-11 w-auto object-contain"
+                width={210}
+                height={72}
+                className="h-14 w-auto object-contain"
                 priority
               />
             </Link>

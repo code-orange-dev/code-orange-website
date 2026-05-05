@@ -26,13 +26,37 @@ export const SOCIAL = {
 }
 
 export const STATS = [
-  { value: '5+', label: 'Cohorts Run' },
+  { value: '5+',  label: 'Cohorts Run' },
   { value: '50+', label: 'Graduates' },
-  { value: '8+', label: 'Monthly Programs' },
-  { value: '₿', label: 'Bitcoin Only' },
+  { value: '13',  label: 'Active Devs' },
+  { value: '8+',  label: 'Countries' },
 ]
 
 export const PROGRAMS = [
+  {
+    slug: 'privacy-track',
+    name: 'Bitcoin Privacy Track',
+    subtitle: 'Developer Cohort',
+    tagline: 'For Developers',
+    description:
+      '24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy — every session ends with a real open source contribution.',
+    duration: '12 months',
+    format: 'Online • Discord',
+    schedule: 'Bi-weekly, 2–2.5 hours each',
+    level: 'Developer',
+    color: '#6C63FF',
+    topics: [
+      'Chain Analysis & Transaction Privacy',
+      'Silent Payments (BIP352)',
+      'Payjoin (BIP77/78)',
+      'Network Privacy — Tor, Dandelion++',
+      'CoinJoin, eCash & Lightning Privacy',
+      'Open Source Contribution Pipeline',
+    ],
+    cta: 'Apply for Privacy Track',
+    icon: '🔐',
+    poster: '/images/gallery/workshops/bitcoin-privacy.jpg',
+  },
   {
     slug: 'rawbit',
     name: 'rawBit',

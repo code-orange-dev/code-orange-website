@@ -20,21 +20,40 @@ import {
 } from 'lucide-react'
 import { SITE, SOCIAL, STATS, PROGRAMS } from '@/lib/constants'
 import NostrDropdown from '@/components/NostrDropdown'
-import TwitterFeed from '@/components/TwitterFeed'
 import DevCommunity from '@/components/DevCommunity'
 
 const GALLERY_PHOTOS = [
-  { src: '/images/gallery/photo-1.jpg', alt: 'Code Orange community session' },
-  { src: '/images/gallery/photo-2.jpg', alt: 'Hands-on Bitcoin hardware workshop' },
-  { src: '/images/gallery/photo-3.jpg', alt: 'SeedHammer & hardware wallets' },
-  { src: '/images/gallery/photo-4.jpg', alt: 'ASIC mining workshop' },
-  { src: '/images/gallery/photo-5.jpg', alt: 'rawBit study cohort session' },
-  { src: '/images/gallery/photo-6.jpg', alt: 'Penlock seed backup workshop' },
-  { src: '/images/gallery/photo-7.jpg', alt: 'Sovereign Bitcoiner group session' },
+  { src: '/images/gallery/photo-1.jpg',  alt: 'Code Orange workshop session in Bali' },
+  { src: '/images/gallery/photo-2.jpg',  alt: 'Hands-on Bitcoin hardware workshop' },
+  { src: '/images/gallery/photo-3.jpg',  alt: 'Community Bitcoin education session' },
+  { src: '/images/gallery/photo-4.jpg',  alt: 'Penlock seed backup workshop launch' },
+  { src: '/images/gallery/photo-5.jpg',  alt: 'Bitcoin self-custody hardware session' },
+  { src: '/images/gallery/photo-6.jpg',  alt: 'Workshop participants with hardware wallets' },
+  { src: '/images/gallery/photo-7.jpg',  alt: 'Code Orange community workshop session' },
+  { src: '/images/gallery/photo-8.jpg',  alt: 'Bitcoin workshop participants Bali' },
+  { src: '/images/gallery/photo-9.jpg',  alt: 'Workshop session hardware demo' },
+  { src: '/images/gallery/photo-10.jpg', alt: 'Bitcoin education hands-on session' },
+  { src: '/images/gallery/photo-11.jpg', alt: 'Code Orange dev school community' },
+  { src: '/images/gallery/photo-12.jpg', alt: 'Bitcoin workshop overview' },
 ]
 
 export const metadata: Metadata = {
-  title: `${SITE.name}, ${SITE.tagline}`,
+  title: `${SITE.name} — ${SITE.tagline}`,
+  description: SITE.description,
+  openGraph: {
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    images: [{ url: `${SITE.url}/images/gallery/photo-1.jpg`, width: 1050, height: 1400 }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+    images: [`${SITE.url}/images/gallery/photo-1.jpg`],
+  },
 }
 
 // Ticker tape items
@@ -261,7 +280,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="col-span-2 relative h-64 rounded-xl overflow-hidden">
                 <Image
-                  src="/images/workshop-1.jpg"
+                  src="/images/gallery/photo-8.jpg"
                   alt="Code Orange Workshop at Code Orange Dev School"
                   fill
                   className="object-cover"
@@ -277,10 +296,10 @@ export default function HomePage() {
               </div>
               <div className="relative h-44 rounded-xl overflow-hidden">
                 <Image
-                  src="/images/workshop-2.jpg"
+                  src="/images/gallery/photo-9.jpg"
                   alt="Code Orange hands-on Bitcoin session"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
@@ -320,6 +339,59 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          PRIVACY TRACK SPOTLIGHT
+      ============================================================ */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <Link
+            href="/programs/privacy-track"
+            className="group relative rounded-2xl overflow-hidden flex flex-col lg:flex-row items-center gap-8 p-8 lg:p-10 border border-[#6C63FF]/30 hover:border-[#6C63FF]/60 transition-colors block"
+            style={{ background: 'linear-gradient(135deg, #6C63FF12, #6C63FF06, #0d0d0d)' }}
+          >
+            <div className="absolute top-0 left-0 w-64 h-64 rounded-full blur-[100px] pointer-events-none opacity-30" style={{ background: '#6C63FF' }} />
+            <div className="relative z-10 flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="badge badge-orange text-xs">2026 Focus</span>
+                <span className="badge badge-white text-xs">New</span>
+              </div>
+              <h2
+                className="text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight"
+                style={{ fontFamily: 'var(--font-nunito)' }}
+              >
+                🔐 Bitcoin Privacy Developer Track
+              </h2>
+              <p className="text-text-muted text-base leading-relaxed max-w-xl mb-5">
+                24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution — no exceptions.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Silent Payments', 'Payjoin', 'Floresta', 'Fedimint', 'Lightning', 'CoinJoin'].map((tag) => (
+                  <span key={tag} className="badge badge-white text-xs">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div className="relative z-10 shrink-0 flex flex-col items-center lg:items-end gap-4">
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { v: '24', l: 'Sessions' },
+                  { v: '12mo', l: 'Duration' },
+                  { v: '5–8', l: 'PRs/grad' },
+                  { v: '10+', l: 'Repos' },
+                ].map(({ v, l }) => (
+                  <div key={l} className="text-center px-4 py-3 rounded-xl bg-[#0d0d0d]/80 border border-[#1a1a1a]">
+                    <div className="text-xl font-extrabold" style={{ fontFamily: 'var(--font-nunito)', color: '#6C63FF' }}>{v}</div>
+                    <div className="text-text-muted text-xs">{l}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center gap-2 text-orange-DEFAULT font-semibold text-sm group-hover:gap-3 transition-all">
+                View full curriculum <ArrowRight className="w-4 h-4" />
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -364,7 +436,6 @@ export default function HomePage() {
                 {/* Content pinned to bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="badge badge-orange text-xs">{program.tagline}</span>
                     <span className="text-text-dim text-xs">{program.duration}</span>
                   </div>
                   <h3 className="text-white text-xl font-bold mb-1 group-hover:text-orange-DEFAULT transition-colors" style={{ fontFamily: 'var(--font-nunito)' }}>
@@ -479,42 +550,45 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* 7-photo grid: 2 tall on left + 2×2 right + wide bottom */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[200px]">
-            {/* photo-1: tall, spans 2 rows */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group row-span-2">
-              <Image src={GALLERY_PHOTOS[0].src} alt={GALLERY_PHOTOS[0].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          {/* 12-photo masonry: 3 cols on desktop, 2 on mobile */}
+          <div className="flex flex-col gap-3">
+            {/* Row 1: 3 portrait */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {GALLERY_PHOTOS.slice(0, 3).map((photo, i) => (
+                <div key={i} className={`relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group${i === 2 ? ' hidden md:block' : ''}`}>
+                  <Image src={photo.src} alt={photo.alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 50vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
             </div>
-            {/* photo-2 */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group">
-              <Image src={GALLERY_PHOTOS[1].src} alt={GALLERY_PHOTOS[1].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Row 2: landscape wide + 1 portrait */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group col-span-2">
+                <Image src={GALLERY_PHOTOS[11].src} alt={GALLERY_PHOTOS[11].alt} fill className="object-cover object-center group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 100vw, 66vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <div className="relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group hidden md:block">
+                <Image src={GALLERY_PHOTOS[3].src} alt={GALLERY_PHOTOS[3].alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </div>
-            {/* photo-3: tall on right, spans 2 rows */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group row-span-2">
-              <Image src={GALLERY_PHOTOS[2].src} alt={GALLERY_PHOTOS[2].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Row 3: 3 portrait */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {GALLERY_PHOTOS.slice(4, 7).map((photo, i) => (
+                <div key={i} className={`relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group${i === 2 ? ' hidden md:block' : ''}`}>
+                  <Image src={photo.src} alt={photo.alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 50vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
             </div>
-            {/* photo-4 */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group">
-              <Image src={GALLERY_PHOTOS[3].src} alt={GALLERY_PHOTOS[3].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            {/* photo-5: wide, spans 2 cols */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group col-span-2 md:col-span-2">
-              <Image src={GALLERY_PHOTOS[4].src} alt={GALLERY_PHOTOS[4].alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="66vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            {/* photo-6 */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group">
-              <Image src={GALLERY_PHOTOS[5].src} alt={GALLERY_PHOTOS[5].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-            {/* photo-7 */}
-            <div className="relative overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group col-span-2">
-              <Image src={GALLERY_PHOTOS[6].src} alt={GALLERY_PHOTOS[6].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="66vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            {/* Row 4: 3 portrait */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {GALLERY_PHOTOS.slice(7, 10).map((photo, i) => (
+                <div key={i} className={`relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group${i === 2 ? ' hidden md:block' : ''}`}>
+                  <Image src={photo.src} alt={photo.alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 50vw, 33vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -730,81 +804,44 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          TRAIN-THE-TRAINER + REGIONAL REACH
+          REGIONAL REACH
       ============================================================ */}
       <section className="section">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-            {/* Train-the-Trainer */}
-            <div>
-              <div className="badge badge-orange mb-4">
-                <Users className="w-3 h-3" />
-                Train-the-Trainer
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight" style={{ fontFamily: 'var(--font-nunito)' }}>
-                We train community leaders<br />
-                <span className="text-gradient-orange">to run their own workshops.</span>
-              </h2>
-              <p className="text-text-muted leading-relaxed mb-6">
-                Code Orange doesn&apos;t just teach students — we headhunt and empower technical leaders at Bitcoin hubs across Asia to replicate our workshops in their own cities. Monthly train-the-trainer sessions ensure consistent quality.
-              </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  { icon: '🚀', text: 'Build a constant pipeline of new devs going full time into Bitcoin open source' },
-                  { icon: '🛠️', text: 'Goal: 2 quality PRs per week from our community members at Good First Issue' },
-                  { icon: '🎓', text: 'Study cohorts and workshops to train community leaders in advanced self-custody, full nodes, mining, privacy, and payments' },
-                  { icon: '🎯', text: 'Goal: 15 gig economy jobs created through the train-the-trainer program focused on technical monthly workshops by 2026' },
-                ].map(({ icon, text }) => (
-                  <div key={text} className="flex items-start gap-3 p-3 rounded-xl bg-[#0e0e0e] border border-[#1a1a1a]">
-                    <span className="text-lg shrink-0">{icon}</span>
-                    <p className="text-text-muted text-sm leading-relaxed">{text}</p>
-                  </div>
-                ))}
-              </div>
-              <Link href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm inline-flex">
-                <MessageCircle className="w-4 h-4" />
-                Become a community leader
-              </Link>
+          <div className="text-center mb-10">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Globe className="w-3 h-3" />
+              Regional Reach
             </div>
-
-            {/* Regional reach */}
-            <div>
-              <div className="badge badge-orange mb-4">
-                <Globe className="w-3 h-3" />
-                Regional Reach
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Southeast Asia{' '}
+              <span className="text-gradient-orange">is our backyard.</span>
+            </h2>
+            <p className="text-text-muted text-lg max-w-xl mx-auto">
+              Based in Bali, active across the region. We partner with Bitcoin community hubs, learning centers, and houses to bring technical education where it&apos;s needed most.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+            {[
+              { flag: '🇮🇩', country: 'Indonesia', city: 'Bali, Jakarta' },
+              { flag: '🇲🇾', country: 'Malaysia', city: 'Kuala Lumpur' },
+              { flag: '🇹🇭', country: 'Thailand', city: 'Bangkok, CM' },
+              { flag: '🇻🇳', country: 'Vietnam', city: 'Ho Chi Minh City' },
+              { flag: '🇵🇭', country: 'Philippines', city: 'Growing' },
+              { flag: '🌐', country: 'Online', city: 'Discord — global' },
+            ].map(({ flag, country, city }) => (
+              <div key={country} className="card p-4 flex flex-col items-center text-center gap-2">
+                <span className="text-3xl">{flag}</span>
+                <div>
+                  <p className="text-white text-sm font-semibold">{country}</p>
+                  <p className="text-text-dim text-xs">{city}</p>
+                </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight" style={{ fontFamily: 'var(--font-nunito)' }}>
-                Southeast Asia<br />
-                <span className="text-gradient-orange">is our backyard.</span>
-              </h2>
-              <p className="text-text-muted leading-relaxed mb-6">
-                Based in Bali, active across the region. We partner with Bitcoin community hubs, learning centers, and houses to bring technical education where it&apos;s needed most.
-              </p>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                {[
-                  { flag: '🇮🇩', country: 'Indonesia', city: 'Bali, Jakarta' },
-                  { flag: '🇲🇾', country: 'Malaysia', city: 'Kuala Lumpur' },
-                  { flag: '🇹🇭', country: 'Thailand', city: 'Bangkok, Chiang Mai' },
-                  { flag: '🇻🇳', country: 'Vietnam', city: 'Ho Chi Minh City' },
-                  { flag: '🌐', country: 'Online', city: 'Discord — global' },
-                  { flag: '🇵🇭', country: 'Philippines', city: 'Growing' },
-                ].map(({ flag, country, city }) => (
-                  <div key={country} className="card p-4 flex items-center gap-3">
-                    <span className="text-2xl">{flag}</span>
-                    <div>
-                      <p className="text-white text-sm font-semibold">{country}</p>
-                      <p className="text-text-dim text-xs">{city}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="p-4 rounded-xl bg-orange-muted border border-orange-DEFAULT/20">
-                <p className="text-orange-DEFAULT text-xs font-mono font-semibold mb-1">Languages we teach in</p>
-                <p className="text-white text-sm">🇬🇧 English · 🇮🇩 Bahasa · 🇲🇾 Malay · 🇹🇭 Thai · 🇻🇳 Vietnamese · 🇨🇳 Mandarin</p>
-              </div>
-            </div>
-
+            ))}
+          </div>
+          <div className="p-4 rounded-xl bg-orange-muted border border-orange-DEFAULT/20 text-center">
+            <p className="text-orange-DEFAULT text-xs font-mono font-semibold mb-1">Languages we teach in</p>
+            <p className="text-white text-sm">🇬🇧 English · 🇮🇩 Bahasa · 🇲🇾 Malay · 🇹🇭 Thai · 🇻🇳 Vietnamese · 🇨🇳 Mandarin</p>
           </div>
         </div>
       </section>
@@ -923,181 +960,186 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          LATEST UPDATES — TWITTER FEED
+          COMMUNITY — CONSOLIDATED
       ============================================================ */}
       <section className="section">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <div className="badge badge-orange mb-4">
-                <Zap className="w-3 h-3" />
-                Latest Updates
-              </div>
-              <h2 className="text-4xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
-                What&apos;s happening{' '}
-                <span className="text-gradient-orange">right now.</span>
-              </h2>
-              <p className="text-text-muted leading-relaxed mb-6">
-                Weekly cohort recaps, workshop announcements, and Bitcoin builder updates — straight from our X feed. Follow along to stay in the loop.
-              </p>
-              <div className="space-y-3">
-                {[
-                  { icon: '📡', text: 'Weekly cohort progress updates' },
-                  { icon: '🛠️', text: 'Open source contributions from our devs' },
-                  { icon: '🌏', text: 'Workshop announcements across Asia' },
-                  { icon: '⚡', text: 'Bitcoin builder community highlights' },
-                ].map(({ icon, text }) => (
-                  <div key={text} className="flex items-center gap-3 text-text-muted text-sm">
-                    <span className="text-base shrink-0">{icon}</span>
-                    <span>{text}</span>
-                  </div>
-                ))}
-              </div>
-              <a
-                href={SOCIAL.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 btn-secondary inline-flex text-sm"
-              >
-                <Twitter className="w-4 h-4" />
-                Follow @CodeOrangeDevs
-              </a>
+          <div className="text-center mb-10">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Users className="w-3 h-3" />
+              Community
             </div>
-            <div>
-              <TwitterFeed />
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
+              Join the Bitcoin builders community
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left: Social links + Geyser */}
+            <div className="space-y-3">
+              {[
+                { icon: MessageCircle, label: 'Discord', sub: 'Primary community hub', href: SOCIAL.discord, cta: 'Join server', color: '#5865F2' },
+                { icon: Twitter, label: 'X (Twitter)', sub: '@codeorangedevs', href: SOCIAL.twitter, cta: 'Follow', color: '#1DA1F2' },
+                { icon: Instagram, label: 'Instagram', sub: '@codeorangedevs', href: SOCIAL.instagram, cta: 'Follow', color: '#E4405F' },
+                { icon: Github, label: 'GitHub', sub: 'code-orange-dev', href: SOCIAL.github, cta: 'Explore', color: '#FFFFFF' },
+              ].map(({ icon: Icon, label, sub, href, cta, color }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-between p-4 rounded-xl bg-[#111] border border-[#222] hover:border-orange-DEFAULT/40 transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: color + '20' }}>
+                      <Icon className="w-4 h-4" style={{ color }} />
+                    </div>
+                    <div>
+                      <p className="text-white text-sm font-semibold">{label}</p>
+                      <p className="text-text-muted text-xs">{sub}</p>
+                    </div>
+                  </div>
+                  <span className="text-orange-DEFAULT text-xs font-semibold flex items-center gap-1">
+                    {cta} <ChevronRight className="w-3 h-3" />
+                  </span>
+                </a>
+              ))}
+              <Link href={SOCIAL.geyser} target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-between p-4 rounded-xl bg-orange-muted border border-orange-DEFAULT/20 hover:border-orange-DEFAULT/50 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-orange-DEFAULT/20 flex items-center justify-center text-base">⚡</div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">Support on Geyser</p>
+                    <p className="text-text-muted text-xs">Crowdfund the school with sats</p>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-orange-DEFAULT group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Right: Nostr + Bitcoin Keys */}
+            <div className="flex flex-col gap-4">
+              <div className="card p-5 flex flex-col gap-4 flex-1">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">Follow on Nostr</p>
+                    <p className="text-text-muted text-xs">Uncensorable · Decentralized</p>
+                  </div>
+                </div>
+                <NostrDropdown />
+                <a href={`https://njump.me/${SOCIAL.nostr.npub}`} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-orange-DEFAULT text-xs font-semibold hover:text-orange-light transition-colors"
+                >
+                  <Zap className="w-3 h-3" />
+                  View full Nostr profile
+                </a>
+              </div>
+              <a href="https://bitcoin-keys.vercel.app/" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 p-4 rounded-xl bg-[#111] border border-[#222] hover:border-orange-DEFAULT/40 transition-all group"
+              >
+                <div className="w-9 h-9 rounded-lg bg-orange-muted flex items-center justify-center shrink-0">
+                  <span className="text-orange-DEFAULT text-base">🔑</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-sm font-semibold group-hover:text-orange-DEFAULT transition-colors">Bitcoin Keys</p>
+                  <p className="text-text-muted text-xs">Bitcoin consultancy, private keys &amp; node running</p>
+                </div>
+                <ChevronRight className="w-4 h-4 text-orange-DEFAULT/50 group-hover:text-orange-DEFAULT group-hover:translate-x-1 transition-all shrink-0" />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* ============================================================
-          NOSTR FEED + COMMUNITY SECTION
+          GITHUB OPEN SOURCE REPOS
       ============================================================ */}
-      <section className="section">
+      <section className="section bg-[#080808]">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Nostr Feed — collapsible */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <div className="badge badge-orange mb-4">
-                <Zap className="w-3 h-3" />
-                Nostr
+                <Github className="w-3 h-3" />
+                Open Source
               </div>
-              <h2 className="text-3xl font-extrabold text-white mb-2" style={{ fontFamily: 'var(--font-nunito)' }}>
-                Follow us on Nostr
+              <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
+                Proof of work.{' '}
+                <span className="text-gradient-orange">All public.</span>
               </h2>
-              <p className="text-text-muted text-sm mb-6">
-                Uncensorable. Decentralized. The way it should be.
+              <p className="text-text-muted mt-2 max-w-lg">
+                Every workshop we run has free, open source slides. Any Bitcoin community leader anywhere in the world can run their own session using our materials.
               </p>
-              <NostrDropdown />
-              <a
-                href={`https://njump.me/${SOCIAL.nostr.npub}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-orange-DEFAULT text-sm font-semibold hover:text-orange-light transition-colors"
-              >
-                <Zap className="w-3.5 h-3.5" />
-                View full Nostr profile
-              </a>
-
-              {/* Bitcoin Keys partner link */}
-              <a
-                href="https://bitcoin-keys.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 flex items-center gap-3 p-4 rounded-xl bg-[#111] border border-[#222] hover:border-orange-DEFAULT/40 transition-all group"
-              >
-                <div className="w-9 h-9 rounded-lg bg-orange-muted flex items-center justify-center shrink-0">
-                  <span className="text-orange-DEFAULT text-base">🔑</span>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-white text-sm font-semibold group-hover:text-orange-DEFAULT transition-colors">
-                    Bitcoin Keys
-                  </p>
-                  <p className="text-text-muted text-xs">Bitcoin consultancy, private keys &amp; node running</p>
-                </div>
-                <ChevronRight className="w-4 h-4 text-orange-DEFAULT/50 group-hover:text-orange-DEFAULT group-hover:translate-x-1 transition-all shrink-0" />
-              </a>
             </div>
+            <a
+              href="https://github.com/code-orange-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary shrink-0"
+            >
+              <Github className="w-4 h-4" />
+              github.com/code-orange-dev
+            </a>
+          </div>
 
-            {/* Community join */}
-            <div className="flex flex-col justify-center">
-              <div className="badge badge-orange mb-4">
-                <Users className="w-3 h-3" />
-                Community
-              </div>
-              <h2 className="text-3xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
-                Join the Bitcoin builders community
-              </h2>
-              {/* Social links */}
-              <div className="space-y-3 mb-8">
-                {[
-                  {
-                    icon: MessageCircle,
-                    label: 'Discord',
-                    sub: 'Primary community hub',
-                    href: SOCIAL.discord,
-                    cta: 'Join server',
-                    color: '#5865F2',
-                  },
-                  {
-                    icon: Twitter,
-                    label: 'X (Twitter)',
-                    sub: '@codeorangedevs',
-                    href: SOCIAL.twitter,
-                    cta: 'Follow',
-                    color: '#1DA1F2',
-                  },
-                  {
-                    icon: Instagram,
-                    label: 'Instagram',
-                    sub: '@codeorangedevs',
-                    href: SOCIAL.instagram,
-                    cta: 'Follow',
-                    color: '#E4405F',
-                  },
-                  {
-                    icon: Github,
-                    label: 'GitHub',
-                    sub: 'code-orange-dev',
-                    href: SOCIAL.github,
-                    cta: 'Star',
-                    color: '#FFFFFF',
-                  },
-                ].map(({ icon: Icon, label, sub, href, cta, color }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 rounded-xl bg-[#111] border border-[#222] hover:border-orange-DEFAULT/40 transition-all group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: color + '20' }}>
-                        <Icon className="w-4 h-4" style={{ color }} />
-                      </div>
-                      <div>
-                        <p className="text-white text-sm font-semibold">{label}</p>
-                        <p className="text-text-muted text-xs">{sub}</p>
-                      </div>
-                    </div>
-                    <span className="text-orange-DEFAULT text-xs font-semibold group-hover:text-orange-light transition-colors flex items-center gap-1">
-                      {cta} <ChevronRight className="w-3 h-3" />
-                    </span>
-                  </a>
-                ))}
-              </div>
-
-              <Link href={SOCIAL.geyser} target="_blank" rel="noopener noreferrer" className="card p-5 border-orange-DEFAULT/20 hover:border-orange-DEFAULT/50 transition-colors group">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-orange-muted flex items-center justify-center text-xl">⚡</div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">Support on Geyser</p>
-                    <p className="text-text-muted text-xs">Crowdfund the school with sats</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                repo: 'curriculum',
+                desc: 'The full Code Orange Bitcoin developer curriculum — from elliptic curve cryptography to Taproot, Rust, and open source contribution. Open for anyone to use.',
+                topic: 'Education',
+                href: 'https://github.com/code-orange-dev/curriculum',
+              },
+              {
+                repo: 'community',
+                desc: 'Profiles, progress, and contributions of every developer in the Code Orange network. The living record of who we\'re building with.',
+                topic: 'Community',
+                href: 'https://github.com/code-orange-dev/community',
+              },
+              {
+                repo: 'impact-report',
+                desc: 'Numbers, outcomes, and honest reflections on what Code Orange has built. Graduates, workshops, nodes, PRs — tracked publicly.',
+                topic: 'Transparency',
+                href: 'https://github.com/code-orange-dev/impact-report',
+              },
+              {
+                repo: 'PR-tracking-dashboard',
+                desc: 'Live dashboard tracking every pull request submitted by Code Orange community members to Bitcoin open source projects.',
+                topic: 'OSS Tracker',
+                href: 'https://github.com/code-orange-dev/PR-tracking-dashboard',
+              },
+              {
+                repo: 'grad-pipeline',
+                desc: 'Where Code Orange graduates go next — grant applications, fellowship programs, full-time Bitcoin roles, and OSS contributions.',
+                topic: 'Pipeline',
+                href: 'https://github.com/code-orange-dev/grad-pipeline',
+              },
+              {
+                repo: 'workshops',
+                desc: 'All Code Orange workshop slides — mining, nodes, privacy, multisig, Lightning, and more. Free for any community leader to run.',
+                topic: 'Workshops',
+                href: 'https://github.com/code-orange-dev/workshops',
+              },
+            ].map(({ repo, desc, topic, href }) => (
+              <a
+                key={repo}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card p-5 flex flex-col gap-3 group hover:border-orange-DEFAULT/40 transition-all"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Github className="w-4 h-4 text-text-dim shrink-0" />
+                    <p className="text-white text-sm font-semibold truncate group-hover:text-orange-DEFAULT transition-colors">{repo}</p>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-orange-DEFAULT ml-auto group-hover:translate-x-1 transition-transform" />
+                  <span className="badge badge-white text-xs shrink-0">{topic}</span>
                 </div>
-              </Link>
-            </div>
+                <p className="text-text-muted text-xs leading-relaxed flex-1">{desc}</p>
+                <span className="text-orange-DEFAULT text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                  View on GitHub <ArrowRight className="w-3 h-3" />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>

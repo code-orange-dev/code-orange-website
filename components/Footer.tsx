@@ -23,7 +23,7 @@ const socialLinks = [
 const schoolLinks = [
   { label: 'About the School',    href: '/about' },
   { label: 'Community',           href: '/community' },
-  { label: 'Apply to a Program',  href: '/apply' },
+  { label: 'Fellowships',         href: '/fellowships' },
   { label: 'Support on Geyser ⚡', href: SOCIAL.geyser, external: true },
 ]
 
@@ -48,9 +48,6 @@ export default function Footer() {
               >
                 Never miss a Bitcoin session.
               </h3>
-              <p className="text-text-muted text-base max-w-md">
-                Join Discord for live workshops, study cohorts and meet fellow bitcoiners to discuss current opportunities in Bitcoin Open Source Software.
-              </p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <a

@@ -148,10 +148,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-72 rounded-xl overflow-hidden">
               <Image
-                src="/images/workshop-2.jpg"
+                src="/images/gallery/photo-10.jpg"
                 alt="Hands-on session at Code Orange"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
