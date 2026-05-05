@@ -478,10 +478,16 @@ export default function HomePage() {
                 Always something happening
               </h2>
             </div>
-            <Link href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="btn-secondary shrink-0">
-              <MessageCircle className="w-4 h-4" />
-              Join Discord for updates
-            </Link>
+            <div className="flex items-center gap-3 shrink-0">
+              <Link href="/calendar" className="btn-primary text-sm py-2.5 px-5">
+                <Calendar className="w-4 h-4" />
+                Subscribe to Calendar
+              </Link>
+              <Link href={SOCIAL.discord} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-2.5 px-5">
+                <MessageCircle className="w-4 h-4" />
+                Discord
+              </Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

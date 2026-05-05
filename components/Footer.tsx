@@ -24,6 +24,7 @@ const schoolLinks = [
   { label: 'About the School',    href: '/about' },
   { label: 'Community',           href: '/community' },
   { label: 'Fellowships',         href: '/fellowships' },
+  { label: 'Events Calendar',     href: '/calendar' },
   { label: 'Support on Geyser ⚡', href: SOCIAL.geyser, external: true },
 ]
 

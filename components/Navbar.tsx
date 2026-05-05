@@ -10,6 +10,7 @@ import { SOCIAL } from '@/lib/constants'
 const navLinks = [
   { href: '/programs', label: 'Programs' },
   { href: '/fellowships', label: 'Fellowships' },
+  { href: '/calendar', label: 'Calendar' },
   { href: '/community', label: 'Community' },
   { href: '/about', label: 'About' },
 ]
