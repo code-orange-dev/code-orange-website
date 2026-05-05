@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -20,11 +20,33 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      const currentY = window.scrollY
+      const diff = currentY - lastScrollY.current
+
+      setScrolled(currentY > 20)
+
+      // Always show when near the top
+      if (currentY < 80) {
+        setHidden(false)
+      } else if (diff > 6) {
+        // Scrolling down — hide and close mobile menu
+        setHidden(true)
+        setMobileOpen(false)
+      } else if (diff < -4) {
+        // Scrolling up — reveal
+        setHidden(false)
+      }
+
+      lastScrollY.current = currentY
+    }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -35,9 +57,12 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Fixed wrapper — announcement bar + nav in one layer */}
-      <div className="fixed top-0 left-0 right-0 z-50">
-
+      {/* Fixed wrapper — slides up/down with translate */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+          hidden ? '-translate-y-full' : 'translate-y-0'
+        }`}
+      >
         {/* Announcement bar */}
         <div className="bg-orange-DEFAULT text-black py-2 px-4 text-center text-sm font-bold tracking-wide flex items-center justify-center gap-2 flex-wrap">
           <span>rawBit starts <strong>May 11</strong> · Bitcoin Privacy Track now open</span>
