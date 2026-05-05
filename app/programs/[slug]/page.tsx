@@ -40,7 +40,7 @@ export default function ProgramDetailPage({ params }: Props) {
   const otherPrograms = PROGRAMS.filter((p) => p.slug !== program.slug).slice(0, 3)
 
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Hero */}
       <section className="section bg-grid relative overflow-hidden">
         <div

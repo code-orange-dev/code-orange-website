@@ -213,7 +213,7 @@ export default function CalendarPage() {
   }, [events])
 
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* ── Hero ── */}
       <section className="section bg-grid relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-80 h-80 bg-orange-DEFAULT/10 rounded-full blur-[100px] pointer-events-none" />

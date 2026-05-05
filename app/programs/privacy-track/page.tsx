@@ -78,7 +78,7 @@ const REPOS = [
 
 export default function PrivacyTrackPage() {
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Hero */}
       <section className="section bg-grid relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[150px] opacity-15 pointer-events-none" style={{ background: '#6C63FF' }} />

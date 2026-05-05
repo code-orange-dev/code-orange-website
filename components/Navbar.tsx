@@ -8,12 +8,15 @@ import { Menu, X, Zap } from 'lucide-react'
 import { SOCIAL } from '@/lib/constants'
 
 const navLinks = [
-  { href: '/programs', label: 'Programs' },
+  { href: '/programs',    label: 'Programs' },
   { href: '/fellowships', label: 'Fellowships' },
-  { href: '/calendar', label: 'Calendar' },
-  { href: '/community', label: 'Community' },
-  { href: '/about', label: 'About' },
+  { href: '/calendar',    label: 'Calendar' },
+  { href: '/community',   label: 'Community' },
+  { href: '/about',       label: 'About' },
 ]
+
+// Total fixed header height: announcement bar (~38px) + nav (72px) ≈ 110px
+// Pages use pt-[110px] or pt-28 (112px)
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,83 +35,93 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      {/* Fixed wrapper — announcement bar + nav in one layer */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+
+        {/* Announcement bar */}
+        <div className="bg-orange-DEFAULT text-black py-2 px-4 text-center text-sm font-bold tracking-wide flex items-center justify-center gap-2 flex-wrap">
+          <span>rawBit starts <strong>May 11</strong> · Bitcoin Privacy Track now open</span>
+          <span className="text-black/40">·</span>
+          <Link href="/programs/rawbit"        className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">rawBit →</Link>
+          <Link href="/programs/privacy-track" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">Privacy Track →</Link>
+        </div>
+
+        {/* Nav bar */}
+        <nav className={`transition-all duration-300 ${
           scrolled
             ? 'bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#1a1a1a]'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="container-custom">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo — hidden on mobile, shown on desktop */}
-            <Link href="/" className="hidden md:flex items-center">
-              <Image
-                src="/images/logo.png"
-                alt="Code Orange Dev School"
-                width={210}
-                height={72}
-                className="h-14 w-auto object-contain"
-                priority
-              />
-            </Link>
+            : 'bg-[#0A0A0A]/90 backdrop-blur-sm'
+        }`}>
+          <div className="container-custom">
+            <div className="flex items-center justify-between h-[72px]">
 
-            {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
+              {/* Logo */}
+              <Link href="/" className="hidden md:flex items-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="Code Orange Dev School"
+                  width={240}
+                  height={84}
+                  className="h-[68px] w-auto object-contain"
+                  priority
+                />
+              </Link>
+
+              {/* Desktop nav links */}
+              <div className="hidden md:flex items-center gap-0.5">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      pathname === link.href
+                        ? 'text-orange-DEFAULT bg-orange-muted'
+                        : 'text-text-muted hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Desktop CTAs */}
+              <div className="hidden md:flex items-center gap-3">
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    pathname === link.href
-                      ? 'text-orange-DEFAULT bg-orange-muted'
-                      : 'text-text-muted hover:text-white hover:bg-white/5'
-                  }`}
+                  href={SOCIAL.discord}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-text-muted hover:text-white transition-colors font-medium"
                 >
-                  {link.label}
+                  Discord
                 </Link>
-              ))}
-            </div>
+                <Link href="/apply" className="btn-primary text-sm py-2 px-4">
+                  <Zap className="w-4 h-4" />
+                  Apply Now
+                </Link>
+              </div>
 
-            {/* Desktop CTAs */}
-            <div className="hidden md:flex items-center gap-3">
-              <Link
-                href={SOCIAL.discord}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-text-muted hover:text-white transition-colors font-medium"
+              {/* Mobile hamburger */}
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="md:hidden p-2 text-text-muted hover:text-white transition-colors"
+                aria-label="Toggle menu"
               >
-                Discord
-              </Link>
-              <Link
-                href="/apply"
-                className="btn-primary text-sm py-2 px-4"
-              >
-                <Zap className="w-4 h-4" />
-                Apply Now
-              </Link>
-            </div>
+                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
 
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-text-muted hover:text-white transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — offset below full fixed header (~110px) */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute top-16 left-0 right-0 bg-[#111111] border-b border-[#222222] p-6">
+          <div className="absolute top-[110px] left-0 right-0 bg-[#111111] border-b border-[#222222] p-6">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
@@ -132,10 +145,7 @@ export default function Navbar() {
                 >
                   Join Discord
                 </Link>
-                <Link
-                  href="/apply"
-                  className="btn-primary text-center justify-center"
-                >
+                <Link href="/apply" className="btn-primary text-center justify-center">
                   <Zap className="w-4 h-4" />
                   Apply Now
                 </Link>

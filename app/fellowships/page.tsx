@@ -67,7 +67,7 @@ const COHORTS = [
 
 export default function FellowshipsPage() {
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Hero */}
       <section className="section bg-grid relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-orange-DEFAULT/10 rounded-full blur-[100px] pointer-events-none" />

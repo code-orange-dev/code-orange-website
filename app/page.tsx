@@ -155,21 +155,6 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ============================================================
-          ANNOUNCEMENT BAR
-      ============================================================ */}
-      <div className="bg-orange-DEFAULT text-black py-2.5 px-4 text-center text-sm font-bold tracking-wide flex items-center justify-center gap-2 flex-wrap">
-        <span className="animate-pulse">🔥</span>
-        <span>rawBit starts <strong>May 11</strong> · 🔐 Bitcoin Privacy Track now open</span>
-        <span className="text-black/40">·</span>
-        <Link href="/programs/rawbit" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">
-          rawBit →
-        </Link>
-        <Link href="/programs/privacy-track" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">
-          Privacy Track →
-        </Link>
-      </div>
-
-      {/* ============================================================
           HERO SECTION
       ============================================================ */}
       <section className="relative min-h-screen flex flex-col justify-center bg-grid overflow-hidden">
@@ -177,8 +162,8 @@ export default function HomePage() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/0 via-bg/0 to-bg pointer-events-none" />
 
-        <div className="container-custom relative z-10 pt-36 md:pt-44 pb-16">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container-custom relative z-10 pt-[7rem] md:pt-[8rem] pb-16">
+          <div className="max-w-4xl mx-auto text-center pt-4">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-orange-muted border border-orange-DEFAULT/30 animate-fade-in">
               <span className="w-2 h-2 rounded-full bg-orange-DEFAULT animate-pulse" />

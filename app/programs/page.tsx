@@ -25,7 +25,7 @@ export default function ProgramsPage() {
   }
 
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Header */}
       <section className="section bg-grid relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-orange-DEFAULT/10 blur-[80px] rounded-full" />

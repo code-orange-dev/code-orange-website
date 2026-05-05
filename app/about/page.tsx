@@ -45,7 +45,7 @@ const VALUES = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-16">
+    <div className="pt-28">
       {/* Hero */}
       <section className="section bg-grid relative overflow-hidden">
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-orange-DEFAULT/10 rounded-full blur-[100px] pointer-events-none" />
