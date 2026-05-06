@@ -93,6 +93,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  // Cover lets us extend backgrounds into the iOS safe-areas (Dynamic Island, home bar)
+  // and gives us env(safe-area-inset-*) to use in CSS.
+  viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' },
     { media: '(prefers-color-scheme: light)', color: '#F7931A' },

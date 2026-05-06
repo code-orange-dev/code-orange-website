@@ -75,11 +75,15 @@ export default function Navbar() {
         />
       </div>
 
-      {/* Fixed wrapper — slides up/down with translate */}
+      {/* Fixed wrapper — slides up/down with translate.
+          paddingTop respects the iOS Dynamic Island / notch via env(safe-area-inset-top).
+          Background-tinted backdrop for the safe area is provided by the announcement bar below
+          (it has bg-orange-DEFAULT, so the orange visually extends behind the island). */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
           hidden ? '-translate-y-full' : 'translate-y-0'
         }`}
+        style={{ paddingTop: 'env(safe-area-inset-top, 0px)', backgroundColor: '#F7931A' }}
       >
         {/* Announcement bar */}
         {/* Mobile: single tight line — no wrapping. Desktop: rich version. */}
@@ -184,14 +188,17 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile menu — offset below full fixed header (~88px on mobile) */}
+      {/* Mobile menu — offset below full fixed header (~88px) PLUS iOS safe-area-inset-top */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute top-[88px] left-0 right-0 bg-[#111111] border-b border-[#222222] p-6">
+          <div
+            className="absolute left-0 right-0 bg-[#111111] border-b border-[#222222] p-6"
+            style={{ top: 'calc(88px + env(safe-area-inset-top, 0px))' }}
+          >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link

@@ -162,7 +162,14 @@ export default function HomePage() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/0 via-bg/0 to-bg pointer-events-none" />
 
-        <div className="container-custom relative z-10 pt-[7rem] md:pt-[8rem] pb-16">
+        <div
+          className="container-custom relative z-10 pb-16"
+          style={{
+            // Mobile: 88px navbar + safe-area + 32px breathing room (so badge sits below Dynamic Island).
+            // Desktop: same calc, safe-area becomes 0, gives ~120px which matches old md:pt-[8rem].
+            paddingTop: 'calc(88px + env(safe-area-inset-top, 0px) + 32px)',
+          }}
+        >
           <div className="max-w-4xl mx-auto text-center pt-4">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-orange-muted border border-orange-DEFAULT/30 animate-fade-in">

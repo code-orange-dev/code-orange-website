@@ -32,7 +32,11 @@ export default function MobileApplyCTA() {
     <Link
       href="/apply"
       aria-label="Apply to a Code Orange program"
-      className={`md:hidden fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full
+      style={{
+        // Sit above the iOS home bar / gesture indicator
+        bottom: 'calc(env(safe-area-inset-bottom, 0px) + 20px)',
+      }}
+      className={`md:hidden fixed right-4 z-40 inline-flex items-center gap-2 rounded-full
                   bg-orange-DEFAULT text-black font-bold text-sm px-5 py-3 shadow-lg shadow-orange-DEFAULT/30
                   transition-all duration-300 ease-out
                   ${visible
