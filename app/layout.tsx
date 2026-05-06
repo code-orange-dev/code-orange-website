@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import JsonLd from '@/components/JsonLd'
 import Analytics from '@/components/Analytics'
+import MobileApplyCTA from '@/components/MobileApplyCTA'
 import { SITE } from '@/lib/constants'
 
 const inter = Inter({
@@ -115,6 +116,7 @@ export default function RootLayout({
         <Navbar />
         <main id="main" className="min-h-screen">{children}</main>
         <Footer />
+        <MobileApplyCTA />
         <Analytics />
       </body>
     </html>

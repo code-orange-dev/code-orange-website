@@ -82,11 +82,26 @@ export default function Navbar() {
         }`}
       >
         {/* Announcement bar */}
-        <div className="bg-orange-DEFAULT text-black py-2 px-4 text-center text-sm font-bold tracking-wide flex items-center justify-center gap-2 flex-wrap">
-          <span>rawBit starts <strong>May 11</strong> · Bitcoin Privacy Track now open</span>
-          <span className="text-black/40">·</span>
-          <Link href="/programs/rawbit"        className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">rawBit →</Link>
-          <Link href="/programs/privacy-track" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">Privacy Track →</Link>
+        {/* Mobile: single tight line — no wrapping. Desktop: rich version. */}
+        <div className="bg-orange-DEFAULT text-black">
+          {/* Mobile-only — short, single-line, links to programs page */}
+          <Link
+            href="/programs/rawbit"
+            className="md:hidden flex items-center justify-center gap-1.5 py-2 px-4 text-xs font-bold tracking-wide whitespace-nowrap"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
+            rawBit starts <strong>May 11</strong>
+            <span className="opacity-60">·</span>
+            <span className="underline underline-offset-2">Apply →</span>
+          </Link>
+
+          {/* Desktop — rich version with multiple links */}
+          <div className="hidden md:flex py-2 px-4 text-center text-sm font-bold tracking-wide items-center justify-center gap-2">
+            <span>rawBit starts <strong>May 11</strong> · Bitcoin Privacy Track now open</span>
+            <span className="text-black/40">·</span>
+            <Link href="/programs/rawbit"        className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">rawBit →</Link>
+            <Link href="/programs/privacy-track" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">Privacy Track →</Link>
+          </div>
         </div>
 
         {/* Nav bar */}
@@ -96,10 +111,22 @@ export default function Navbar() {
             : 'bg-[#0A0A0A]/90 backdrop-blur-sm'
         }`}>
           <div className="container-custom">
-            <div className="flex items-center justify-between h-[72px]">
+            <div className="flex items-center justify-between h-14 md:h-[72px]">
 
-              {/* Logo */}
-              <Link href="/" className="hidden md:flex items-center">
+              {/* Logo — mobile (compact) */}
+              <Link href="/" className="md:hidden flex items-center" aria-label="Code Orange — home">
+                <Image
+                  src="/images/logo.png"
+                  alt="Code Orange Dev School"
+                  width={160}
+                  height={56}
+                  className="h-11 w-auto object-contain"
+                  priority
+                />
+              </Link>
+
+              {/* Logo — desktop */}
+              <Link href="/" className="hidden md:flex items-center" aria-label="Code Orange — home">
                 <Image
                   src="/images/logo.png"
                   alt="Code Orange Dev School"
@@ -157,14 +184,14 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile menu — offset below full fixed header (~110px) */}
+      {/* Mobile menu — offset below full fixed header (~88px on mobile) */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="absolute top-[110px] left-0 right-0 bg-[#111111] border-b border-[#222222] p-6">
+          <div className="absolute top-[88px] left-0 right-0 bg-[#111111] border-b border-[#222222] p-6">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link

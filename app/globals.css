@@ -184,19 +184,45 @@ body {
   transform: translateY(-1px);
 }
 
-/* Section spacing */
+/* Section spacing — fluid: tighter on mobile, generous on desktop */
 .section {
-  padding: 80px 0;
+  padding: 56px 0;
+}
+@media (min-width: 768px) {
+  .section { padding: 80px 0; }
+}
+@media (min-width: 1280px) {
+  .section { padding: 96px 0; }
 }
 .section-lg {
-  padding: 120px 0;
+  padding: 80px 0;
+}
+@media (min-width: 768px) {
+  .section-lg { padding: 120px 0; }
 }
 
-/* Container */
+/* Container — 1280px (Tailwind 7xl) gives breathing room on 14"+ laptops
+   without distorting the readable line-length on prose-heavy sections. */
 .container-custom {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .container-custom { padding: 0 32px; }
+}
+@media (min-width: 1280px) {
+  .container-custom { padding: 0 40px; }
+}
+
+/* Wide variant for full-bleed marketing sections (gallery, hero) */
+.container-wide {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  .container-wide { padding: 0 32px; }
 }
 
 /* Divider */
