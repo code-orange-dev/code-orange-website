@@ -18,8 +18,9 @@ export default async function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '64px',
-          background:
-            'radial-gradient(circle at 30% 20%, rgba(247,147,26,0.18) 0%, transparent 55%), #0A0A0A',
+          backgroundColor: '#0A0A0A',
+          backgroundImage:
+            'radial-gradient(circle at 30% 20%, rgba(247,147,26,0.18) 0%, transparent 55%)',
           color: '#FFFFFF',
           fontFamily: 'system-ui, -apple-system, sans-serif',
         }}
@@ -88,11 +89,11 @@ export default async function OpengraphImage() {
             codeorange.dev
           </div>
           <div style={{ display: 'flex', gap: 16, fontSize: 22, color: '#aaa' }}>
-            <span>₿ Bitcoin Only</span>
+            <span>Bitcoin Only</span>
             <span style={{ color: '#333' }}>·</span>
-            <span>🌴 Bali</span>
+            <span>Bali, Indonesia</span>
             <span style={{ color: '#333' }}>·</span>
-            <span>⚡ Open Source</span>
+            <span>Open Source</span>
           </div>
         </div>
       </div>
