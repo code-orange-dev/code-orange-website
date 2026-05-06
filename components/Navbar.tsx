@@ -22,6 +22,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [progress, setProgress] = useState(0)
   const pathname = usePathname()
   const lastScrollY = useRef(0)
 
@@ -31,6 +32,11 @@ export default function Navbar() {
       const diff = currentY - lastScrollY.current
 
       setScrolled(currentY > 20)
+
+      // Scroll progress (0–100) — used for the orange progress bar
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight
+      setProgress(docHeight > 0 ? (currentY / docHeight) * 100 : 0)
 
       // Always show when near the top
       if (currentY < 80) {
@@ -47,6 +53,7 @@ export default function Navbar() {
       lastScrollY.current = currentY
     }
 
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -57,6 +64,17 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Scroll progress bar — sits above the nav, always visible */}
+      <div
+        aria-hidden
+        className="fixed top-0 left-0 right-0 z-[60] h-[2px] bg-transparent pointer-events-none"
+      >
+        <div
+          className="h-full bg-orange-DEFAULT transition-[width] duration-100 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
       {/* Fixed wrapper — slides up/down with translate */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${

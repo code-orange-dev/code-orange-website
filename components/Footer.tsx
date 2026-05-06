@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import { SITE, SOCIAL, PROGRAMS } from '@/lib/constants'
 import ScheduleDropdown from './ScheduleDropdown'
+import BlockHeight from './BlockHeight'
 
 const socialLinks = [
   { icon: Twitter,        href: SOCIAL.twitter,   label: 'X (Twitter)' },
@@ -241,10 +242,7 @@ export default function Footer() {
             <p className="text-text-dim text-xs">
               © {new Date().getFullYear()} Code Orange Dev School · Built with ⚡ in Bali, Indonesia
             </p>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange-DEFAULT animate-pulse" />
-              <span className="text-orange-DEFAULT/60 font-mono text-xs">Sessions live every week</span>
-            </div>
+            <BlockHeight />
           </div>
         </div>
       </div>

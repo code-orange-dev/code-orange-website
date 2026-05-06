@@ -3,6 +3,8 @@ import { Inter, Permanent_Marker, Nunito, JetBrains_Mono } from 'next/font/googl
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import JsonLd from '@/components/JsonLd'
+import Analytics from '@/components/Analytics'
 import { SITE } from '@/lib/constants'
 
 const inter = Inter({
@@ -31,11 +33,14 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
     default: `${SITE.name}, ${SITE.tagline}`,
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
+  alternates: { canonical: '/' },
+  category: 'education',
   keywords: [
     'bitcoin developer school',
     'bitcoin education',
@@ -87,7 +92,11 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#F7931A',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0A0A0A' },
+    { media: '(prefers-color-scheme: light)', color: '#F7931A' },
+  ],
+  colorScheme: 'dark',
 }
 
 export default function RootLayout({
@@ -101,9 +110,12 @@ export default function RootLayout({
       className={`${inter.variable} ${permanentMarker.variable} ${nunito.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen bg-bg text-white antialiased">
+        <a href="#main" className="skip-link">Skip to content</a>
+        <JsonLd />
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main id="main" className="min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
