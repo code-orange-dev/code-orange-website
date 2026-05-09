@@ -21,6 +21,9 @@ import {
 import { SITE, SOCIAL, STATS, PROGRAMS } from '@/lib/constants'
 import NostrDropdown from '@/components/NostrDropdown'
 import DevCommunity from '@/components/DevCommunity'
+import NextCohortCountdown from '@/components/NextCohortCountdown'
+import RunWorkshopCTA from '@/components/RunWorkshopCTA'
+import FAQ from '@/components/FAQ'
 
 const GALLERY_PHOTOS = [
   { src: '/images/gallery/photo-1.jpg',  alt: 'Code Orange workshop session in Bali' },
@@ -249,6 +252,11 @@ export default function HomePage() {
           <div className="w-px h-8 bg-gradient-to-b from-text-dim to-transparent" />
         </div>
       </section>
+
+      {/* ============================================================
+          NEXT COHORT COUNTDOWN — high-urgency conversion block
+      ============================================================ */}
+      <NextCohortCountdown />
 
       {/* ============================================================
           TICKER TAPE
@@ -962,6 +970,11 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
+          RUN A WORKSHOP — community-leader recruitment
+      ============================================================ */}
+      <RunWorkshopCTA />
+
+      {/* ============================================================
           COMMUNITY — CONSOLIDATED
       ============================================================ */}
       <section className="section">
@@ -1145,6 +1158,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ============================================================
+          FAQ — pre-empts every objection before the final ask
+      ============================================================ */}
+      <FAQ />
 
       {/* ============================================================
           FINAL CTA

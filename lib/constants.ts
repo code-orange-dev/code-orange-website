@@ -25,6 +25,15 @@ export const SOCIAL = {
   },
 }
 
+// The next public cohort — used by the countdown widget and announcement bar.
+// Update this single value when a new cohort is announced.
+export const NEXT_COHORT = {
+  name: 'rawBit',
+  startsAt: '2026-05-11T11:00:00Z', // Mondays, 11:00 UTC
+  format: '10 weeks · Online via Discord',
+  applyHref: '/programs/rawbit',
+}
+
 export const STATS = [
   { value: '5+',  label: 'Cohorts Run' },
   { value: '50+', label: 'Graduates' },
