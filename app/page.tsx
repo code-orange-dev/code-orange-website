@@ -162,7 +162,7 @@ export default function HomePage() {
       ============================================================ */}
       <section className="relative min-h-screen flex flex-col justify-center bg-grid overflow-hidden">
         {/* Orange glow in background */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none hero-glow" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/0 via-bg/0 to-bg pointer-events-none" />
 
         <div

@@ -6,6 +6,8 @@ import Footer from '@/components/Footer'
 import JsonLd from '@/components/JsonLd'
 import Analytics from '@/components/Analytics'
 import MobileApplyCTA from '@/components/MobileApplyCTA'
+import ScrollReveal from '@/components/ScrollReveal'
+import BackToTop from '@/components/BackToTop'
 import { SITE } from '@/lib/constants'
 
 const inter = Inter({
@@ -120,6 +122,8 @@ export default function RootLayout({
         <main id="main" className="min-h-screen">{children}</main>
         <Footer />
         <MobileApplyCTA />
+        <ScrollReveal />
+        <BackToTop />
         <Analytics />
       </body>
     </html>
