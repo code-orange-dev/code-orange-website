@@ -88,20 +88,21 @@ export default function Navbar() {
         {/* Announcement bar */}
         {/* Mobile: single tight line — no wrapping. Desktop: rich version. */}
         <div className="bg-orange-DEFAULT text-black">
-          {/* Mobile-only — short, single-line, links to programs page */}
+          {/* Mobile-only — short, single-line */}
           <Link
             href="/programs/rawbit"
             className="md:hidden flex items-center justify-center gap-1.5 py-2 px-4 text-xs font-bold tracking-wide whitespace-nowrap"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
-            rawBit starts <strong>May 11</strong>
+            rawBit cohort is <strong>live now</strong>
             <span className="opacity-60">·</span>
-            <span className="underline underline-offset-2">Apply →</span>
+            <span className="underline underline-offset-2">Join →</span>
           </Link>
 
           {/* Desktop — rich version with multiple links */}
           <div className="hidden md:flex py-2 px-4 text-center text-sm font-bold tracking-wide items-center justify-center gap-2">
-            <span>rawBit starts <strong>May 11</strong> · Bitcoin Privacy Track now open</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
+            <span>rawBit cohort is <strong>live now</strong> · Bitcoin Privacy Track open for enrollment</span>
             <span className="text-black/40">·</span>
             <Link href="/programs/rawbit"        className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">rawBit →</Link>
             <Link href="/programs/privacy-track" className="underline underline-offset-2 hover:opacity-70 whitespace-nowrap">Privacy Track →</Link>

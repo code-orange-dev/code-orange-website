@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="relative h-56 col-span-2 rounded-xl overflow-hidden">
                 <Image
-                  src="/images/workshop-1.jpg"
+                  src="/images/gallery/photo-7.jpg"
                   alt="Code Orange community session at Code Orange Dev School"
                   fill
                   className="object-cover"
