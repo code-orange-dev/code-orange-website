@@ -14,6 +14,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { PROGRAMS, SOCIAL } from '@/lib/constants'
+import CourseSchema from '@/components/CourseSchema'
 
 interface Props {
   params: { slug: string }
@@ -27,9 +28,25 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const program = PROGRAMS.find((p) => p.slug === params.slug)
   if (!program) return {}
+  const url = `/programs/${program.slug}`
   return {
     title: `${program.name}, ${program.subtitle}`,
     description: program.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      title: `${program.name}, ${program.subtitle}`,
+      description: program.description,
+      ...(('poster' in program && program.poster)
+        ? { images: [{ url: program.poster as string }] }
+        : {}),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${program.name}, ${program.subtitle}`,
+      description: program.description,
+    },
   }
 }
 
@@ -41,6 +58,14 @@ export default function ProgramDetailPage({ params }: Props) {
 
   return (
     <div className="pt-28">
+      <CourseSchema
+        name={program.name}
+        description={program.description}
+        slug={program.slug}
+        schedule={program.schedule}
+        format={program.format}
+        free
+      />
       {/* Hero */}
       <section className="section bg-grid relative overflow-hidden">
         <div

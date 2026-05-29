@@ -2,11 +2,26 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight, Github, MessageCircle, Zap } from 'lucide-react'
 import { SOCIAL } from '@/lib/constants'
+import CourseSchema from '@/components/CourseSchema'
 
 export const metadata: Metadata = {
   title: 'Bitcoin Privacy Developer Track',
   description:
     '24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution.',
+  alternates: { canonical: '/programs/privacy-track' },
+  openGraph: {
+    type: 'article',
+    url: '/programs/privacy-track',
+    title: 'Bitcoin Privacy Developer Track',
+    description:
+      '24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bitcoin Privacy Developer Track',
+    description:
+      '24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution.',
+  },
 }
 
 const PHASES = [
@@ -79,6 +94,14 @@ const REPOS = [
 export default function PrivacyTrackPage() {
   return (
     <div className="pt-28">
+      <CourseSchema
+        name="Bitcoin Privacy Developer Track"
+        description="24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution."
+        slug="privacy-track"
+        schedule="Bi-weekly, 2–2.5 hours each · 12 months"
+        format="Online • Discord"
+        free
+      />
       {/* Hero */}
       <section className="section bg-grid relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[150px] opacity-15 pointer-events-none" style={{ background: '#6C63FF' }} />
