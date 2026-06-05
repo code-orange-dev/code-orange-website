@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/fellowships`,            lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/about`,                  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/community`,              lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/impact`,                 lastModified: new Date(), changeFrequency: 'weekly',  priority: 0.8 },
     { url: `${BASE}/apply`,                  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     ...programPages,
   ]
