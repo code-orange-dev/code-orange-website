@@ -25,6 +25,7 @@ import NextCohortCountdown from '@/components/NextCohortCountdown'
 import RunWorkshopCTA from '@/components/RunWorkshopCTA'
 import FAQ from '@/components/FAQ'
 import HeroBackground from '@/components/HeroBackground'
+import HeroVideo from '@/components/HeroVideo'
 
 const GALLERY_PHOTOS = [
   { src: '/images/gallery/photo-1.jpg',  alt: 'Code Orange workshop session in Bali' },
@@ -162,8 +163,10 @@ export default function HomePage() {
           HERO SECTION
       ============================================================ */}
       <section className="relative min-h-screen flex flex-col justify-center bg-grid overflow-hidden">
-        {/* Animated canvas background (behind everything) */}
+        {/* Animated canvas background (fallback, shows while video loads) */}
         <HeroBackground />
+        {/* AI-generated hero video (fades in over the canvas) */}
+        <HeroVideo />
         {/* Orange glow in background */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none hero-glow" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/0 via-bg/0 to-bg pointer-events-none" />
