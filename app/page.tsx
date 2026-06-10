@@ -205,7 +205,7 @@ export default function HomePage() {
 
             {/* Primary headline */}
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight max-w-3xl mx-auto mb-5 animate-fade-up"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.08] max-w-4xl mx-auto mb-5 animate-fade-up"
               style={{ fontFamily: 'var(--font-nunito)', animationDelay: '0.2s' }}
             >
               A Bitcoin OSS contributor pipeline{' '}
@@ -241,11 +241,11 @@ export default function HomePage() {
 
           {/* Stats bar */}
           <div
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto animate-fade-up"
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
             {STATS.map((stat) => (
-              <div key={stat.label} className="text-center p-4 rounded-xl bg-[#111]/80 border border-[#222] backdrop-blur-sm">
+              <div key={stat.label} className="text-center p-5 rounded-xl bg-[#111]/80 border border-[#222] backdrop-blur-sm hover:border-orange-DEFAULT/30 transition-colors">
                 <div className="text-3xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>
                   {stat.value}
                 </div>
@@ -328,7 +328,7 @@ export default function HomePage() {
             <div>
               <div className="badge badge-orange mb-6">
                 <Zap className="w-3 h-3" />
-                The Mission
+                <span className="eyebrow-num">01</span> The Mission
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Bitcoin needs more builders{' '}
@@ -417,7 +417,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="badge badge-orange mx-auto mb-4">
               <BookOpen className="w-3 h-3" />
-              Programs
+              <span className="eyebrow-num">02</span> Programs
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Pick your path
@@ -482,7 +482,7 @@ export default function HomePage() {
             <div>
               <div className="badge badge-orange mb-4">
                 <Calendar className="w-3 h-3" />
-                Recurring Events
+                <span className="eyebrow-num">03</span> Recurring Events
               </div>
               <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Always something happening
@@ -555,12 +555,14 @@ export default function HomePage() {
       {/* ============================================================
           GALLERY SECTION
       ============================================================ */}
-      <section className="section bg-[#080808]">
-        <div className="container-custom">
+      <section className="section bg-[#080808] relative overflow-hidden">
+        {/* Ambient glow behind the photo wall */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[300px] bg-orange-DEFAULT/5 blur-[140px] rounded-full pointer-events-none" />
+        <div className="container-wide relative">
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Users className="w-3 h-3" />
-              In the field
+              <span className="eyebrow-num">04</span> In the field
             </div>
             <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
               Real sessions. Real hardware.
@@ -588,7 +590,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="badge badge-orange mx-auto mb-4">
               <Shield className="w-3 h-3" />
-              Proof it works
+              <span className="eyebrow-num">05</span> Proof it works
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Bitcoin Dojo Cohort{' '}
@@ -668,7 +670,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Code2 className="w-3 h-3" />
-              Developer Community
+              <span className="eyebrow-num">06</span> Developer Community
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               We build the community.{' '}
@@ -690,7 +692,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Globe className="w-3 h-3" />
-              Ecosystem
+              <span className="eyebrow-num">07</span> Ecosystem
             </div>
             <h2 className="text-4xl font-extrabold text-white mb-3" style={{ fontFamily: 'var(--font-nunito)' }}>
               Where our graduates go
@@ -796,7 +798,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Globe className="w-3 h-3" />
-              Regional Reach
+              <span className="eyebrow-num">08</span> Regional Reach
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Southeast Asia{' '}
@@ -839,7 +841,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="badge badge-orange mx-auto mb-4">
               <Zap className="w-3 h-3" />
-              The Vision
+              <span className="eyebrow-num">09</span> The Vision
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Specific goals.{' '}
@@ -957,7 +959,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Users className="w-3 h-3" />
-              Community
+              <span className="eyebrow-num">10</span> Community
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Join the Bitcoin builders community
@@ -1050,7 +1052,7 @@ export default function HomePage() {
             <div>
               <div className="badge badge-orange mb-4">
                 <Github className="w-3 h-3" />
-                Open Source
+                <span className="eyebrow-num">11</span> Open Source
               </div>
               <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Proof of work.{' '}
