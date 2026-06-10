@@ -304,6 +304,34 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
+/* Tighter tracking on display headlines — premium editorial feel */
+h1, h2 {
+  letter-spacing: -0.02em;
+}
+
+/* ── Gallery masonry + lightbox ────────────────────────── */
+
+/* Keep each photo intact inside its CSS column */
+.gallery-item {
+  break-inside: avoid;
+}
+
+/* Lightbox entrance */
+.lightbox-backdrop {
+  animation: lightbox-fade 0.25s ease both;
+}
+.lightbox-image {
+  animation: lightbox-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes lightbox-zoom {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 /* Orange badge gets a subtle ambient glow */
 .badge-orange {
   box-shadow: 0 0 16px rgba(247, 147, 26, 0.2);
