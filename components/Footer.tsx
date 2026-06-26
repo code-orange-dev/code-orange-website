@@ -23,6 +23,7 @@ const socialLinks = [
 
 const schoolLinks = [
   { label: 'About the School',    href: '/about' },
+  { label: 'Impact',              href: '/impact' },
   { label: 'Community',           href: '/community' },
   { label: 'Fellowships',         href: '/fellowships' },
   { label: 'Events Calendar',     href: '/calendar' },

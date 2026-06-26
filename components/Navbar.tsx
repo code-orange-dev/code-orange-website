@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/fellowships', label: 'Fellowships' },
   { href: '/calendar',    label: 'Calendar' },
   { href: '/community',   label: 'Community' },
+  { href: '/impact',      label: 'Impact' },
   { href: '/about',       label: 'About' },
 ]
 

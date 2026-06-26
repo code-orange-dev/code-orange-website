@@ -6,6 +6,13 @@ import { PROGRAMS, SOCIAL } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Apply',
   description: 'Apply to a Code Orange Dev School program. Join Discord, pick a program, show up and build.',
+  alternates: { canonical: '/apply' },
+  openGraph: {
+    type: 'website',
+    url: '/apply',
+    title: 'Apply to Code Orange Dev School',
+    description: 'Apply to a Code Orange Dev School program. Join Discord, pick a program, show up and build.',
+  },
 }
 
 const STEPS = [
@@ -63,6 +70,53 @@ export default function ApplyPage() {
               <MessageCircle className="w-5 h-5" />
               Join Discord to Apply
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Developer fast-track — clear path for experienced devs */}
+      <section className="section bg-[#080808] border-y border-[#1a1a1a]">
+        <div className="container-custom">
+          <div className="badge badge-orange mb-5">
+            <Zap className="w-3 h-3" />
+            Already a developer?
+          </div>
+          <h2
+            className="text-3xl font-extrabold text-white mb-3"
+            style={{ fontFamily: 'var(--font-nunito)' }}
+          >
+            Skip the tour. Go straight to a builder cohort.
+          </h2>
+          <p className="text-text-muted leading-relaxed mb-8 max-w-2xl">
+            If you already write code in at least one language, these two cohorts take you
+            from comfortable programmer to merged Bitcoin open source contributor — with real PRs,
+            not toy exercises. Both are free for accepted builders.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {PROGRAMS.filter((p) => p.tagline === 'For Developers').map((p) => (
+              <Link
+                key={p.slug}
+                href={`/programs/${p.slug}`}
+                className="card p-6 group hover:border-orange-DEFAULT/50 transition-colors flex flex-col"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl">{p.icon}</span>
+                  <div>
+                    <h3 className="text-white font-bold text-lg group-hover:text-orange-DEFAULT transition-colors">
+                      {p.name}
+                    </h3>
+                    <p className="text-text-dim text-xs">{p.subtitle} · {p.duration}</p>
+                  </div>
+                </div>
+                <p className="text-text-muted text-sm leading-relaxed mb-4 flex-1">
+                  {p.description}
+                </p>
+                <span className="inline-flex items-center gap-2 text-orange-DEFAULT text-sm font-semibold mt-auto">
+                  {p.cta}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

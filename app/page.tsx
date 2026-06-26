@@ -25,20 +25,25 @@ import DevCommunity from '@/components/DevCommunity'
 import NextCohortCountdown from '@/components/NextCohortCountdown'
 import RunWorkshopCTA from '@/components/RunWorkshopCTA'
 import FAQ from '@/components/FAQ'
+import HeroBackground from '@/components/HeroBackground'
+import HeroVideo from '@/components/HeroVideo'
+import GalleryLightbox from '@/components/GalleryLightbox'
 
+// Natural dimensions included so the masonry gallery can render every
+// photo at its true aspect ratio — no cropping, no cut-off heads.
 const GALLERY_PHOTOS = [
-  { src: '/images/gallery/photo-1.jpg',  alt: 'Code Orange workshop session in Bali' },
-  { src: '/images/gallery/photo-2.jpg',  alt: 'Hands-on Bitcoin hardware workshop' },
-  { src: '/images/gallery/photo-3.jpg',  alt: 'Community Bitcoin education session' },
-  { src: '/images/gallery/photo-4.jpg',  alt: 'Penlock seed backup workshop launch' },
-  { src: '/images/gallery/photo-5.jpg',  alt: 'Bitcoin self-custody hardware session' },
-  { src: '/images/gallery/photo-6.jpg',  alt: 'Workshop participants with hardware wallets' },
-  { src: '/images/gallery/photo-7.jpg',  alt: 'Code Orange community workshop session' },
-  { src: '/images/gallery/photo-8.jpg',  alt: 'Bitcoin workshop participants Bali' },
-  { src: '/images/gallery/photo-9.jpg',  alt: 'Workshop session hardware demo' },
-  { src: '/images/gallery/photo-10.jpg', alt: 'Bitcoin education hands-on session' },
-  { src: '/images/gallery/photo-11.jpg', alt: 'Code Orange dev school community' },
-  { src: '/images/gallery/photo-12.jpg', alt: 'Bitcoin workshop overview' },
+  { src: '/images/gallery/photo-1.jpg',  alt: 'Code Orange workshop session in Bali',          width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-12.jpg', alt: 'Bitcoin workshop overview',                     width: 1320, height: 988 },
+  { src: '/images/gallery/photo-2.jpg',  alt: 'Hands-on Bitcoin hardware workshop',            width: 1053, height: 1400 },
+  { src: '/images/gallery/photo-3.jpg',  alt: 'Community Bitcoin education session',           width: 1053, height: 1400 },
+  { src: '/images/gallery/photo-4.jpg',  alt: 'Penlock seed backup workshop launch',           width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-5.jpg',  alt: 'Bitcoin self-custody hardware session',         width: 1048, height: 1400 },
+  { src: '/images/gallery/photo-6.jpg',  alt: 'Workshop participants with hardware wallets',   width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-7.jpg',  alt: 'Code Orange community workshop session',        width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-8.jpg',  alt: 'Bitcoin workshop participants Bali',            width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-9.jpg',  alt: 'Workshop session hardware demo',                width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-10.jpg', alt: 'Bitcoin education hands-on session',            width: 1050, height: 1400 },
+  { src: '/images/gallery/photo-11.jpg', alt: 'Code Orange dev school community',              width: 1053, height: 1400 },
 ]
 
 export const metadata: Metadata = {
@@ -162,6 +167,10 @@ export default function HomePage() {
           HERO SECTION
       ============================================================ */}
       <section className="relative min-h-screen flex flex-col justify-center bg-grid overflow-hidden">
+        {/* Animated canvas background (fallback, shows while video loads) */}
+        <HeroBackground />
+        {/* AI-generated hero video (fades in over the canvas) */}
+        <HeroVideo />
         {/* Orange glow in background */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-DEFAULT/10 rounded-full blur-[120px] pointer-events-none hero-glow" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/0 via-bg/0 to-bg pointer-events-none" />
@@ -197,7 +206,7 @@ export default function HomePage() {
 
             {/* Primary headline */}
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight max-w-3xl mx-auto mb-5 animate-fade-up"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.08] max-w-4xl mx-auto mb-5 animate-fade-up"
               style={{ fontFamily: 'var(--font-nunito)', animationDelay: '0.2s' }}
             >
               A Bitcoin OSS contributor pipeline{' '}
@@ -233,7 +242,7 @@ export default function HomePage() {
 
           {/* Stats bar */}
           <div
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto animate-fade-up"
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
             {STATS.map((stat) => (
@@ -278,12 +287,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Photo grid */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="col-span-2 relative h-64 rounded-xl overflow-hidden">
+              {/* Landscape photo in the landscape slot — no awkward cropping */}
+              <div className="col-span-2 relative h-64 md:h-72 rounded-xl overflow-hidden border border-[#1a1a1a]">
                 <Image
-                  src="/images/gallery/photo-8.jpg"
+                  src="/images/gallery/photo-12.jpg"
                   alt="Code Orange Workshop at Code Orange Dev School"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
@@ -294,16 +304,16 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-              <div className="relative h-44 rounded-xl overflow-hidden">
+              <div className="relative h-56 rounded-xl overflow-hidden border border-[#1a1a1a]">
                 <Image
                   src="/images/gallery/photo-9.jpg"
                   alt="Code Orange hands-on Bitcoin session"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-[center_25%]"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </div>
-              <div className="relative h-44 rounded-xl overflow-hidden bg-[#111] border border-[#222] flex flex-col items-center justify-center p-6 text-center">
+              <div className="relative h-56 rounded-xl overflow-hidden bg-[#111] border border-[#222] flex flex-col items-center justify-center p-6 text-center">
                 <div className="text-4xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>50+</div>
                 <div className="text-white font-semibold text-sm">Graduates</div>
                 <div className="text-text-muted text-xs mt-1">building on Bitcoin</div>
@@ -314,7 +324,7 @@ export default function HomePage() {
             <div>
               <div className="badge badge-orange mb-6">
                 <Zap className="w-3 h-3" />
-                The Mission
+                <span className="eyebrow-num">01</span> The Mission
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Bitcoin needs more builders{' '}
@@ -403,7 +413,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="badge badge-orange mx-auto mb-4">
               <BookOpen className="w-3 h-3" />
-              Programs
+              <span className="eyebrow-num">02</span> Programs
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Pick your path
@@ -468,7 +478,7 @@ export default function HomePage() {
             <div>
               <div className="badge badge-orange mb-4">
                 <Calendar className="w-3 h-3" />
-                Recurring Events
+                <span className="eyebrow-num">03</span> Recurring Events
               </div>
               <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Always something happening
@@ -541,12 +551,14 @@ export default function HomePage() {
       {/* ============================================================
           GALLERY SECTION
       ============================================================ */}
-      <section className="section bg-[#080808]">
-        <div className="container-custom">
+      <section className="section bg-[#080808] relative overflow-hidden">
+        {/* Ambient glow behind the photo wall */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[300px] bg-orange-DEFAULT/5 blur-[140px] rounded-full pointer-events-none" />
+        <div className="container-wide relative">
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Users className="w-3 h-3" />
-              In the field
+              <span className="eyebrow-num">04</span> In the field
             </div>
             <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
               Real sessions. Real hardware.
@@ -556,47 +568,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* 12-photo masonry: 3 cols on desktop, 2 on mobile */}
-          <div className="flex flex-col gap-3">
-            {/* Row 1: 3 portrait */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {GALLERY_PHOTOS.slice(0, 3).map((photo, i) => (
-                <div key={i} className={`relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group${i === 2 ? ' hidden md:block' : ''}`}>
-                  <Image src={photo.src} alt={photo.alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
-            </div>
-            {/* Row 2: landscape wide + 1 portrait */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              <div className="relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group col-span-2">
-                <Image src={GALLERY_PHOTOS[11].src} alt={GALLERY_PHOTOS[11].alt} fill className="object-cover object-center group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 100vw, 66vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group hidden md:block">
-                <Image src={GALLERY_PHOTOS[3].src} alt={GALLERY_PHOTOS[3].alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="33vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-            </div>
-            {/* Row 3: 3 portrait */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {GALLERY_PHOTOS.slice(4, 7).map((photo, i) => (
-                <div key={i} className={`relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group${i === 2 ? ' hidden md:block' : ''}`}>
-                  <Image src={photo.src} alt={photo.alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
-            </div>
-            {/* Row 4: 3 portrait */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {GALLERY_PHOTOS.slice(7, 10).map((photo, i) => (
-                <div key={i} className={`relative h-64 md:h-72 overflow-hidden rounded-2xl bg-[#111] border border-[#1a1a1a] group${i === 2 ? ' hidden md:block' : ''}`}>
-                  <Image src={photo.src} alt={photo.alt} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-500" sizes="(max-width:768px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Masonry gallery + lightbox — every photo at its natural
+              aspect ratio, click to view full-size */}
+          <GalleryLightbox photos={GALLERY_PHOTOS} />
+          <p className="text-center text-text-dim text-xs mt-6 font-mono uppercase tracking-widest">
+            Click any photo to view full-size
+          </p>
         </div>
       </section>
 
@@ -609,7 +586,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="badge badge-orange mx-auto mb-4">
               <Shield className="w-3 h-3" />
-              Proof it works
+              <span className="eyebrow-num">05</span> Proof it works
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Bitcoin Dojo Cohort{' '}
@@ -754,7 +731,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Code2 className="w-3 h-3" />
-              Developer Community
+              <span className="eyebrow-num">06</span> Developer Community
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               We build the community.{' '}
@@ -776,7 +753,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Globe className="w-3 h-3" />
-              Ecosystem
+              <span className="eyebrow-num">07</span> Ecosystem
             </div>
             <h2 className="text-4xl font-extrabold text-white mb-3" style={{ fontFamily: 'var(--font-nunito)' }}>
               Where our graduates go
@@ -882,7 +859,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Globe className="w-3 h-3" />
-              Regional Reach
+              <span className="eyebrow-num">08</span> Regional Reach
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Southeast Asia{' '}
@@ -925,7 +902,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <div className="badge badge-orange mx-auto mb-4">
               <Zap className="w-3 h-3" />
-              The Vision
+              <span className="eyebrow-num">09</span> The Vision
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Specific goals.{' '}
@@ -1043,7 +1020,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <div className="badge badge-orange mx-auto mb-4">
               <Users className="w-3 h-3" />
-              Community
+              <span className="eyebrow-num">10</span> Community
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: 'var(--font-nunito)' }}>
               Join the Bitcoin builders community
@@ -1136,7 +1113,7 @@ export default function HomePage() {
             <div>
               <div className="badge badge-orange mb-4">
                 <Github className="w-3 h-3" />
-                Open Source
+                <span className="eyebrow-num">11</span> Open Source
               </div>
               <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
                 Proof of work.{' '}
