@@ -19,6 +19,7 @@ import {
   Calendar,
 } from 'lucide-react'
 import { SITE, SOCIAL, STATS, PROGRAMS } from '@/lib/constants'
+import AnimatedStat from '@/components/AnimatedStat'
 import NostrDropdown from '@/components/NostrDropdown'
 import DevCommunity from '@/components/DevCommunity'
 import NextCohortCountdown from '@/components/NextCohortCountdown'
@@ -236,12 +237,7 @@ export default function HomePage() {
             style={{ animationDelay: '0.4s' }}
           >
             {STATS.map((stat) => (
-              <div key={stat.label} className="text-center p-4 rounded-xl bg-[#111]/80 border border-[#222] backdrop-blur-sm">
-                <div className="text-3xl font-extrabold text-orange-DEFAULT mb-1" style={{ fontFamily: 'var(--font-nunito)' }}>
-                  {stat.value}
-                </div>
-                <div className="text-text-muted text-xs uppercase tracking-wider font-semibold">{stat.label}</div>
-              </div>
+              <AnimatedStat key={stat.label} value={stat.value} label={stat.label} />
             ))}
           </div>
         </div>
@@ -686,6 +682,71 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
+          TESTIMONIALS — graduate social proof
+      ============================================================ */}
+      <section className="section bg-[#080808]">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <div className="badge badge-orange mx-auto mb-4">
+              <Users className="w-3 h-3" />
+              From the community
+            </div>
+            <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: 'var(--font-nunito)' }}>
+              What builders say
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                quote: "Before Code Orange I was a web dev who thought Bitcoin was just an app. Now I have merged PRs into rust-bitcoin and understand the protocol at a level I never expected.",
+                name: 'Vaan',
+                flag: '🇺🇦',
+                role: 'rust-bitcoin contributor',
+                github: 'va-an',
+              },
+              {
+                quote: "The Sovereign Bitcoiner course gave me everything I was afraid to ask about. Running my own node, multisig with real hardware — it clicked in 5 weeks. No fluff, just Bitcoin.",
+                name: 'Muhammad',
+                flag: '🇵🇰',
+                role: 'Node runner · BDK contributor',
+                github: 'muhahahmad68',
+              },
+              {
+                quote: "I joined as a curious Bitcoiner, not a developer. The OpenClaw workshop walked me through my first GitHub PR step by step. Now I am contributing to Floresta.",
+                name: 'Mwihoti',
+                flag: '🇰🇪',
+                role: 'rust-bitcoin contributor',
+                github: 'mwihoti',
+              },
+            ].map(({ quote, name, flag, role, github }) => (
+              <a
+                key={github}
+                href={`https://github.com/${github}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card p-6 flex flex-col gap-5 group hover:border-orange-DEFAULT/30 transition-all"
+              >
+                {/* Quote mark */}
+                <div className="text-orange-DEFAULT/30 text-5xl leading-none font-serif select-none">&ldquo;</div>
+                <p className="text-white/80 text-sm leading-relaxed flex-1 -mt-4 group-hover:text-white transition-colors">
+                  {quote}
+                </p>
+                <div className="flex items-center gap-3 pt-4 border-t border-[#1a1a1a]">
+                  <div className="w-9 h-9 rounded-full bg-[#1a1a1a] flex items-center justify-center text-lg shrink-0">
+                    {flag}
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">{name}</p>
+                    <p className="text-text-muted text-xs">{role}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
           DEVELOPER COMMUNITY
       ============================================================ */}
       <section className="section bg-[#080808]">
@@ -731,7 +792,7 @@ export default function HomePage() {
               {
                 icon: '₿',
                 org: 'rawBit Study Cohort',
-                desc: 'Our flagship 10-week protocol cohort. Deep dive into Transactions, Scripts, Taproot, and PSBTs. Next cohort: May 11, 2026.',
+                desc: 'Our flagship 10-week protocol cohort. Deep dive into Transactions, Scripts, Taproot, and PSBTs. Cohort 2 opens August 2026 — apply early.',
                 href: '/programs/rawbit',
                 cta: 'Apply now',
                 highlight: true,

@@ -26,6 +26,13 @@ function getRemaining(targetIso: string): Remaining {
   }
 }
 
+function formatCohortDate(isoString: string): string {
+  const d = new Date(isoString)
+  const day = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' })
+  const time = d.toISOString().slice(11, 16) + ' UTC'
+  return `${day} · ${time}`
+}
+
 export default function NextCohortCountdown() {
   // Render only after mount to avoid SSR/CSR hydration mismatch on the ticking values.
   const [t, setT] = useState<Remaining | null>(null)
@@ -71,7 +78,7 @@ export default function NextCohortCountdown() {
                 <span className="text-gradient-orange">starts soon.</span>
               </h2>
               <p className="text-text-muted text-sm md:text-base">
-                Monday, May 11 · 11:00 UTC · {NEXT_COHORT.format}
+                {formatCohortDate(NEXT_COHORT.startsAt)} · {NEXT_COHORT.format}
               </p>
             </div>
 

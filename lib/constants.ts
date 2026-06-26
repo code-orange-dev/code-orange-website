@@ -29,7 +29,7 @@ export const SOCIAL = {
 // Update this single value when a new cohort is announced.
 export const NEXT_COHORT = {
   name: 'rawBit',
-  startsAt: '2026-05-11T11:00:00Z', // Mondays, 11:00 UTC
+  startsAt: '2026-08-10T11:00:00Z', // Mondays, 11:00 UTC — Cohort 2
   format: '10 weeks · Online via Discord',
   applyHref: '/programs/rawbit',
 }
@@ -75,7 +75,7 @@ export const PROGRAMS = [
       'A 10-week protocol deep-dive turning developers into Bitcoin builders. Cover Transactions, Scripts, Taproot, PSBTs, and P2P networking through weekly Discord sessions. Complete homework assignments and earn sats. Graduates contribute to Bitcoin open source.',
     duration: '10 weeks',
     format: 'Online • Discord',
-    schedule: 'Next cohort: May 11, 2026 — Mondays, 11:00 UTC',
+    schedule: 'Cohort 2 · August 2026 — Mondays, 11:00 UTC',
     level: 'Developer',
     color: '#F7931A',
     topics: [
