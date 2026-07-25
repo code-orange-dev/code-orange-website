@@ -59,7 +59,7 @@
   <header data-screen-label="Header" style="position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
     <div data-mq="header-inner" style="max-width: 1240px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
       <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
-        <img src="/assets/logo-white.png" alt="Code Orange Dev School" data-mq="logo-img" style="height: 45px; width: auto; display: block;">
+        <img src="/assets/logo-white.png" alt="Code Orange Dev School" data-mq="logo-img" style="height: 45px; width: auto; display: block;" decoding="async" fetchpriority="high">
       </a>
       <a href="/" style="color: #C8CDD9; text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 14px; transition: color 120ms;" style-hover="color: #F7931A;">← Back to site</a>
     </div>
@@ -68,7 +68,7 @@
   <!-- ══════════ APPLY ══════════ -->
   <section data-screen-label="Apply" style="flex: 1; position: relative; overflow: hidden;">
     <div style="position: absolute; inset: 0; pointer-events: none;">
-      <img src="/assets/photo-workshop-screen.jpeg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;">
+      <img src="/assets/photo-workshop-screen.jpeg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;" loading="lazy" decoding="async">
       <div style="position: absolute; inset: 0; background-color: rgba(11,18,32,0.92); background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px, 48px 48px;"></div>
     </div>
     <div style="position: absolute; top: -160px; left: -120px; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 65%); pointer-events: none;"></div>
@@ -187,7 +187,7 @@
   <footer data-screen-label="Footer" style="border-top: 1px solid rgba(255,255,255,0.08); background: #070D18;">
     <div style="max-width: 1240px; margin: 0 auto; padding: 36px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
       <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-        <img src="/assets/logo-white.png" alt="Code Orange Dev School" style="height: 39px; width: auto; display: block;">
+        <img src="/assets/logo-white.png" alt="Code Orange Dev School" style="height: 39px; width: auto; display: block;" decoding="async" fetchpriority="high">
       </a>
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377;">© 2026 Code Orange Dev School · Built with ⚡ in Singapore</span>
       <div style="display: flex; gap: 16px;">
