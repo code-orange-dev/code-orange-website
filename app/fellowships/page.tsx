@@ -6,7 +6,7 @@ import { SITE, SOCIAL } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Fellowships',
   description:
-    'Code Orange Dev School fellowships fund developers and educators to contribute full-time to Bitcoin open source software. Based in Bali, open to builders across Asia and beyond.',
+    'Code Orange Dev School fellowships fund developers and educators to contribute full-time to Bitcoin open source software. Based in Singapore, open to builders across Asia and beyond.',
 }
 
 const PROJECTS = [
@@ -86,7 +86,7 @@ export default function FellowshipsPage() {
             </h1>
             <p className="text-text-muted text-lg leading-relaxed max-w-2xl mx-auto mb-8">
               Code Orange Dev School fellowships fund developers and educators to contribute
-              full-time to Bitcoin open source software for six months. Based in Bali, open
+              full-time to Bitcoin open source software for six months. Based in Singapore, open
               to builders across Asia and beyond.
             </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
@@ -147,7 +147,7 @@ export default function FellowshipsPage() {
                     '15–20 hours per week',
                     'Contribute to Bitcoin open source',
                     'Mentor reviews on every PR',
-                    'Bali hub access included',
+                    'Hub access included',
                     'Graduate into Bitcoin ecosystem',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-text-muted text-sm">
@@ -185,7 +185,7 @@ export default function FellowshipsPage() {
                     '10–15 hours per week',
                     'Create Bitcoin educational content',
                     'Run workshops and study groups',
-                    'Bali hub access included',
+                    'Hub access included',
                     'Build a community of Bitcoin builders',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-text-muted text-sm">

@@ -91,7 +91,7 @@ export default async function OpengraphImage() {
           <div style={{ display: 'flex', gap: 16, fontSize: 22, color: '#aaa' }}>
             <span>Bitcoin Only</span>
             <span style={{ color: '#333' }}>·</span>
-            <span>Bali, Indonesia</span>
+            <span>Singapore</span>
             <span style={{ color: '#333' }}>·</span>
             <span>Open Source</span>
           </div>

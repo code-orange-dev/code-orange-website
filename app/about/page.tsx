@@ -39,7 +39,7 @@ const VALUES = [
   {
     icon: '🌴',
     title: 'Built for Asia',
-    desc: 'We\'re based in Bali because Asia needs more Bitcoin builders. We\'re here for the long game.',
+    desc: 'We\'re headquartered in Singapore because Asia needs more Bitcoin builders. We\'re here for the long game.',
   },
 ]
 
@@ -71,8 +71,8 @@ export default function AboutPage() {
                   Developers were interested but didn&apos;t know where to start. Bitcoiners were stacking but relying on custodians. Node runners were rare. Open source contributors were even rarer.
                 </p>
                 <p>
-                  We built Code Orange to fix that, starting right here in{' '}
-                  <span className="text-white font-medium">Canggu, Bali, Indonesia</span>, and expanding online and across the region — with workshops in Thai, Vietnamese, Indonesian, Malay, English, and Mandarin.
+                  We built Code Orange to fix that, starting in Bali and now headquartered in{' '}
+                  <span className="text-white font-medium">Singapore</span>, expanding online and across the region — with workshops in Thai, Vietnamese, Indonesian, Malay, English, and Mandarin.
                 </p>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
                   <span className="badge badge-orange text-xs">
-                    <MapPin className="w-3 h-3" /> Code Orange Dev School, Canggu
+                    <MapPin className="w-3 h-3" /> Code Orange Dev School
                   </span>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-text-muted leading-relaxed">
                 <p>
-                  Our in-person workshops and events are hosted at Code Orange Dev School in Canggu, Bali, Indonesia, one of Southeast Asia&apos;s most active Bitcoin community spaces.
+                  Code Orange Dev School is headquartered in Singapore, with in-person workshops and events hosted with partner spaces like Bitcoin House Bali — some of Southeast Asia&apos;s most active Bitcoin community spaces.
                 </p>
                 <p>
                   The space is equipped with hardware wallets, ASIC miners, Raspberry Pi nodes, and all the tools needed for hands-on Bitcoin education. Real hardware, real practice.
@@ -179,7 +179,7 @@ export default function AboutPage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
-                  'Canggu, Bali 🌴',
+                  'Singapore 🇸🇬',
                   'Hardware Labs',
                   'Node Farm',
                   'Open to all',

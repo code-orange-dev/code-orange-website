@@ -102,7 +102,7 @@ export default function Footer() {
                   <p className="text-white text-sm font-medium group-hover:text-orange-DEFAULT transition-colors">
                     Code Orange Dev School
                   </p>
-                  <p className="text-text-muted text-xs">Canggu, Bali, Indonesia 🇮🇩</p>
+                  <p className="text-text-muted text-xs">Singapore 🇸🇬</p>
                 </div>
               </a>
 
@@ -225,7 +225,7 @@ export default function Footer() {
               '🌿 Open Source',
               '🛡️ No KYC',
               '⚡ Lightning Native',
-              '🌴 Bali, Indonesia',
+              '🇸🇬 Singapore',
               '🦞 Nostr Native',
             ].map((item) => (
               <span key={item} className="text-text-dim text-xs font-mono whitespace-nowrap shrink-0">
@@ -241,7 +241,7 @@ export default function Footer() {
         <div className="container-custom py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-text-dim text-xs">
-              © {new Date().getFullYear()} Code Orange Dev School · Built with ⚡ in Bali, Indonesia
+              © {new Date().getFullYear()} Code Orange Dev School · Built with ⚡ in Singapore
             </p>
             <BlockHeight />
           </div>

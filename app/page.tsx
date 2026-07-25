@@ -76,7 +76,7 @@ const TICKER_ITEMS = [
   '🦀 Nostr Native',
   '⛏️ Bitcoin Mining',
   '🔐 Privacy Tools',
-  '🌴 Bali, Indonesia',
+  '🇸🇬 Singapore',
   '🧡 Open Source',
   '🤝 Community First',
 ]
@@ -300,7 +300,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <span className="badge badge-orange text-xs">
-                    <MapPin className="w-3 h-3" /> Code Orange Dev School, Canggu
+                    <MapPin className="w-3 h-3" /> Code Orange Dev School
                   </span>
                 </div>
               </div>
@@ -335,15 +335,15 @@ export default function HomePage() {
                   Southeast Asia is one of the fastest-growing regions for Bitcoin adoption, but it lacks the developers, node runners, and technical educators to support it.
                 </p>
                 <p>
-                  Code Orange was built in Bali to change that. We run hands-on cohorts, weekly workshops, and in-person sessions at{' '}
-                  <span className="text-white">Code Orange Dev School in Canggu, Bali, Indonesia</span> to turn regular people into sovereign Bitcoiners and capable builders.
+                  Code Orange was built in Bali to change that. Now headquartered in{' '}
+                  <span className="text-white">Singapore</span>, we run hands-on cohorts, weekly workshops, and in-person sessions across the region to turn regular people into sovereign Bitcoiners and capable builders.
                 </p>
                 <p>
                   <span className="text-orange-DEFAULT font-semibold">Bitcoin only. No fluff.</span> Just deep, practical Bitcoin education for people who want to strengthen the network.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {['Bitcoin Only', 'Open Source', 'Community Run', 'Bali Based'].map(tag => (
+                {['Bitcoin Only', 'Open Source', 'Community Run', 'Singapore Based'].map(tag => (
                   <span key={tag} className="badge badge-white">{tag}</span>
                 ))}
               </div>
@@ -866,7 +866,7 @@ export default function HomePage() {
               <span className="text-gradient-orange">is our backyard.</span>
             </h2>
             <p className="text-text-muted text-lg max-w-xl mx-auto">
-              Based in Bali, active across the region. We partner with Bitcoin community hubs, learning centers, and houses to bring technical education where it&apos;s needed most.
+              Based in Singapore, active across the region. We partner with Bitcoin community hubs, learning centers, and houses to bring technical education where it&apos;s needed most.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">

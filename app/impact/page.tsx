@@ -280,7 +280,7 @@ export default function ImpactPage() {
                 Fund the pipeline, not the overhead.
               </h2>
               <p className="text-text-muted leading-relaxed mb-8">
-                Code Orange is grant- and donation-funded, and runs lean from Bali. Every dollar
+                Code Orange is grant- and donation-funded, and runs lean from Singapore. Every dollar
                 turns curious developers across Southeast Asia into merged Bitcoin open source
                 contributors. Support us directly in sats, or reach out about partnership and
                 grant collaboration.

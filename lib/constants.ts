@@ -8,7 +8,7 @@ export const SITE = {
   description:
     "Bitcoin lacks developers and node runners in Asia. Code Orange fixes this, training developers and bitcoiners into builders who strengthen Bitcoin's network through advanced self-custody, node running, and community leadership.",
   url: 'https://codeorange.dev',
-  location: 'Canggu, Bali, Indonesia',
+  location: 'Singapore',
   email: 'hello@codeorange.dev',
 }
 

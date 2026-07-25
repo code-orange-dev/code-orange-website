@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   keywords: [
     'bitcoin developer school',
     'bitcoin education',
-    'bitcoin bali',
+    'bitcoin singapore',
     'bitcoin southeast asia',
     'learn bitcoin',
     'bitcoin workshops',

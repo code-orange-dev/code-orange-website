@@ -17,9 +17,8 @@ export default function JsonLd() {
     email: SITE.email,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Canggu',
-      addressRegion: 'Bali',
-      addressCountry: 'ID',
+      addressLocality: 'Singapore',
+      addressCountry: 'SG',
     },
     sameAs: [
       SOCIAL.twitter,
@@ -30,6 +29,7 @@ export default function JsonLd() {
       `https://njump.me/${SOCIAL.nostr.npub}`,
     ],
     areaServed: [
+      'Singapore',
       'Indonesia',
       'Malaysia',
       'Thailand',
