@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code Orange Dev School - Asia's Bitcoin Developer School</title>
+<meta name="description" content="Bitcoin lacks developers and node runners in Asia. Code Orange fixes this - hands-on cohorts, workshops, and open source contribution, from Singapore.">
+<meta name="theme-color" content="#F7931A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Code Orange Dev School">
+<meta property="og:url" content="https://codeorange.dev/">
+<meta property="og:title" content="Code Orange Dev School - Asia's Bitcoin Developer School">
+<meta property="og:description" content="Bitcoin lacks developers and node runners in Asia. Code Orange fixes this - hands-on cohorts, workshops, and open source contribution, from Singapore.">
+<meta property="og:image" content="https://codeorange.dev/assets/og-codeorange-workshop.jpg">
+<meta property="og:image:secure_url" content="https://codeorange.dev/assets/og-codeorange-workshop.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Code Orange Dev School Bitcoin workshop in Bali">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Code Orange Dev School - Asia's Bitcoin Developer School">
+<meta name="twitter:description" content="Bitcoin lacks developers and node runners in Asia. Code Orange fixes this - hands-on cohorts, workshops, and open source contribution, from Singapore.">
+<meta name="twitter:image" content="https://codeorange.dev/assets/og-codeorange-workshop.jpg">
+<script src="./support.js?v=20260612b"></script>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon-bitcoin.svg">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0B1220; }
+  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: rgba(247,147,26,0.35); color: #F5F1EA; }
+  @keyframes co-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes co-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  [data-gallery-frame] > img {
+    position: absolute !important;
+    inset: 0 -5px 0 -5px !important;
+    width: calc(100% + 10px) !important;
+    max-width: none !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  /* ── Mobile layout overrides (media queries can't be inline) ── */
+  @media (max-width: 880px) {
+    [data-mq="announce"] { flex-direction: column !important; gap: 2px !important; padding: 8px 16px !important; font-size: 12px !important; text-align: center !important; }
+    [data-mq="header-inner"] { height: 64px !important; padding: 0 16px !important; }
+    [data-mq="logo-img"] { height: 46px !important; }
+    [data-mq="nav-links"] { display: none !important; }
+    [data-mq="nav-mobile"] { display: flex !important; }
+    [data-mq="hero-wrap"] { padding: 48px 20px 0 !important; }
+    [data-mq="hero-grid"] { grid-template-columns: 1fr !important; gap: 36px !important; }
+    [data-mq="stats"] { grid-template-columns: repeat(2, 1fr) !important; gap: 24px 16px !important; margin-top: 48px !important; padding: 28px 0 36px !important; }
+    [data-mq="stats"] > div > span:first-child { font-size: 34px !important; }
+    [data-mq="cols2"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+    [data-pad="card"] { padding: 28px 20px 32px !important; }
+    [data-mq="gallery"] { grid-template-columns: 1fr !important; grid-auto-rows: 220px !important; }
+    [data-mq="gallery"] > div { grid-column: span 1 !important; grid-row: span 1 !important; }
+    [data-mq="event-row"] { grid-template-columns: 1fr !important; gap: 12px !important; padding: 20px !important; }
+    [data-mq="event-row"] > span:last-child { justify-self: start; }
+    [data-mq="footer-grid"] { grid-template-columns: 1fr !important; gap: 44px !important; padding-bottom: 48px !important; }
+    [data-mq="mission-video"] { height: 300px !important; }
+    [data-mq="float-badge"] { left: 14px !important; bottom: 14px !important; padding: 12px 16px !important; }
+    [data-pad="lg"] { padding: 72px 20px !important; }
+    [data-pad="lgb"] { padding: 0 20px 72px !important; }
+    [data-pad="mid"] { padding: 64px 20px !important; }
+    [data-pad="cta"] { padding: 96px 20px !important; }
+    [data-pad="foot"] { padding: 56px 20px 0 !important; }
+  }
+  @media (max-width: 560px) {
+    [data-mq="btn-discord"] { display: none !important; }
+    [data-mq="btn-row"] { flex-direction: column !important; }
+    [data-mq="btn-row"] a { width: 100% !important; text-align: center !important; box-sizing: border-box !important; }
+  }
+</style>
+</helmet>
+
+<div style="background: #0B1220; color: #F5F1EA; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <!-- ══════════ ANNOUNCE BAR ══════════ -->
+  <a href="/rawbit" data-screen-label="Announce bar" data-mq="announce" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #F7931A; color: #0B1220; text-decoration: none; padding: 9px 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.01em;" style-hover="background: #FFB347;">
+    <span>⚡ rawBit cohort is live now · Bitcoin Privacy Track open for enrollment</span>
+    <span style="text-decoration: underline; text-underline-offset: 3px;">Apply →</span>
+  </a>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header data-screen-label="Header" style="position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div data-mq="header-inner" style="max-width: 1240px; margin: 0 auto; padding: 0 32px; height: 100px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="#top" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
+        <img src="assets/logo-white.png" alt="Code Orange Dev School" data-mq="logo-img" style="height: 90px; width: auto; display: block;">
+      </a>
+      <nav data-mq="nav-links" style="display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500;">
+        <a href="/programs" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">Programs</a>
+        <a href="/consulting" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">Consulting</a>
+        <a href="/fellowships" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">Fellowships</a>
+        <a href="/calendar" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">Calendar</a>
+        <a href="/community" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">Community</a>
+        <a href="/impact" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">Impact</a>
+        <a href="/about" style="color: #C8CDD9; text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color 120ms; white-space: nowrap;" style-hover="color: #F7931A;">About</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+        <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" data-mq="btn-discord" style="color: #F5F1EA; text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms; white-space: nowrap;" style-hover="border-color: #F7931A; color: #F7931A;">Discord</a>
+        <a href="/apply" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 14px; font-weight: 700; padding: 10px 20px; border-radius: 8px; transition: background 120ms; white-space: nowrap;" style-hover="background: #FFB347;">Apply Now</a>
+      </div>
+    </div>
+    <div data-mq="nav-mobile" style="display: none; align-items: center; gap: 8px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none;">
+      <a href="/programs" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Programs</a>
+      <a href="/consulting" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Consulting</a>
+      <a href="/fellowships" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Fellowships</a>
+      <a href="/calendar" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Calendar</a>
+      <a href="/community" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Community</a>
+      <a href="/impact" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Impact</a>
+      <a href="/about" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">About</a>
+    </div>
+  </header>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section id="top" data-screen-label="Hero" style="position: relative; overflow: hidden; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px;">
+    <div style="position: absolute; inset: 0; pointer-events: none;">
+      <video ref="{{ heroVideoRef }}" src="{{ heroVideoSrc }}" autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"></video>
+      <div style="position: absolute; inset: 0; background-color: rgba(11,18,32,0.72); background-image: linear-gradient(180deg, rgba(11,18,32,0) 0%, rgba(11,18,32,0.35) 70%, #0B1220 100%), linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px;"></div>
+    </div>
+    <div style="position: absolute; top: -120px; right: -80px; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle, rgba(247,147,26,0.13) 0%, transparent 65%); pointer-events: none;"></div>
+    <div data-mq="hero-wrap" style="max-width: 1240px; margin: 0 auto; padding: 96px 32px 0; position: relative;">
+      <div data-mq="hero-grid" style="display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 64px; align-items: center;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+            <span style="display: inline-block; width: 28px; height: 1px; background: #F7931A;"></span>
+            <span>Asia's Bitcoin Developer School · Singapore 🇸🇬</span>
+          </div>
+          <h1 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 28px; color: #F5F1EA; text-wrap: pretty;">A Bitcoin OSS contributor pipeline <span style="color: #F7931A;">with a fellowship layer.</span></h1>
+          <p style="font-size: 18px; line-height: 1.65; color: #C8CDD9; margin: 0 0 36px; max-width: 540px; text-wrap: pretty;">Bitcoin lacks developers and node runners in Asia. We fix this. Train to become a builder who strengthens the network - through advanced self-custody, node running, and open source contribution.</p>
+          <div data-mq="btn-row" style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 16px; font-weight: 700; padding: 15px 30px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;" style-active="transform: scale(0.98);">Join Discord, It's Free</a>
+            <a href="#programs" style="color: #F5F1EA; text-decoration: none; font-size: 16px; font-weight: 600; padding: 15px 30px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Browse Programs</a>
+          </div>
+        </div>
+        <div style="border-radius: 20px; background: #0F1A2E; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 60px rgba(0,0,0,0.45); overflow: hidden;">
+          <div style="display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.08); background: #12213B;">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F56;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #FFBD2E;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #27C93F;"></span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6; margin-left: 10px;">student@codeorange: ~</span>
+          </div>
+          <div style="padding: 24px 24px 28px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.9; min-height: 264px;">{{ terminalEl }}</div>
+        </div>
+      </div>
+      <div data-mq="stats" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 80px; padding: 36px 0 44px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Special Elite', monospace; font-size: 44px; line-height: 1; color: #F7931A;">5+</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8C94A6;">Cohorts Run</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Special Elite', monospace; font-size: 44px; line-height: 1; color: #F7931A;">50+</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8C94A6;">Graduates</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Special Elite', monospace; font-size: 44px; line-height: 1; color: #F7931A;">13</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8C94A6;">Active Devs</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: 'Special Elite', monospace; font-size: 44px; line-height: 1; color: #F7931A;">8+</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8C94A6;">Countries</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MARQUEE ══════════ -->
+  <div data-screen-label="Marquee" style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); background: #0F1A2E; overflow: hidden; padding: 16px 0;">{{ marqueeEl }}</div>
+
+  <!-- ══════════ MISSION ══════════ -->
+  <section id="mission" data-screen-label="Mission" data-pad="lg" style="max-width: 1240px; margin: 0 auto; padding: 140px 32px; scroll-margin-top: 96px;">
+    <div data-mq="cols2" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; align-items: center;">
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span style="color: #F7931A;">/</span>The_Mission<span style="color: #F7931A;">_</span></div>
+        <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(34px, 3.4vw, 52px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 28px; color: #F5F1EA;">Bitcoin needs more builders in Asia.</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #C8CDD9; margin: 0 0 18px; text-wrap: pretty;">Southeast Asia is one of the fastest-growing regions for Bitcoin adoption - but it lacks the developers, node runners, and technical educators to support it.</p>
+        <p style="font-size: 17px; line-height: 1.65; color: #C8CDD9; margin: 0 0 18px; text-wrap: pretty;">Code Orange was built in Bali to change that. Now headquartered in Singapore, we run hands-on cohorts, weekly workshops, and in-person sessions across the region to turn regular people into sovereign bitcoiners and capable builders.</p>
+        <p style="font-size: 17px; line-height: 1.65; color: #F5F1EA; margin: 0 0 32px; font-weight: 500;">Bitcoin only. No fluff. Just deep, practical education for people who want to strengthen the network.</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F7931A; padding: 8px 16px; border: 1px solid rgba(247,147,26,0.4); border-radius: 999px;">₿ Bitcoin Only</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;">🌿 Open Source</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;">🤝 Community Run</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;">🇸🇬 Singapore Based</span>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 60px rgba(0,0,0,0.45);">
+          <video ref="{{ videoRef }}" src="{{ videoSrc }}" autoplay muted loop playsinline data-mq="mission-video" style="display: block; width: 100%; height: 480px; object-fit: cover; background: #0F1A2E;"></video>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: #12213B; border-top: 1px solid rgba(255,255,255,0.08);">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6;">Code Orange Dev School</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #F7931A;">🇸🇬 Singapore</span>
+          </div>
+        </div>
+        <div data-mq="float-badge" style="position: absolute; bottom: 64px; left: -36px; background: #0B1220; border: 1px solid rgba(247,147,26,0.5); border-radius: 12px; padding: 18px 24px; box-shadow: 0 8px 32px rgba(247,147,26,0.25); display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'Special Elite', monospace; font-size: 36px; line-height: 1; color: #F7931A;">50+</span>
+          <span style="font-size: 13px; color: #C8CDD9;">graduates building on Bitcoin</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 2026 SPOTLIGHT ══════════ -->
+  <section data-screen-label="Privacy Track spotlight" data-pad="lgb" style="max-width: 1240px; margin: 0 auto; padding: 0 32px 140px;">
+    <div style="border-radius: 20px; background: #0F1A2E; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 60px rgba(0,0,0,0.45); overflow: hidden;">
+      <div style="display: flex; align-items: center; flex-wrap: wrap; row-gap: 8px; gap: 8px; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); background: #12213B;">
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F56;"></span>
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #FFBD2E;"></span>
+        <span style="width: 12px; height: 12px; border-radius: 50%; background: #27C93F;"></span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6; margin-left: 10px;">~/2026-focus/privacy-track.sh</span>
+        <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0B1220; background: #F7931A; padding: 4px 10px; border-radius: 999px;">New · 2026 Focus</span>
+      </div>
+      <div data-mq="cols2" data-pad="card" style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; padding: 48px 48px 52px; align-items: center;">
+        <div>
+          <h3 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(28px, 2.6vw, 40px); line-height: 1.12; margin: 0 0 20px; color: #F5F1EA;">🔐 Bitcoin Privacy Developer Track</h3>
+          <p style="font-size: 16px; line-height: 1.65; color: #C8CDD9; margin: 0 0 28px; text-wrap: pretty;">24 bi-weekly sessions. 12 months. A contribution-first curriculum covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution - no exceptions.</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C8CDD9; padding: 6px 12px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">Silent Payments</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C8CDD9; padding: 6px 12px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">Payjoin</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C8CDD9; padding: 6px 12px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">Floresta</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C8CDD9; padding: 6px 12px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">Fedimint</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C8CDD9; padding: 6px 12px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">Lightning</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C8CDD9; padding: 6px 12px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">CoinJoin</span>
+          </div>
+          <a href="/privacy-track" style="display: inline-block; background: #F7931A; color: #0B1220; text-decoration: none; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;">View full curriculum →</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid rgba(255,255,255,0.08);">
+            <img src="assets/photo-workshop-screen.jpeg" alt="Code Orange session presenting at a meetup in Canggu" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,18,32,0) 40%, rgba(11,18,32,0.65) 100%);"></div>
+            <span style="position: absolute; bottom: 10px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.78); padding: 5px 10px; border-radius: 999px;">📡 Live session · Canggu</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Special Elite', monospace; font-size: 38px; line-height: 1; color: #F7931A;">24</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">Sessions</span>
+          </div>
+          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Special Elite', monospace; font-size: 38px; line-height: 1; color: #F7931A;">12mo</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">Duration</span>
+          </div>
+          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Special Elite', monospace; font-size: 38px; line-height: 1; color: #F7931A;">5–8</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">PRs / grad</span>
+          </div>
+          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: 'Special Elite', monospace; font-size: 38px; line-height: 1; color: #F7931A;">10+</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">Repos</span>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PROGRAMS ══════════ -->
+  <section id="programs" data-screen-label="Programs" data-pad="lgb" style="max-width: 1240px; margin: 0 auto; padding: 0 32px 140px; scroll-margin-top: 96px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Programs<span>_</span></div>
+        <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(34px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 16px; color: #F5F1EA;">Pick your path.</h2>
+        <p style="font-size: 17px; line-height: 1.6; color: #8C94A6; margin: 0; max-width: 520px;">Whether you're a developer or a curious bitcoiner, there's a program that meets you where you are.</p>
+      </div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+          <button onClick="{{ f.onClick }}" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer; transition: all 120ms; background: {{ f.bg }}; color: {{ f.color }}; border: 1px solid {{ f.border }};">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+      <sc-for list="{{ visiblePrograms }}" as="p" hint-placeholder-count="4">
+        <a href="{{ p.href }}" target="{{ p.target }}" rel="noopener" style="display: flex; flex-direction: column; background: #12213B; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 16px 16px 24px; text-decoration: none; transition: all 240ms cubic-bezier(0.2, 0.8, 0.2, 1);" style-hover="transform: translateY(-4px); border-color: rgba(247,147,26,0.55); box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+          <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 18px;">
+            <img src="{{ p.photo }}" alt="{{ p.name }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; inset: 0; background: rgba(11,18,32,0.45);"></div>
+            <span style="position: absolute; top: 12px; left: 12px; font-size: 22px;">{{ p.emoji }}</span>
+            <span style="position: absolute; bottom: 12px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.8); padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16);">{{ p.duration }}</span>
+          </div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #F7931A; margin-bottom: 10px;">{{ p.label }}</span>
+          <span style="font-family: 'Special Elite', 'Courier New', monospace; font-size: 24px; line-height: 1.15; color: #F5F1EA; margin-bottom: 12px;">{{ p.name }}</span>
+          <span style="font-size: 14px; line-height: 1.6; color: #8C94A6; margin-bottom: 18px; flex: 1;">{{ p.desc }}</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #F7931A;">Learn more →</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 40px;">
+      <a href="/programs" style="color: #F5F1EA; text-decoration: none; font-size: 15px; font-weight: 600; padding: 14px 32px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">View all 9 programs →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ RECURRING EVENTS ══════════ -->
+  <section id="events" data-screen-label="Recurring events" style="background: #0F1A2E; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); scroll-margin-top: 96px;">
+    <div data-pad="mid" style="max-width: 1240px; margin: 0 auto; padding: 120px 32px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Recurring_Events<span>_</span></div>
+          <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(34px, 3.4vw, 52px); line-height: 1.08; margin: 0; color: #F5F1EA;">Always something happening.</h2>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="/calendar" style="color: #F5F1EA; text-decoration: none; font-size: 14px; font-weight: 600; padding: 11px 20px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">View Calendar</a>
+          <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 14px; font-weight: 700; padding: 11px 20px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;">Join Discord</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; background: #0B1220;">
+        <sc-for list="{{ events }}" as="ev" hint-placeholder-count="6">
+          <a href="{{ ev.href }}" target="{{ ev.target }}" rel="noopener" data-mq="event-row" style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 26px 32px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 120ms;" style-hover="background: #0F1A2E;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 18px;">{{ ev.emoji }}</span>
+                <span style="font-family: 'Special Elite', 'Courier New', monospace; font-size: 21px; color: #F5F1EA;">{{ ev.name }}</span>
+              </span>
+              <span style="font-size: 14px; line-height: 1.55; color: #8C94A6; max-width: 560px;">{{ ev.desc }}</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #F7931A;">{{ ev.schedule }}</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6;">{{ ev.host }}</span>
+            </div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{ ev.levelColor }}; border: 1px solid {{ ev.levelBorder }}; padding: 6px 14px; border-radius: 999px; white-space: nowrap;">{{ ev.level }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ GALLERY ══════════ -->
+  <section data-screen-label="Gallery" data-pad="lg" style="max-width: 1240px; margin: 0 auto; padding: 140px 32px;">
+    <div style="text-align: center; margin-bottom: 56px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>In_The_Field<span>_</span></div>
+      <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(34px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 16px; color: #F5F1EA;">Real sessions. Real hardware.</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: #8C94A6; margin: 0 auto; max-width: 560px; text-wrap: pretty;">From ASIC miners on the floor to SeedSigner builds - this is what Bitcoin education looks like.</p>
+    </div>
+    <div data-mq="gallery" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 230px; gap: 16px;">
+      <div data-gallery-frame style="grid-column: span 2; grid-row: span 2; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative;">
+        <img src="assets/workshops/workshop-mining-laptop.jpg" alt="Bitcoin mining lesson with hardware at Code Orange" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <span style="position: absolute; bottom: 14px; left: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.78); padding: 6px 12px; border-radius: 999px;">Mining, nodes and hardware on the table</span>
+      </div>
+      <div data-gallery-frame style="grid-row: span 2; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative;">
+        <img src="assets/workshops/workshop-fellowship-roundtable.jpg" alt="Fellowship roundtable at Code Orange Dev School" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <span style="position: absolute; bottom: 14px; left: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.78); padding: 6px 12px; border-radius: 999px;">Fellowship pipeline roundtable</span>
+      </div>
+      <div data-gallery-frame style="grid-column: span 2; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative;">
+        <img src="assets/workshops/workshop-room-wide.jpg" alt="Code Orange workshop room with students around a table" style="width: 100%; height: 100%; object-fit: cover; display: block; object-position: 50% 60%;">
+        <span style="position: absolute; bottom: 14px; left: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.78); padding: 6px 12px; border-radius: 999px;">Working sessions at Bitcoin House Bali</span>
+      </div>
+      <div style="border-radius: 20px; background: #12213B; border: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
+        <span style="position: absolute; top: -28px; right: -10px; font-size: 140px; line-height: 1; color: rgba(247,147,26,0.12); font-family: 'JetBrains Mono', monospace;">₿</span>
+        <span style="font-family: 'Special Elite', monospace; font-size: 34px; line-height: 1.1; color: #F5F1EA; position: relative;">Hands on, every week.</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6; margin-top: 10px; position: relative;">ASIC miners · SeedSigners · Coldcards · full nodes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ PROOF / DOJO ══════════ -->
+  <section id="impact" data-screen-label="Bitcoin Dojo proof" style="position: relative; overflow: hidden; background: #0F1A2E; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); scroll-margin-top: 96px;">
+    <div style="position: absolute; inset: 0; pointer-events: none;">
+      <img src="assets/photo-cafe-meetup.jpeg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,18,32,0.96) 0%, rgba(15,26,46,0.9) 55%, rgba(15,26,46,0.84) 100%);"></div>
+    </div>
+    <div data-pad="mid" style="max-width: 1240px; margin: 0 auto; padding: 120px 32px; position: relative;">
+      <div data-mq="cols2" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; align-items: start;">
+        <div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Proof_It_Works<span>_</span></div>
+          <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(32px, 3vw, 46px); line-height: 1.1; margin: 0 0 24px; color: #F5F1EA;">Bitcoin Dojo Cohort - 21 graduates.</h2>
+          <p style="font-size: 17px; line-height: 1.65; color: #C8CDD9; margin: 0 0 36px; text-wrap: pretty;">In partnership with the Chaincode Labs BOSS Challenge, we ran an 8-week protocol deep-dive. 49 enrolled. 21 finished with a clear plan to contribute to Bitcoin open source.</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 28px;">
+            <div style="background: #0B1220; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Special Elite', monospace; font-size: 40px; line-height: 1; color: #F7931A;">49</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">👥 Enrolled</span>
+            </div>
+            <div style="background: #0B1220; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Special Elite', monospace; font-size: 40px; line-height: 1; color: #F7931A;">21</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">🎓 Graduated</span>
+            </div>
+            <div style="background: #0B1220; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Special Elite', monospace; font-size: 40px; line-height: 1; color: #F7931A;">8</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">📅 Weeks</span>
+            </div>
+            <div style="background: #0B1220; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-family: 'Special Elite', monospace; font-size: 40px; line-height: 1; color: #F7931A;">100%</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">₿ Bitcoin Only</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; background: #0B1220; border: 1px solid rgba(247,147,26,0.35); border-radius: 12px; padding: 16px 20px;">
+            <span style="font-size: 20px;">🔗</span>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14px; font-weight: 600; color: #F5F1EA;">Part of the Chaincode Labs BOSS Challenge</span>
+              <span style="font-size: 13px; color: #8C94A6;">Preparing devs to contribute to Bitcoin open source</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8C94A6; margin: 8px 0 20px;">What we covered</h3>
+          <div style="display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: #0B1220;">
+            <sc-for list="{{ dojoWeeks }}" as="w" hint-placeholder-count="8">
+              <div style="display: flex; gap: 20px; align-items: baseline; padding: 15px 22px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #F7931A; white-space: nowrap; min-width: 58px;">{{ w.wk }}</span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; line-height: 1.55; color: #C8CDD9;">{{ w.topic }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-size: 14px; line-height: 1.6; color: #8C94A6; margin: 20px 4px 0;"><span style="color: #F7931A; font-weight: 600;">What graduates did next →</span> Good First Issues · rawBit cohort · grant applications · open source projects · hackathons</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 4px 0;">
+            <a href="https://github.com/code-orange-dev/impact-report" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Impact report on GitHub</a>
+            <a href="https://github.com/code-orange-dev/PR-tracking-dashboard" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">PR tracker</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ COMMUNITY ══════════ -->
+  <section id="community" data-screen-label="Developer community" data-pad="lg" style="max-width: 1240px; margin: 0 auto; padding: 140px 32px; scroll-margin-top: 96px;">
+    <div style="margin-bottom: 56px; max-width: 720px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Developer_Community<span>_</span></div>
+      <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(34px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 16px; color: #F5F1EA;">We build the community. They build Bitcoin.</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: #8C94A6; margin: 0; text-wrap: pretty;">Mentorship, structured cohorts, and a peer network. Their GitHub work is their own - we champion it.</p>
+    </div>
+    <div style="position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 48px; height: clamp(220px, 36vw, 380px);">
+      <img src="assets/photo-bitcoin-house.jpeg" alt="Community session at Bitcoin House Bali" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,18,32,0.1) 40%, rgba(11,18,32,0.7) 100%);"></div>
+      <span style="position: absolute; bottom: 14px; left: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.78); padding: 6px 12px; border-radius: 999px;">🧡 Community night @ Bitcoin House Bali</span>
+    </div>
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #27C93F; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: #27C93F;"></span>
+      <span>Active - PRs merged or approved</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 48px;">
+      <sc-for list="{{ contributors }}" as="c" hint-placeholder-count="7">
+        <a href="{{ c.href }}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 8px; background: #12213B; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 24px; text-decoration: none; transition: all 240ms cubic-bezier(0.2, 0.8, 0.2, 1);" style-hover="transform: translateY(-3px); border-color: rgba(247,147,26,0.55);">
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <span style="font-size: 18px;">{{ c.flag }}</span>
+            <span style="font-family: 'Special Elite', monospace; font-size: 20px; color: #F5F1EA;">{{ c.name }}</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377;">{{ c.handle }}</span>
+          </div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #F7931A;">{{ c.project }}</span>
+          <span style="font-size: 13.5px; line-height: 1.55; color: #8C94A6;">{{ c.desc }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 24px 28px; background: #0F1A2E; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #FFBD2E;">Emerging - first PRs in progress</span>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <sc-for list="{{ emerging }}" as="e" hint-placeholder-count="6">
+          <a href="{{ e.href }}" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">{{ e.flag }} {{ e.name }}</a>
+        </sc-for>
+      </div>
+      <a href="https://github.com/code-orange-dev/community" target="_blank" rel="noopener" style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #F7931A; text-decoration: none;" style-hover="color: #FFB347;">Full community on GitHub →</a>
+    </div>
+  </section>
+
+  <!-- ══════════ REGION ══════════ -->
+  <section data-screen-label="Regional reach" data-pad="lgb" style="max-width: 1240px; margin: 0 auto; padding: 0 32px 140px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 44px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Regional_Reach<span>_</span></div>
+        <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(32px, 3vw, 46px); line-height: 1.1; margin: 0; color: #F5F1EA;">Southeast Asia is our backyard.</h2>
+      </div>
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7; color: #8C94A6; margin: 0; max-width: 380px;">Languages we teach in: 🇬🇧 English · 🇮🇩 Bahasa · 🇲🇾 Malay · 🇹🇭 Thai · 🇻🇳 Vietnamese · 🇨🇳 Mandarin</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px;">
+      <sc-for list="{{ regions }}" as="r" hint-placeholder-count="6">
+        <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; transition: border-color 240ms;" style-hover="border-color: rgba(247,147,26,0.45);">
+          <span style="font-size: 28px;">{{ r.flag }}</span>
+          <span style="font-weight: 700; font-size: 16px; color: #F5F1EA;">{{ r.name }}</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6;">{{ r.cities }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══════════ OPEN CURRICULUM ══════════ -->
+  <section data-screen-label="Open curriculum" data-pad="lgb" style="max-width: 1240px; margin: 0 auto; padding: 0 32px 140px;">
+    <div data-mq="cols2" data-pad="card" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 56px; align-items: center; background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 52px 56px; position: relative; overflow: hidden;">
+      <span style="position: absolute; bottom: -60px; right: 280px; font-size: 280px; line-height: 1; color: rgba(247,147,26,0.07); font-family: 'JetBrains Mono', monospace; pointer-events: none;">₿</span>
+      <div style="position: relative;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 18px;"><span>/</span>For_Community_Leaders<span>_</span></div>
+        <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(28px, 2.6vw, 40px); line-height: 1.12; margin: 0 0 18px; color: #F5F1EA;">Run a Code Orange workshop in your city.</h2>
+        <p style="font-size: 16px; line-height: 1.65; color: #C8CDD9; margin: 0 0 28px; text-wrap: pretty;">Every workshop we run has free, open-source slides - beginner to advanced, editable, localizable. Bring Bitcoin education to Jakarta, Bangkok, KL, HCMC, Manila - anywhere. We back you up.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://github.com/code-orange-dev/curriculum" target="_blank" rel="noopener" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 15px; font-weight: 700; padding: 13px 26px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;">Get the slides</a>
+          <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" style="color: #F5F1EA; text-decoration: none; font-size: 15px; font-weight: 600; padding: 13px 26px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Ask in Discord</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; position: relative;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 10; border: 1px solid rgba(255,255,255,0.08); margin-bottom: 8px;">
+          <img src="assets/workshops/workshop-mining-kit.jpg" alt="Code Orange workshop banner and ASIC miner on the table" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,18,32,0) 45%, rgba(11,18,32,0.6) 100%);"></div>
+          <span style="position: absolute; bottom: 10px; left: 12px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #F5F1EA; background: rgba(11,18,32,0.78); padding: 5px 10px; border-radius: 999px;">The workshop kit travels</span>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Free for any community</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Beginner → advanced curriculum</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Localize into your language</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">We help promote your event</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Join the host network in Discord</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONSULTING CTA ══════════ -->
+  <section data-screen-label="Code Orange Consulting" data-pad="lgb" style="max-width: 1240px; margin: 0 auto; padding: 0 32px 140px;">
+    <div data-mq="cols2" data-pad="card" style="display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 52px; align-items: center; background: linear-gradient(145deg, rgba(247,147,26,0.12), #12213B 38%, #0F1A2E 100%); border: 1px solid rgba(247,147,26,0.24); border-radius: 20px; padding: 52px 56px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -160px; right: -120px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(247,147,26,0.16), transparent 68%); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 18px;"><span>/</span>Code_Orange_Consulting<span>_</span></div>
+        <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(30px, 3vw, 48px); line-height: 1.1; margin: 0 0 18px; color: #F5F1EA;">Private Bitcoin guidance for real-world custody.</h2>
+        <p style="font-size: 16.5px; line-height: 1.7; color: #C8CDD9; margin: 0 0 28px; text-wrap: pretty;">A $100 session for self-custody, multisig, inheritance, node running, privacy, mining, and practical Bitcoin education. Clear answers, no product pressure, and you always stay in control of your keys.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://calendar.app.google/FdScUQokVkKVQK3F8" target="_blank" rel="noopener" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 15px; font-weight: 700; padding: 13px 26px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;">Book $100 Session</a>
+          <a href="/consulting" style="color: #F5F1EA; text-decoration: none; font-size: 15px; font-weight: 600; padding: 13px 26px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">View Consulting</a>
+        </div>
+      </div>
+      <div style="position: relative; display: grid; gap: 12px;">
+        <div style="background: rgba(8,13,24,0.72); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px;">
+          <span style="display: inline-flex; width: max-content; padding: 8px 12px; border: 1px solid rgba(247,147,26,0.36); border-radius: 999px; color: #F7931A; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; margin-bottom: 16px;">$100 per session</span>
+          <div style="display: grid; gap: 12px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Self-custody setup and recovery checks</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Multisig, inheritance, and family plans</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Node, wallet, privacy, and mining guidance</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #C8CDD9;">Founder and team Bitcoin education</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FAQ ══════════ -->
+  <section id="faq" data-screen-label="FAQ" data-pad="lgb" style="max-width: 880px; margin: 0 auto; padding: 0 32px 140px; scroll-margin-top: 96px;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>FAQ<span>_</span></div>
+      <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(32px, 3vw, 46px); line-height: 1.1; margin: 0 0 14px; color: #F5F1EA;">Common questions.</h2>
+      <p style="font-size: 16px; color: #8C94A6; margin: 0;">Anything else? Just ask in Discord - we read every message.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; background: #0F1A2E;">
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="6">
+        <div style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <button onClick="{{ faq.toggle }}" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; text-align: left; background: transparent; border: none; cursor: pointer; padding: 24px 30px; transition: background 120ms;" style-hover="background: rgba(255,255,255,0.02);">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #F5F1EA;">{{ faq.q }}</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 20px; color: #F7931A; flex-shrink: 0;">{{ faq.icon }}</span>
+          </button>
+          <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 0 30px 26px; font-size: 15.5px; line-height: 1.7; color: #C8CDD9; max-width: 720px;">{{ faq.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══════════ FINAL CTA ══════════ -->
+  <section data-screen-label="Final CTA" style="position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.08);">
+    <div style="position: absolute; inset: 0; pointer-events: none;">
+      <img src="assets/photo-workshop-screen.jpeg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;">
+      <div style="position: absolute; inset: 0; background-color: rgba(11,18,32,0.78); background-image: linear-gradient(180deg, #0B1220 0%, rgba(11,18,32,0) 25%, rgba(11,18,32,0) 75%, #0B1220 100%), linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px;"></div>
+    </div>
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 900px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(247,147,26,0.14) 0%, transparent 65%); pointer-events: none;"></div>
+    <div data-pad="cta" style="max-width: 880px; margin: 0 auto; padding: 150px 32px; text-align: center; position: relative;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 24px;">₿ Bitcoin Only.</div>
+      <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(40px, 5vw, 72px); line-height: 1.05; margin: 0 0 24px; color: #F5F1EA;">Ready to become a Bitcoin builder?</h2>
+      <p style="font-size: 18px; line-height: 1.65; color: #C8CDD9; margin: 0 auto 40px; max-width: 540px; text-wrap: pretty;">Join the next cohort, drop into a workshop, or just come say hello in Discord. The community is free and always open.</p>
+      <div data-mq="btn-row" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 17px; font-weight: 700; padding: 17px 36px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;" style-active="transform: scale(0.98);">Join Discord, It's Free</a>
+        <a href="/apply" style="color: #F5F1EA; text-decoration: none; font-size: 17px; font-weight: 600; padding: 17px 36px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Apply to a Program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer data-screen-label="Footer" style="border-top: 1px solid rgba(255,255,255,0.08); background: #070D18;">
+    <div data-pad="foot" style="max-width: 1240px; margin: 0 auto; padding: 80px 32px 0;">
+      <div data-mq="footer-grid" style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 64px; padding-bottom: 64px;">
+        <div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start;">
+          <img src="assets/logo-white.png" alt="Code Orange Dev School" style="height: 51px; width: auto; display: block;">
+          <div style="font-size: 14px; line-height: 1.7; color: #8C94A6;">Code Orange Dev School<br>Singapore 🇸🇬</div>
+          <a href="mailto:hello@codeorange.dev" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; text-decoration: none;" style-hover="color: #F7931A;">hello@codeorange.dev</a>
+          <a href="https://njump.me/npub1gxqyeea3xspkd68mxlxsvvk3gdzdd555u504ynwpdj0ghg503mvq2gydt0" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377; text-decoration: none; word-break: break-all; max-width: 320px;" style-hover="color: #F7931A;">npub1gxqyeea3xspkd68mxlxsv…</a>
+          <div style="display: flex; gap: 10px; margin-top: 6px;">
+            <a href="https://x.com/CodeOrangeDevs" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; text-decoration: none; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">X</a>
+            <a href="https://www.instagram.com/codeorangedevs" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; text-decoration: none; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">IG</a>
+            <a href="https://github.com/code-orange-dev" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; text-decoration: none; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">GitHub</a>
+            <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; text-decoration: none; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Discord</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #F5F1EA; margin: 0 0 20px;">Programs</h4>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <sc-for list="{{ footerPrograms }}" as="fp" hint-placeholder-count="9">
+              <a href="{{ fp.href }}" target="{{ fp.target }}" rel="noopener" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">{{ fp.name }} <span style="color: #5A6377;">· {{ fp.kind }}</span></a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #F5F1EA; margin: 0 0 20px;">School</h4>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="/about" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">About the School</a>
+            <a href="/consulting" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">Consulting</a>
+            <a href="/impact" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">Impact</a>
+            <a href="/community" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">Community</a>
+            <a href="/fellowships" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">Fellowships</a>
+            <a href="/calendar" style="font-size: 14px; color: #8C94A6; text-decoration: none; transition: color 120ms;" style-hover="color: #F7931A;">Events Calendar</a>
+            <a href="https://geyser.fund/project/codeorangedevschool" target="_blank" rel="noopener" style="font-size: 14px; color: #F7931A; text-decoration: none; transition: color 120ms;" style-hover="color: #FFB347;">Support on Geyser ⚡</a>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 0 36px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377;">₿ Bitcoin Only · 🔑 Self Custody · 🛡️ No KYC · ⚡ Lightning Native · 🦞 Nostr Native</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377;">© 2026 Code Orange Dev School · Built with ⚡ in Singapore</span>
+        <a href="https://mempool.space" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #F7931A; text-decoration: none;" style-hover="color: #FFB347;">⛏ block {{ blockHeight }}</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    filter: 'all',
+    faqOpen: 0,
+    termLine: 0,
+    termChar: 0,
+    termDone: false,
+    blockHeight: '-',
+    videoSrc: '',
+    heroVideoSrc: ''
+  };
+
+  termLines = [
+    { text: '$ whoami', kind: 'cmd' },
+    { text: 'bitcoin_builder.apprentice', kind: 'out' },
+    { text: '$ cat mission.txt', kind: 'cmd' },
+    { text: 'Train devs in Asia. Strengthen the network.', kind: 'hi' },
+    { text: '$ ls programs/', kind: 'cmd' },
+    { text: 'rawbit/  privacy-track/  sovereign-bitcoiner/  openclaw/', kind: 'out' },
+    { text: '$ ./apply --cohort rawbit', kind: 'cmd' },
+    { text: '→ application open. see you in canggu 🌴', kind: 'hi' }
+  ];
+
+  videoRef = React.createRef();
+  heroVideoRef = React.createRef();
+
+  loadVideo(file, stateKey, ref) {
+    // Blob workaround: the preview's file server doesn't support Range
+    // requests, which <video src> needs. Works on real hosting too.
+    // React's bare `muted`/`loop` attributes don't set the DOM properties,
+    // and unmuted autoplay is blocked - force them, then play.
+    fetch(file)
+      .then(function (r) { return r.blob(); })
+      .then((b) => this.setState({ [stateKey]: URL.createObjectURL(b) }, () => {
+        const el = ref && ref.current;
+        if (el) { el.muted = true; el.loop = true; el.play().catch(function () {}); }
+      }))
+      .catch(function () {});
+  }
+
+  componentDidMount() {
+    this.loadVideo('assets/co-film.mp4', 'heroVideoSrc', this.heroVideoRef);
+    this.loadVideo('assets/co-workshop-bg.mp4', 'videoSrc', this.videoRef);
+
+    fetch('https://mempool.space/api/blocks/tip/height')
+      .then(function (r) { return r.text(); })
+      .then((t) => {
+        const n = parseInt(t, 10);
+        if (!isNaN(n)) this.setState({ blockHeight: n.toLocaleString('en-US') });
+      })
+      .catch(function () {});
+
+    this.pause = 0;
+    this.timer = setInterval(() => {
+      this.setState((s) => {
+        if (s.termDone) return null;
+        if (this.pause > 0) { this.pause--; return null; }
+        const line = this.termLines[s.termLine];
+        if (!line) return { termDone: true };
+        if (s.termChar < line.text.length) {
+          return { termChar: s.termChar + (line.kind === 'cmd' ? 1 : 3) };
+        }
+        if (s.termLine === this.termLines.length - 1) {
+          clearInterval(this.timer);
+          return { termDone: true };
+        }
+        this.pause = line.kind === 'cmd' ? 6 : 12;
+        return { termLine: s.termLine + 1, termChar: 0 };
+      });
+    }, 36);
+  }
+
+  componentWillUnmount() { clearInterval(this.timer); }
+
+  buildTerminal() {
+    const e = React.createElement;
+    const colors = { cmd: '#F5F1EA', out: '#8C94A6', hi: '#F7931A' };
+    const rows = [];
+    const upto = this.state.termDone ? this.termLines.length : this.state.termLine;
+    for (let i = 0; i < upto; i++) {
+      const l = this.termLines[i];
+      rows.push(e('div', { key: i, style: { color: colors[l.kind], whiteSpace: 'pre-wrap' } }, l.text));
+    }
+    const cursor = e('span', {
+      key: 'cursor',
+      style: { display: 'inline-block', width: '9px', height: '17px', background: '#F7931A', marginLeft: '3px', verticalAlign: 'text-bottom', animation: 'co-blink 1.1s steps(1) infinite' }
+    });
+    if (!this.state.termDone) {
+      const l = this.termLines[this.state.termLine];
+      if (l) {
+        rows.push(e('div', { key: 'cur', style: { color: colors[l.kind], whiteSpace: 'pre-wrap' } },
+          l.text.slice(0, this.state.termChar), cursor));
+      }
+    } else {
+      rows.push(e('div', { key: 'end', style: { color: '#F5F1EA' } }, '$', cursor));
+    }
+    return e('div', null, rows);
+  }
+
+  buildMarquee() {
+    const e = React.createElement;
+    const items = ['₿ Bitcoin Only', '⚡ Lightning Fast', '🛡️ Multisig Security', '🌏 Southeast Asia', '🔑 Self Custody', '📡 Run Your Node', '🦀 Nostr Native', '⛏️ Bitcoin Mining', '🔐 Privacy Tools', '🇸🇬 Singapore', '🧡 Open Source', '🤝 Community First'];
+    const half = (key) => e('div', { key: key, style: { display: 'flex', alignItems: 'center', flexShrink: 0 } },
+      items.map((it, i) => e('span', { key: i, style: { display: 'flex', alignItems: 'center' } },
+        e('span', { style: { fontFamily: "'JetBrains Mono', monospace", fontSize: '13.5px', fontWeight: 500, color: '#C8CDD9', whiteSpace: 'nowrap', padding: '0 18px' } }, it),
+        e('span', { style: { color: 'rgba(247,147,26,0.6)', fontSize: '9px' } }, '◆')
+      ))
+    );
+    return e('div', { style: { display: 'flex', width: 'max-content', animation: 'co-marquee 55s linear infinite' } }, half('a'), half('b'));
+  }
+
+  programs = [
+    { name: 'Bitcoin Privacy Track', label: 'For Developers · Cohort', duration: '12 months', emoji: '🔐', path: 'dev', photo: 'assets/workshops/workshop-privacy-table.jpg', href: '/privacy-track', target: '_self', desc: '24 bi-weekly sessions covering Silent Payments, Payjoin, Floresta, Fedimint, and Lightning privacy. Every session ends with a real open source contribution.' },
+    { name: 'rawBit', label: 'For Developers · Study Cohort', duration: '10 weeks', emoji: '₿', path: 'dev', photo: 'assets/workshops/workshop-site-demo.jpg', href: '/rawbit', target: '_self', desc: 'A protocol deep-dive turning developers into Bitcoin builders - Transactions, Scripts, Taproot, PSBTs, P2P networking. Homework earns sats.' },
+    { name: 'Sovereign Bitcoiner', label: 'For Bitcoiners · Workshop', duration: 'Monthly', emoji: '🛡️', path: 'bitcoiner', photo: 'assets/workshops/workshop-mining-kit.jpg', href: '/programs/sovereign-bitcoiner', target: '_self', desc: 'Deep technical training for real sovereignty - full nodes, multisig, self-custody, inheritance planning, Ecash and Fedimint.' },
+    { name: 'OpenClaw', label: 'For Bitcoiners · Workshop', duration: 'Monthly', emoji: '🦞', path: 'bitcoiner', photo: 'assets/workshops/workshop-room-wide.jpg', href: '/programs/openclaw', target: '_self', desc: 'Hands-on open source workshop. Learn the GitHub contribution workflow and ship your first meaningful PR to the ecosystem.' }
+  ];
+
+  events = [
+    { name: 'Sovereign Bitcoiner Workshop', emoji: '🛡️', desc: 'Full technical sovereignty in 5 weeks - nodes, multisig with Coldcard and SeedSigner, inheritance, Ecash, Fedimint.', schedule: 'Every 2nd Wed · 11:00 UTC', host: 'Discord · by Razor', level: 'Intermediate', href: '/programs/sovereign-bitcoiner', target: '_self' },
+    { name: 'OpenClaw Workshop', emoji: '🦞', desc: 'Build real open source Bitcoin tools alongside working developers. Ship your first meaningful PR, guided step by step.', schedule: 'Every 3rd Wed · 12:00 UTC', host: 'Discord · by Code Orange', level: 'All levels', href: '/programs/openclaw', target: '_self' },
+    { name: 'Bitcoin Privacy with Fedi', emoji: '🔐', desc: 'Practical privacy for everyday bitcoiners - how federated mints work, transacting without a trace, stacking privately.', schedule: 'Every 1st Thu · 11:00 UTC', host: 'Discord · by The Quiet Satoshi', level: 'Beginner', href: '/programs/bitcoin-basics', target: '_self' },
+    { name: 'Bitcoin Reading Club', emoji: '📖', desc: 'Monthly deep-reads of the essential Bitcoin canon. Bring your highlights and your opinions.', schedule: 'Every 4th Wed · 12:00 UTC', host: 'Discord · by Alex', level: 'All levels', href: '/programs/bitcoin-reading-club', target: '_self' },
+    { name: 'Bitcoin Basics', emoji: '🔑', desc: 'Where every serious bitcoiner starts - live on-chain transactions, mempool analysis, keys and wallets. Homework earns sats.', schedule: 'Every 1st Thu · 11:00 UTC', host: 'Discord · by The Quiet Satoshi', level: 'Beginner', href: '/programs/bitcoin-basics', target: '_self' },
+    { name: 'Talk-a-Bit Meetup', emoji: '🤝', desc: 'Free-flowing meetup for bitcoiners across Southeast Asia. No agenda, no slides - in Bahasa and English.', schedule: 'Every 15th · 19:00 WIB', host: 'Discord · by einsamwolf28', level: 'All levels', href: '/programs/talk-a-bit', target: '_self' }
+  ];
+
+  dojoWeeks = [
+    { wk: 'Wk 1–2', topic: 'Finite fields, elliptic curves, secp256k1' },
+    { wk: 'Wk 3', topic: 'ECDSA: signing, verification, the discrete log problem' },
+    { wk: 'Wk 4', topic: 'Bitcoin addresses, SHA256, RIPEMD160, HD wallets' },
+    { wk: 'Wk 5', topic: 'Transactions, UTXO set, sighash flags, timelocks' },
+    { wk: 'Wk 6', topic: 'Bitcoin Script, P2PKH, P2SH, P2WPKH, P2TR' },
+    { wk: 'Wk 7', topic: 'P2P network, mempool propagation, compact blocks' },
+    { wk: 'Wk 8', topic: 'Mining, difficulty adjustment, Stratum V2, Taproot' }
+  ];
+
+  contributors = [
+    { flag: '🇮🇳', name: 'Chaitika', handle: '@chaitika', project: 'Silent Payments (BIP352)', desc: 'silent-pay-wallet and silent-pay-indexer at Bitshala Incubator. Also leads Lightning cohorts in India.', href: 'https://github.com/chaitika' },
+    { flag: '🇺🇦', name: 'Vaan', handle: '@va-an', project: 'rust-bitcoin & bdk-cli', desc: 'Active contributor to the Rust wallet infrastructure used by dozens of production Bitcoin apps.', href: 'https://github.com/va-an' },
+    { flag: '🇷🇴', name: 'Razor', handle: '@RazorBest', project: 'peer-observer', desc: "PRs #390 & #393 merged - 0xB10C's Bitcoin P2P network security monitoring tool. BOSS Challenge participant.", href: 'https://github.com/RazorBest' },
+    { flag: '🇳🇬', name: 'Arowolo', handle: '@Arowolokehinde', project: 'Async Payjoin (BIP77)', desc: "First PR to rust-payjoin approved - one of Bitcoin's most important privacy protocol upgrades.", href: 'https://github.com/Arowolokehinde' },
+    { flag: '🇳🇬', name: 'Psychemist', handle: '@psychemist', project: 'BDK · LDK · BIP375', desc: 'BDK Android WIF sweep tool, BIP375 Go implementation, rust-ldk - wallet, protocol, and Lightning layers.', href: 'https://github.com/psychemist' },
+    { flag: '🇧🇷', name: 'Diegodev', handle: '@0xlaga', project: 'gossip-observer · BINST', desc: 'bitcoin-visuals org, BINST protocol (Taproot + PSBT + ZK) - BTC++ hackathon finalist.', href: 'https://github.com/0xlaga' },
+    { flag: '🇸🇰', name: 'Peter', handle: '@pzafonte', project: 'Bitcoin Core (C++)', desc: 'Contributing to Bitcoin Core and rust-bitcoin. Kernel-Node work under review - the deepest layer of the stack.', href: 'https://github.com/pzafonte' }
+  ];
+
+  emergingDevs = [
+    { flag: '🇮🇳', name: 'Captain Levi', href: 'https://github.com/SIDHARTH20K4' },
+    { flag: '🇰🇪', name: 'Mwihoti', href: 'https://github.com/mwihoti' },
+    { flag: '🇮🇩', name: 'Yongki', href: 'https://github.com/ywiyogo' },
+    { flag: '🇷🇴', name: 'Ilie', href: 'https://github.com/Ilie27' },
+    { flag: '🇿🇲', name: 'Elijahhh', href: 'https://github.com/ElijahMwambazi' },
+    { flag: '🇵🇰', name: 'Muhammad', href: 'https://github.com/muhahahmad68' }
+  ];
+
+  regionsData = [
+    { flag: '🇮🇩', name: 'Indonesia', cities: 'Bali, Jakarta' },
+    { flag: '🇲🇾', name: 'Malaysia', cities: 'Kuala Lumpur' },
+    { flag: '🇹🇭', name: 'Thailand', cities: 'Bangkok, Chiang Mai' },
+    { flag: '🇻🇳', name: 'Vietnam', cities: 'Ho Chi Minh City' },
+    { flag: '🇵🇭', name: 'Philippines', cities: 'Growing' },
+    { flag: '🌐', name: 'Online', cities: 'Discord - global' }
+  ];
+
+  faqData = [
+    { q: 'How much does it cost?', a: 'All Code Orange programs are free for accepted students. We are funded by Bitcoin grants, donations, and partnerships. Contributing back via open source is part of the curriculum - pay it forward, not upfront.' },
+    { q: 'Do I need prior coding experience?', a: 'It depends. rawBit and the Bitcoin Privacy Track expect comfort with at least one programming language. Sovereign Bitcoiner, OpenClaw, Vibe Coding, and Bitcoin Basics are open to all levels - bring curiosity, we will bring the rest.' },
+    { q: 'How much time should I commit?', a: 'rawBit: ~5 hours/week for 10 weeks. Privacy Track: ~3 hours/week for 12 months, bi-weekly. Workshops: 2–3 hours per session, monthly. Every program is built around busy adults, and sessions are recorded.' },
+    { q: 'In what language are sessions taught?', a: 'Most sessions run in English. Talk-a-Bit runs in Bahasa Indonesia and English. Community members teach in Malay, Thai, Vietnamese, and Mandarin in their respective regions.' },
+    { q: 'Are graduates actually contributing to Bitcoin?', a: 'Yes - and we track it publicly. github.com/code-orange-dev/PR-tracking-dashboard records every PR submitted by community members to Bitcoin open source. Graduates have moved on to Chaincode Labs, OpenSats grants, and full-time Bitcoin roles.' },
+    { q: 'Can I book private Bitcoin consulting?', a: 'Yes. Code Orange Consulting is $100 per session for self-custody, multisig, inheritance, nodes, privacy, mining, and team education. Book from the Consulting page or the homepage consulting section.' },
+    { q: 'Can I run a Code Orange workshop in my city?', a: 'Yes please. Every workshop deck is open source and free at github.com/code-orange-dev/curriculum. Drop into our Discord - we will help with branding, links, and promotion.' }
+  ];
+
+  footerProgramsData = [
+    { name: 'Bitcoin Privacy Track', kind: 'Developer Cohort', href: '/privacy-track', target: '_self' },
+    { name: 'rawBit', kind: 'Study Cohort', href: '/rawbit', target: '_self' },
+    { name: 'Sovereign Bitcoiner', kind: 'Workshop', href: '/programs/sovereign-bitcoiner', target: '_self' },
+    { name: 'OpenClaw', kind: 'Workshop', href: '/programs/openclaw', target: '_self' },
+    { name: 'Vibe Coding on Nostr', kind: 'Workshop', href: '/programs/vibe-coding', target: '_self' },
+    { name: 'Bitcoin Basics', kind: 'Online Meetup', href: '/programs/bitcoin-basics', target: '_self' },
+    { name: 'Bitcoin Reading Club', kind: 'Online Meetup', href: '/programs/bitcoin-reading-club', target: '_self' },
+    { name: 'Talk-a-Bit', kind: 'Bitcoin Meetup', href: '/programs/talk-a-bit', target: '_self' },
+    { name: 'Accountability Sessions', kind: 'AIR Tool', href: '/programs/accountability-sessions', target: '_self' }
+  ];
+
+  renderVals() {
+    const filterDefs = [
+      { key: 'all', label: 'All' },
+      { key: 'dev', label: 'For Developers' },
+      { key: 'bitcoiner', label: 'For Bitcoiners' }
+    ];
+    const filters = filterDefs.map((f) => {
+      const active = this.state.filter === f.key;
+      return {
+        label: f.label,
+        onClick: () => this.setState({ filter: f.key }),
+        bg: active ? '#F7931A' : 'transparent',
+        color: active ? '#0B1220' : '#8C94A6',
+        border: active ? '#F7931A' : 'rgba(255,255,255,0.16)'
+      };
+    });
+
+    const visiblePrograms = this.state.filter === 'all'
+      ? this.programs
+      : this.programs.filter((p) => p.path === this.state.filter);
+
+    const levelStyles = {
+      'Beginner': { c: '#27C93F', b: 'rgba(39,201,63,0.4)' },
+      'Intermediate': { c: '#FFBD2E', b: 'rgba(255,189,46,0.4)' },
+      'All levels': { c: '#C8CDD9', b: 'rgba(255,255,255,0.16)' }
+    };
+    const events = this.events.map((ev) => ({
+      ...ev,
+      levelColor: levelStyles[ev.level].c,
+      levelBorder: levelStyles[ev.level].b
+    }));
+
+    const faqs = this.faqData.map((f, i) => ({
+      ...f,
+      open: this.state.faqOpen === i,
+      icon: this.state.faqOpen === i ? '−' : '+',
+      toggle: () => this.setState((s) => ({ faqOpen: s.faqOpen === i ? -1 : i }))
+    }));
+
+    return {
+      terminalEl: this.buildTerminal(),
+      marqueeEl: this.buildMarquee(),
+      filters: filters,
+      visiblePrograms: visiblePrograms,
+      events: events,
+      dojoWeeks: this.dojoWeeks,
+      contributors: this.contributors,
+      emerging: this.emergingDevs,
+      regions: this.regionsData,
+      faqs: faqs,
+      footerPrograms: this.footerProgramsData.map((fp) => ({ ...fp, target: fp.target || '_blank' })),
+      blockHeight: this.state.blockHeight,
+      videoSrc: this.state.videoSrc,
+      videoRef: this.videoRef,
+      heroVideoSrc: this.state.heroVideoSrc,
+      heroVideoRef: this.heroVideoRef
+    };
+  }
+}
+
+</script>
+</body>
+</html>

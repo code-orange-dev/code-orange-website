@@ -1,63 +1,63 @@
 # Code Orange Dev School — Website
 
-Asia's Bitcoin Developer School. Built with Next.js 14, Tailwind CSS, and Nostr integration.
+Asia's Bitcoin Developer School. Headquartered in Singapore.
 
-## Quick Start
+Live at **[codeorange.dev](https://codeorange.dev)**.
 
-```bash
-# Install dependencies
-npm install
+## Stack
 
-# Run development server
-npm run dev
-# Open http://localhost:3000
+A hand-written static HTML site — no build step, no framework, no dependencies.
+Vercel serves the files in this repo directly (`vercel.json` sets
+`buildCommand: null` and `outputDirectory: "."`).
 
-# Build for production
-npm run build
-npm start
-```
-
-## Deploy to Vercel
+## Local preview
 
 ```bash
-npm install -g vercel
-vercel
+# any static file server works, e.g.
+python3 -m http.server 3000
+# open http://localhost:3000
 ```
 
-Or connect your GitHub repo to Vercel at vercel.com for automatic deployments.
+Note: `cleanUrls` is a Vercel feature, so locally you may need to open
+`/about.html` rather than `/about`.
 
-## One thing to do before launch
+## Structure
 
-In `app/apply/page.tsx`, replace `REPLACE_WITH_YOUR_FORM_ID` with a real Formspree form ID.
-Sign up free at https://formspree.io — takes 2 minutes.
+```
+index.html              Homepage
+about.html              Story, values, operating model
+programs.html           Program index
+programs/*.html         Individual program pages
+fellowships.html        Fellowship tracks
+consulting.html         Consulting
+calendar.html           Sessions calendar
+community.html          Community & regional reach
+impact.html             Impact report
+apply.html              Applications
+rawbit.html             rawBit cohort
+privacy-track.html      Privacy Track
+social/                 Social/event graphics + pages
+assets/                 Images, video, logos
+support.js              Shared page script
+vercel.json             Vercel config (static, cleanUrls)
+```
 
-## Tech Stack
+## Editing
 
-- **Next.js 14** (App Router)
-- **Tailwind CSS** + custom design system
-- **Nostr integration** — live feed from npub via WebSocket relay connections
-- **Google Fonts** — Permanent Marker, Nunito, JetBrains Mono, Inter
-- **Lucide React** icons
-- **TypeScript**
+Edit the HTML directly. The footer, nav and meta tags are duplicated per page,
+so a site-wide change (address, nav link, copyright) means updating each file —
+search and replace across `*.html`.
 
-## Key Files
+## Deploying
 
-| File | Purpose |
-|------|---------|
-| `lib/constants.ts` | All site data — programs, social links, npub |
-| `app/page.tsx` | Homepage |
-| `app/programs/` | Programs hub + individual pages |
-| `app/community/page.tsx` | Community page with Nostr feed |
-| `app/apply/page.tsx` | Application form |
-| `app/about/page.tsx` | About page |
-| `components/NostrFeed.tsx` | Live Nostr relay connection |
-| `public/images/` | Workshop photos (convert more HEIC → JPG and add here) |
+Push to `main`. Vercel deploys automatically from this repo.
 
-## Adding More Photos
+> **Important:** this repo is the single source of truth for the live site.
+> Do not deploy with `vercel deploy` from an untracked local folder — work that
+> only exists locally can be overwritten by the next push to `main`.
 
-Convert HEIC photos to JPG and drop them in `/public/images/`.
-Reference them with Next.js Image component: `src="/images/your-photo.jpg"`
+## Links
 
-## Nostr
-
-The npub is set in `lib/constants.ts`. The NostrFeed component connects to 3 public relays simultaneously and displays the latest posts. Fallback links to njump.me if relays are unreachable.
+- Curriculum, impact report and other repos: https://github.com/code-orange-dev
+- Discord: https://discord.gg/ZtvA79paWa
+- Contact: hello@codeorange.dev
