@@ -188,9 +188,9 @@
 <style>
   footer { position: relative; overflow: hidden; }
   .co-footer-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .co-footer-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.30; filter: saturate(0.85) contrast(1.05); }
+  .co-footer-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.38; filter: saturate(0.9) contrast(1.05); }
   .co-footer-bg::after { content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(7,13,24,0.93) 0%, rgba(7,13,24,0.74) 42%, rgba(7,13,24,0.96) 100%); }
+    background: linear-gradient(180deg, rgba(7,13,24,0.90) 0%, rgba(7,13,24,0.66) 42%, rgba(7,13,24,0.94) 100%); }
   footer > *:not(.co-footer-bg) { position: relative; z-index: 1; }
   @media (prefers-reduced-motion: reduce) { .co-footer-bg video { display: none; } }
 </style>
@@ -337,29 +337,33 @@ class Component extends DCLogic {
 </script>
 
 <script>
-/* Footer background video: nothing downloads until the footer is actually scrolled into view. */
+/* Footer background video: re-queries the DOM on each check so it survives the
+   page framework re-rendering the footer. Nothing downloads until it's near view. */
 (function () {
-  var wrap = document.querySelector('.co-footer-bg');
-  if (!wrap) return;
-  var v = wrap.querySelector('video');
-  if (!v) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var started = false;
-  function start() {
-    if (started) return;
-    started = true;
-    v.muted = true; v.loop = true;
-    if (v.preload !== 'auto') v.preload = 'auto';
-    v.play().catch(function () {});
+  var ticking = false;
+  function check() {
+    ticking = false;
+    var v = document.querySelector('.co-footer-bg video');
+    if (!v) return;
+    var r = v.getBoundingClientRect();
+    if (!r.height && !r.width) return;
+    var near = r.top < window.innerHeight + 300 && r.bottom > -300;
+    if (near) {
+      if (v.preload !== 'auto') v.preload = 'auto';
+      if (v.paused) { v.muted = true; v.loop = true; v.playsInline = true; v.play().catch(function () {}); }
+    } else if (!v.paused) {
+      v.pause();
+    }
   }
-  if (!('IntersectionObserver' in window)) { start(); return; }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { start(); }
-      else if (started && !v.paused) { v.pause(); }
-    });
-  }, { rootMargin: '200px 0px' });
-  io.observe(wrap);
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(check); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('load', check);
+  document.addEventListener('DOMContentLoaded', check);
+  setTimeout(check, 800);
+  setTimeout(check, 2500);
+  check();
 })();
 </script>
 </body>
