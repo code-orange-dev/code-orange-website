@@ -264,6 +264,18 @@ h3 { margin: 0; font-size: 26px; line-height: 1.15; }
 </section>
 </main>
 <footer class="footer">
+<style>
+  footer { position: relative; overflow: hidden; }
+  .co-footer-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .co-footer-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.30; filter: saturate(0.85) contrast(1.05); }
+  .co-footer-bg::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(7,13,24,0.93) 0%, rgba(7,13,24,0.74) 42%, rgba(7,13,24,0.96) 100%); }
+  footer > *:not(.co-footer-bg) { position: relative; z-index: 1; }
+  @media (prefers-reduced-motion: reduce) { .co-footer-bg video { display: none; } }
+</style>
+<div class="co-footer-bg" aria-hidden="true">
+  <video src="/assets/co-footer.mp4" poster="/assets/co-footer-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
+</div>
   <div class="footer-grid">
     <div>
       <img src="/assets/logo-white.png" alt="Code Orange Dev School" style="height:58px;width:auto;margin-bottom:18px" decoding="async" fetchpriority="high">
@@ -294,5 +306,32 @@ h3 { margin: 0; font-size: 26px; line-height: 1.15; }
     </div>
   </div>
 </footer>
+
+<script>
+/* Footer background video: nothing downloads until the footer is actually scrolled into view. */
+(function () {
+  var wrap = document.querySelector('.co-footer-bg');
+  if (!wrap) return;
+  var v = wrap.querySelector('video');
+  if (!v) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var started = false;
+  function start() {
+    if (started) return;
+    started = true;
+    v.muted = true; v.loop = true;
+    if (v.preload !== 'auto') v.preload = 'auto';
+    v.play().catch(function () {});
+  }
+  if (!('IntersectionObserver' in window)) { start(); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { start(); }
+      else if (started && !v.paused) { v.pause(); }
+    });
+  }, { rootMargin: '200px 0px' });
+  io.observe(wrap);
+})();
+</script>
 </body>
 </html>
