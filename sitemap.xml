@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://codeorange.dev/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/privacy-track</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/rawbit</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/fellowships</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/apply</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/calendar</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://codeorange.dev/consulting</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/impact</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/community</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/about</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/sovereign-bitcoiner</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/openclaw</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/vibe-coding</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/bitcoin-basics</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/bitcoin-reading-club</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/talk-a-bit</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://codeorange.dev/programs/accountability-sessions</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+</urlset>
