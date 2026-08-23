@@ -115,6 +115,131 @@ h3 { margin: 0; font-size: 26px; line-height: 1.15; }
   .calendar-frame iframe { height: 560px; }
 }
 @media (max-width: 560px) { .announce { flex-direction: column; gap: 2px; font-size: 12px; } .timeline-item { grid-template-columns: 1fr; } .calendar-frame iframe { height: 500px; } .feature-panel-inner { padding: 20px; } }
+
+
+/* Code Orange mobile polish - keeps the current design intact on small screens. */
+html, body { overflow-x: hidden; }
+img, video, iframe { max-width: 100%; }
+.hero-grid > *, .section-inner > *, .split > *, .grid > * { min-width: 0; }
+.mobile-nav {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+.mobile-nav::-webkit-scrollbar { display: none; }
+.mobile-nav a { flex: 0 0 auto; scroll-snap-align: start; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .mobile-nav { justify-content: flex-start; }
+  h1 { font-size: clamp(34px, 10.5vw, 52px); letter-spacing: 0; overflow-wrap: anywhere; }
+  h2 { font-size: clamp(28px, 8.5vw, 42px); letter-spacing: 0; overflow-wrap: anywhere; }
+  h3 { font-size: clamp(22px, 6.5vw, 32px); letter-spacing: 0; overflow-wrap: anywhere; }
+  .lead { max-width: 100%; font-size: 17px; }
+  .terminal-card, .feature-panel, .card, .program-card, .stat, .timeline-item, .booking-panel { border-radius: 14px; }
+  .terminal-body { padding: 22px; font-size: 13.5px; line-height: 1.75; overflow-wrap: anywhere; }
+  .photo-caption { width: auto; max-width: calc(100% - 24px); white-space: normal; border-radius: 10px; }
+  .feature-panel-inner, .card-body, .stat, .booking-panel { padding: 22px; }
+}
+
+@media (max-width: 560px) {
+  .announce { padding: 8px 14px; line-height: 1.35; }
+  .header-inner { min-height: 62px; height: auto; gap: 10px; }
+  .brand img { height: 38px; }
+  .button.small { min-height: 38px; padding: 8px 12px; font-size: 13px; }
+  .mobile-nav { gap: 6px; padding: 0 12px 12px; }
+  .mobile-nav a { min-height: 38px; padding: 7px 10px; font-size: 12px; }
+  .hero-grid, .section-inner { padding: 52px 16px; }
+  .hero-grid { gap: 28px; }
+  .lead { font-size: 16px; line-height: 1.6; }
+  .terminal-body { padding: 18px 16px; font-size: 12.5px; }
+  .program-card { grid-template-rows: 180px 1fr; }
+  .photo-card, .photo-card.tall, .feature-photo { min-height: 290px; }
+  .card-body, .stat, .timeline-item, .feature-panel-inner, .booking-panel { padding: 20px; }
+  .cta-row { gap: 10px; }
+  .cta-row a, .button, .ghost { width: 100%; box-sizing: border-box; text-align: center; }
+  .calendar-frame { border-radius: 12px; margin-inline: -4px; }
+  .calendar-frame iframe { height: 460px; }
+  .footer-grid { gap: 32px; }
+}
+
+@media (max-width: 380px) {
+  h1 { font-size: clamp(30px, 10vw, 40px); }
+  h2 { font-size: clamp(26px, 9vw, 36px); }
+  .brand img { height: 34px; }
+  .button.small { padding: 8px 10px; font-size: 12px; }
+  .mobile-nav a { font-size: 11px; padding: 7px 9px; }
+  .hero-grid, .section-inner { padding-inline: 14px; }
+}
+
+
+
+/* Compact mobile menu */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  color: #F5F1EA;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform .18s ease, opacity .18s ease;
+}
+.is-menu-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.is-menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+.is-menu-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .menu-toggle { display: inline-flex; }
+  .site-header .mobile-nav,
+  header [data-mq="nav-mobile"] {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 8px !important;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden !important;
+    padding: 0 16px !important;
+    border-top: 0 solid rgba(255,255,255,.08);
+    transition: max-height .2s ease, opacity .16s ease, padding .2s ease, border-color .2s ease;
+  }
+  .site-header.is-menu-open .mobile-nav,
+  header.is-menu-open [data-mq="nav-mobile"] {
+    max-height: 420px;
+    opacity: 1;
+    padding: 0 16px 14px !important;
+    border-top-width: 1px;
+  }
+  .mobile-nav a,
+  [data-mq="nav-mobile"] a {
+    width: 100%;
+    justify-content: flex-start !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.035);
+  }
+}
+
+@media (max-width: 560px) {
+  .header-actions { gap: 8px; }
+  .header-actions .button, .header-actions .ghost { width: auto; flex: 0 0 auto; }
+  .menu-toggle { width: 40px; height: 40px; border-radius: 9px; }
+  .site-header.is-menu-open .mobile-nav,
+  header.is-menu-open [data-mq="nav-mobile"] {
+    padding: 0 12px 12px !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -134,9 +259,10 @@ h3 { margin: 0; font-size: 26px; line-height: 1.15; }
     <div class="header-actions">
       <a class="ghost small" href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener">Discord</a>
       <a class="button small" href="/apply">Apply Now</a>
+      <button type="button" class="menu-toggle" data-mobile-menu-toggle aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <nav class="mobile-nav" aria-label="Mobile">
+  <nav class="mobile-nav" aria-label="Mobile" id="mobile-menu">
     <a href="/programs">Programs</a>
     <a href="/consulting">Consulting</a>
     <a href="/calendar">Calendar</a>
@@ -269,7 +395,7 @@ h3 { margin: 0; font-size: 26px; line-height: 1.15; }
     <div class="grid two">
       <div class="link-list">
         <strong>Programs</strong>
-        <a href="/privacy-track">Bitcoin Privacy Track</a><a href="/rawbit">rawBit</a><a href="/programs/sovereign-bitcoiner">Sovereign Bitcoiner</a><a href="/programs/openclaw">OpenClaw</a><a href="/programs/vibe-coding">Vibe Coding on Nostr</a><a href="/programs/bitcoin-basics">Bitcoin Basics</a>
+        <a href="/privacy-track">Bitcoin Privacy Track</a><a href="/rawbit">rawBit</a><a href="/programs/sovereign-bitcoiner">Sovereign Bitcoiner</a><a href="/programs/openclaw">Agentic Engineering &amp; Vibe Coding</a><a href="/calendar">Bitcoin Basics &amp; community sessions</a>
       </div>
       <div class="link-list">
         <strong>School</strong>
@@ -314,6 +440,51 @@ h3 { margin: 0; font-size: 26px; line-height: 1.15; }
   setTimeout(check, 800);
   setTimeout(check, 2500);
   check();
+})();
+</script>
+
+<script>
+(function () {
+  function closeMenu(header, button) {
+    header.classList.remove('is-menu-open');
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Open navigation');
+  }
+
+  function wireMobileMenus() {
+    document.querySelectorAll('[data-mobile-menu-toggle]').forEach(function (button) {
+      if (button.dataset.menuReady) return;
+      var header = button.closest('header');
+      if (!header) return;
+      var menu = document.getElementById(button.getAttribute('aria-controls')) ||
+        header.querySelector('.mobile-nav, [data-mq="nav-mobile"]');
+      button.dataset.menuReady = 'true';
+      button.addEventListener('click', function () {
+        var open = !header.classList.contains('is-menu-open');
+        header.classList.toggle('is-menu-open', open);
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      });
+      if (menu) {
+        menu.addEventListener('click', function (event) {
+          if (event.target.closest('a')) closeMenu(header, button);
+        });
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-mobile-menu-toggle][aria-expanded="true"]').forEach(function (button) {
+      var header = button.closest('header');
+      if (header) closeMenu(header, button);
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', wireMobileMenus);
+  window.addEventListener('load', wireMobileMenus);
+  new MutationObserver(wireMobileMenus).observe(document.documentElement, { childList: true, subtree: true });
+  wireMobileMenus();
 })();
 </script>
 </body>
