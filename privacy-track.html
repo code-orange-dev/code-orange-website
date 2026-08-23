@@ -1,344 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bitcoin Privacy Developer Track - Code Orange Dev School</title>
-<meta name="description" content="Drop-in sessions on Silent Payments, Payjoin, wallet privacy and node privacy. Attend one or all - every session ends with a real OSS contribution.">
-<meta name="theme-color" content="#F7931A">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bitcoin Privacy Contributor Program — Code Orange</title>
+<meta name="description" content="An advanced Bitcoin privacy specialization that develops sustained open-source contributors through privacy engineering, code review, testing, contributor rotations, residency and fellowship.">
+<meta name="theme-color" content="#0B1220">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Code Orange Dev School">
 <meta property="og:url" content="https://codeorange.dev/privacy-track">
-<meta property="og:title" content="Bitcoin Privacy Developer Track - Code Orange Dev School">
-<meta property="og:description" content="Drop-in sessions on Silent Payments, Payjoin, wallet privacy and node privacy. Attend one or all - every session ends with a real OSS contribution.">
+<meta property="og:title" content="Bitcoin Privacy Contributor Program — Code Orange">
+<meta property="og:description" content="From privacy engineering to trusted open-source contribution: read, build, test, review, contribute, maintain.">
 <meta property="og:image" content="https://codeorange.dev/assets/og-codeorange-workshop.jpg">
-<meta property="og:image:secure_url" content="https://codeorange.dev/assets/og-codeorange-workshop.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Code Orange Dev School Bitcoin workshop in Bali">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bitcoin Privacy Developer Track - Code Orange Dev School">
-<meta name="twitter:description" content="Drop-in sessions on Silent Payments, Payjoin, wallet privacy and node privacy. Attend one or all - every session ends with a real OSS contribution.">
-<meta name="twitter:image" content="https://codeorange.dev/assets/og-codeorange-workshop.jpg">
-<script src="/support.js?v=20260612b"></script>
 <link rel="icon" type="image/svg+xml" href="/assets/favicon-bitcoin.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B1220;--panel:#111b2e;--ink:#F5F1EA;--muted:#AEB7C7;--orange:#F7931A;--line:rgba(255,255,255,.11)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.6}a{color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 28px}.mono{font-family:'JetBrains Mono',monospace}.orange{color:var(--orange)}header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{height:42px}.links{display:flex;gap:24px;align-items:center}.links a{text-decoration:none;color:var(--muted);font-size:14px}.btn{display:inline-block;background:var(--orange);color:#0B1220!important;text-decoration:none!important;font-weight:700;padding:12px 20px;border-radius:8px}.hero{padding:92px 0 72px;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700}.hero h1{font-family:'Special Elite',monospace;font-size:clamp(44px,6vw,76px);line-height:1.02;font-weight:400;max-width:940px;margin:18px 0 24px}.lead{font-size:20px;color:var(--muted);max-width:800px}.principle{margin-top:38px;border-left:4px solid var(--orange);padding:18px 24px;background:rgba(247,147,26,.07);max-width:850px;font-size:19px}.tags{display:flex;flex-wrap:wrap;gap:10px;margin:32px 0}.tag{border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}section{padding:78px 0;border-top:1px solid var(--line)}h2{font-family:'Special Elite',monospace;font-size:clamp(32px,4vw,48px);font-weight:400;margin:0 0 18px}.intro{color:var(--muted);font-size:18px;max-width:780px}.pipeline{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:38px}.step{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 14px;min-height:145px}.step b{display:block;color:var(--orange);font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;margin-bottom:10px}.step span{font-weight:700}.step small{display:block;color:var(--muted);margin-top:8px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:28px}.card h3{margin:0 0 8px;font-size:21px}.card p{color:var(--muted);margin:0}.loop{font-family:'JetBrains Mono',monospace;color:var(--orange);font-size:clamp(18px,3vw,30px);font-weight:700;letter-spacing:.03em;margin:36px 0}.review-levels{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:30px}.level{border-top:3px solid var(--orange);background:var(--panel);padding:20px}.level strong{font-family:'JetBrains Mono',monospace;color:var(--orange);font-size:12px}.level p{color:var(--muted);font-size:14px;margin-bottom:0}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.metric{padding:24px;border:1px solid var(--line);border-radius:10px}.metric strong{font-size:18px}.metric p{color:var(--muted);margin-bottom:0}.north{background:var(--orange);color:#0B1220;border-radius:14px;padding:34px;margin-top:38px}.north .mono{font-size:12px;font-weight:700;text-transform:uppercase}.north p{font-size:24px;font-weight:700;max-width:850px;margin:8px 0 0}.cta{text-align:center;padding:96px 0}.cta p{color:var(--muted);font-size:18px}.cta .btn{margin-top:12px;padding:15px 28px}footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}@media(max-width:900px){.pipeline{grid-template-columns:repeat(2,1fr)}.review-levels{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.links a:not(.btn){display:none}}@media(max-width:600px){.wrap{padding:0 20px}.hero{padding-top:62px}.pipeline,.grid,.review-levels,.metrics{grid-template-columns:1fr}.hero h1{font-size:43px}}
+</style>
 </head>
 <body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-  html, body { margin: 0; padding: 0; background: #0B1220; }
-  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-  html { scroll-behavior: smooth; }
-  ::selection { background: rgba(247,147,26,0.35); color: #F5F1EA; }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  }
-  /* ── Mobile layout overrides (media queries can't be inline) ── */
-  @media (max-width: 880px) {
-    [data-mq="announce"] { flex-direction: column !important; gap: 2px !important; padding: 8px 16px !important; font-size: 12px !important; text-align: center !important; }
-    [data-mq="header-inner"] { height: 60px !important; padding: 0 16px !important; }
-    [data-mq="logo-img"] { height: 36px !important; }
-    [data-mq="nav-links"] { display: none !important; }
-    [data-mq="nav-mobile"] { display: flex !important; }
-    [data-mq="hero-wrap"] { padding: 44px 20px 0 !important; }
-    [data-mq="hero-grid"] { grid-template-columns: 1fr !important; gap: 36px !important; }
-    [data-mq="cols2"] { grid-template-columns: 1fr !important; gap: 32px !important; }
-    [data-mq="card-pad"] { padding: 26px 22px !important; }
-    [data-pad="card"] { padding: 28px 20px 32px !important; gap: 32px !important; }
-    [data-pad="lg"] { padding: 72px 20px !important; }
-    [data-pad="mid"] { padding: 56px 20px !important; }
-    [data-pad="cta"] { padding: 88px 20px !important; }
-  }
-  @media (max-width: 560px) {
-    [data-mq="btn-discord"] { display: none !important; }
-    [data-mq="btn-row"] { flex-direction: column !important; }
-    [data-mq="btn-row"] a { width: 100% !important; text-align: center !important; box-sizing: border-box !important; }
-  }
-</style>
-</helmet>
-
-<div style="background: #0B1220; color: #F5F1EA; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
-
-  <!-- ══════════ ANNOUNCE ══════════ -->
-  <a href="/apply?program=privacy" data-screen-label="Announce bar" data-mq="announce" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #F7931A; color: #0B1220; text-decoration: none; padding: 9px 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600;" style-hover="background: #FFB347;">
-    <span>🔐 Bitcoin Privacy Track - open for enrollment · 2026 focus</span>
-    <span style="text-decoration: underline; text-underline-offset: 3px;">Apply →</span>
-  </a>
-
-  <!-- ══════════ HEADER ══════════ -->
-  <header data-screen-label="Header" style="position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,0.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-    <div data-mq="header-inner" style="max-width: 1240px; margin: 0 auto; padding: 0 32px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="/" style="display: flex; align-items: center; text-decoration: none; flex-shrink: 0;">
-        <img src="/assets/logo-white.png" alt="Code Orange Dev School" data-mq="logo-img" style="height: 45px; width: auto; display: block;" decoding="async" fetchpriority="high">
-      </a>
-      <nav data-mq="nav-links" style="display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 500;">
-        <a href="/" style="color: #C8CDD9; text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: color 120ms;" style-hover="color: #F7931A;">← All programs</a>
-        <a href="#modules" style="color: #C8CDD9; text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: color 120ms;" style-hover="color: #F7931A;">Modules</a>
-        <a href="#rule" style="color: #C8CDD9; text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: color 120ms;" style-hover="color: #F7931A;">The Rule</a>
-        <a href="#repos" style="color: #C8CDD9; text-decoration: none; padding: 8px 14px; border-radius: 8px; transition: color 120ms;" style-hover="color: #F7931A;">Repos</a>
-      </nav>
-      <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
-        <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" data-mq="btn-discord" style="color: #F5F1EA; text-decoration: none; font-size: 14px; font-weight: 600; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Discord</a>
-        <a href="/apply?program=privacy" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 14px; font-weight: 700; padding: 10px 20px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;">Apply Now</a>
-      </div>
-    </div>
-    <div data-mq="nav-mobile" style="display: none; align-items: center; gap: 8px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none;">
-      <a href="/" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">← Home</a>
-      <a href="#modules" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Modules</a>
-      <a href="#rule" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">The Rule</a>
-      <a href="#repos" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: #C8CDD9; text-decoration: none; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; white-space: nowrap; flex-shrink: 0;">Repos</a>
-    </div>
-  </header>
-
-  <!-- ══════════ HERO ══════════ -->
-  <section data-screen-label="Privacy Track hero" style="position: relative; overflow: hidden; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px;">
-    <div style="position: absolute; top: -120px; right: -80px; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle, rgba(247,147,26,0.13) 0%, transparent 65%); pointer-events: none;"></div>
-    <div data-mq="hero-wrap" style="max-width: 1240px; margin: 0 auto; padding: 88px 32px 0; position: relative;">
-      <div data-mq="hero-grid" style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 64px; align-items: center;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px;">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0B1220; background: #F7931A; padding: 5px 12px; border-radius: 999px;">New · 2026 Focus</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A;"><span>/</span>Programs<span>/</span>Privacy_Track<span>_</span></span>
-          </div>
-          <h1 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 26px; color: #F5F1EA; text-wrap: pretty;">Bitcoin Privacy Developer Track. <span style="color: #F7931A;">Contribution-first, by design.</span></h1>
-          <p style="font-size: 18px; line-height: 1.65; color: #C8CDD9; margin: 0 0 32px; max-width: 560px; text-wrap: pretty;">Drop in, drop out. There is no start and no finish - each session stands on its own, teaches one privacy topic completely, and guides you to open a real pull request before you leave. Come to one session. Come to ten. Every session ends with a real open source contribution - no exceptions.</p>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F7931A; padding: 8px 16px; border: 1px solid rgba(247,147,26,0.4); border-radius: 999px;">For Developers</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;">Drop-in · no commitment</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;">~3 hrs/week</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C8CDD9; padding: 8px 16px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;">Free if accepted</span>
-          </div>
-          <div data-mq="btn-row" style="display: flex; gap: 14px; flex-wrap: wrap;">
-            <a href="/apply?program=privacy" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 16px; font-weight: 700; padding: 15px 30px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;" style-active="transform: scale(0.98);">Apply to the Track</a>
-            <a href="#modules" style="color: #F5F1EA; text-decoration: none; font-size: 16px; font-weight: 600; padding: 15px 30px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">See the modules</a>
-          </div>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 26px; display: flex; flex-direction: column; gap: 4px;">
-            <span style="font-family: 'Special Elite', monospace; font-size: 42px; line-height: 1; color: #F7931A;">24</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">Sessions</span>
-          </div>
-          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 26px; display: flex; flex-direction: column; gap: 4px;">
-            <span style="font-family: 'Special Elite', monospace; font-size: 42px; line-height: 1; color: #F7931A;">12mo</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">Duration</span>
-          </div>
-          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 26px; display: flex; flex-direction: column; gap: 4px;">
-            <span style="font-family: 'Special Elite', monospace; font-size: 42px; line-height: 1; color: #F7931A;">5–8</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">PRs per graduate</span>
-          </div>
-          <div style="background: #12213B; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 26px; display: flex; flex-direction: column; gap: 4px;">
-            <span style="font-family: 'Special Elite', monospace; font-size: 42px; line-height: 1; color: #F7931A;">10+</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C94A6;">Target repos</span>
-          </div>
-        </div>
-      </div>
-      <div style="height: 64px;"></div>
-    </div>
-  </section>
-
-  <!-- ══════════ THE RULE ══════════ -->
-  <section id="rule" data-screen-label="The rule" style="background: #0F1A2E; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); scroll-margin-top: 96px;">
-    <div data-pad="mid" style="max-width: 1240px; margin: 0 auto; padding: 96px 32px;">
-      <div style="border-radius: 20px; background: #0B1220; border: 1px solid rgba(255,255,255,0.08); overflow: hidden;">
-        <div style="display: flex; align-items: center; gap: 8px; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); background: #12213B;">
-          <span style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F56;"></span>
-          <span style="width: 12px; height: 12px; border-radius: 50%; background: #FFBD2E;"></span>
-          <span style="width: 12px; height: 12px; border-radius: 50%; background: #27C93F;"></span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6; margin-left: 10px;">~/privacy-track/RULE.md</span>
-        </div>
-        <div data-mq="cols2" data-pad="card" style="padding: 48px 56px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; align-items: center;">
-          <div>
-            <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(30px, 3vw, 44px); line-height: 1.12; margin: 0 0 20px; color: #F5F1EA;">Every session ends with a contribution. <span style="color: #F7931A;">No exceptions.</span></h2>
-            <p style="font-size: 16px; line-height: 1.7; color: #C8CDD9; margin: 0; max-width: 560px; text-wrap: pretty;">Not "homework." Not "exercises." A contribution: a PR, a review, an issue triage, a docs fix - something with your name on it, in a real Bitcoin privacy repo, before you log off. Session after session, that compounds into a public contribution record no CV can fake.</p>
-          </div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 2.1; display: flex; flex-direction: column;">
-            <span style="color: #8C94A6;"># session checklist</span>
-            <span style="color: #C8CDD9;">[x] deep-dive - 90 min</span>
-            <span style="color: #C8CDD9;">[x] pair on open issues</span>
-            <span style="color: #F7931A;">[x] ship contribution ✓</span>
-            <span style="color: #8C94A6;">── merged or it didn't happen</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ MODULES ══════════ -->
-  <section id="modules" data-screen-label="Modules" data-pad="lg" style="max-width: 1240px; margin: 0 auto; padding: 130px 32px; scroll-margin-top: 96px;">
-    <div style="margin-bottom: 56px; max-width: 680px;">
-      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Curriculum<span>_</span></div>
-      <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(34px, 3.4vw, 52px); line-height: 1.08; margin: 0 0 16px; color: #F5F1EA;">Four quarters. Four privacy layers.</h2>
-      <p style="font-size: 17px; line-height: 1.6; color: #8C94A6; margin: 0; text-wrap: pretty;">Six sessions per quarter, each module anchored to the live repos you'll contribute to.</p>
-    </div>
-    <div data-mq="cols2" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
-      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="4">
-        <div data-mq="card-pad" style="display: flex; flex-direction: column; gap: 14px; background: #12213B; border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 36px 40px; transition: border-color 240ms;" style-hover="border-color: rgba(247,147,26,0.45);">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #F7931A;">{{ m.quarter }}</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377;">{{ m.sessions }}</span>
-          </div>
-          <span style="font-family: 'Special Elite', monospace; font-size: 26px; line-height: 1.2; color: #F5F1EA;">{{ m.emoji }} {{ m.title }}</span>
-          <span style="font-size: 15px; line-height: 1.65; color: #C8CDD9;">{{ m.desc }}</span>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
-            <sc-for list="{{ m.repos }}" as="repo" hint-placeholder-count="3">
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6; padding: 5px 11px; background: #0B1220; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;">{{ repo }}</span>
-            </sc-for>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-  </section>
-
-  <!-- ══════════ REPOS ══════════ -->
-  <section id="repos" data-screen-label="Target repos" style="background: #0F1A2E; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); scroll-margin-top: 96px;">
-    <div data-pad="mid" style="max-width: 1240px; margin: 0 auto; padding: 110px 32px;">
-      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 48px; flex-wrap: wrap;">
-        <div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #F7931A; margin-bottom: 20px;"><span>/</span>Where_You_Contribute<span>_</span></div>
-          <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(32px, 3vw, 46px); line-height: 1.1; margin: 0; color: #F5F1EA;">Real repos. Real maintainers.</h2>
-        </div>
-        <a href="https://github.com/code-orange-dev/PR-tracking-dashboard" target="_blank" rel="noopener" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: #F7931A; text-decoration: none;" style-hover="color: #FFB347;">Every PR tracked publicly →</a>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-        <sc-for list="{{ repos }}" as="r" hint-placeholder-count="6">
-          <div style="background: #0B1220; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 6px; transition: border-color 240ms;" style-hover="border-color: rgba(247,147,26,0.45);">
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: #F5F1EA;">{{ r.name }}</span>
-            <span style="font-size: 13.5px; line-height: 1.55; color: #8C94A6;">{{ r.what }}</span>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ EXPECTATIONS ══════════ -->
-  <section data-screen-label="Expectations" data-pad="lg" style="max-width: 1240px; margin: 0 auto; padding: 130px 32px;">
-    <div data-mq="cols2" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
-      <div data-mq="card-pad" style="background: #0F1A2E; border: 1px solid rgba(39,201,63,0.35); border-radius: 20px; padding: 36px 40px;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #27C93F; margin-bottom: 20px;">✓ The track is for you if</div>
-        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 15.5px; line-height: 1.6; color: #C8CDD9;">
-          <span>→ You want to contribute, whatever your level - Foundations sessions assume no Rust at all</span>
-          <span>→ You care about Bitcoin privacy enough to work on it for a year</span>
-          <span>→ You want a public contribution record, not a certificate</span>
-          <span>→ You can give one session your full attention - that is the whole commitment</span>
-        </div>
-      </div>
-      <div data-mq="card-pad" style="background: #0F1A2E; border: 1px solid rgba(255,95,86,0.3); border-radius: 20px; padding: 36px 40px;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FF5F56; margin-bottom: 20px;">✕ It's not for you if</div>
-        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 15.5px; line-height: 1.6; color: #C8CDD9;">
-          <span>→ You want theory without shipping - every session ends in a contribution</span>
-          <span>→ You'd rather have a certificate than a merged pull request</span>
-          <span>→ You want to work privately - contributions are public and carry your name</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ CTA ══════════ -->
-  <section data-screen-label="CTA" style="position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.08);">
-    <div style="position: absolute; inset: 0; pointer-events: none;">
-      <img src="/assets/photo-hardware-table.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%;" loading="lazy" decoding="async">
-      <div style="position: absolute; inset: 0; background-color: rgba(11,18,32,0.84); background-image: linear-gradient(180deg, #0B1220 0%, rgba(11,18,32,0) 30%, rgba(11,18,32,0) 75%, #0B1220 100%), linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px;"></div>
-    </div>
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 900px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(247,147,26,0.14) 0%, transparent 65%); pointer-events: none;"></div>
-    <div data-pad="cta" style="max-width: 880px; margin: 0 auto; padding: 120px 32px; text-align: center; position: relative;">
-      <h2 style="font-family: 'Special Elite', 'Courier New', monospace; font-weight: 400; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.05; margin: 0 0 20px; color: #F5F1EA;">Bitcoin privacy needs hands.</h2>
-      <p style="font-size: 17px; line-height: 1.65; color: #C8CDD9; margin: 0 auto 36px; max-width: 500px;">Enrollment for the 2026 track is open now. Free for accepted students - your contributions are the tuition.</p>
-      <div data-mq="btn-row" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-        <a href="/apply?program=privacy" style="background: #F7931A; color: #0B1220; text-decoration: none; font-size: 17px; font-weight: 700; padding: 16px 34px; border-radius: 8px; transition: background 120ms;" style-hover="background: #FFB347;" style-active="transform: scale(0.98);">Apply to the Track</a>
-        <a href="https://discord.gg/ZtvA79paWa" target="_blank" rel="noopener" style="color: #F5F1EA; text-decoration: none; font-size: 17px; font-weight: 600; padding: 16px 34px; border: 1px solid rgba(255,255,255,0.16); border-radius: 8px; transition: all 120ms;" style-hover="border-color: #F7931A; color: #F7931A;">Ask in Discord first</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer data-screen-label="Footer" style="border-top: 1px solid rgba(255,255,255,0.08); background: #070D18;">
-<style>
-  footer { position: relative; overflow: hidden; }
-  .co-footer-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-  .co-footer-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.55; filter: saturate(1) contrast(1.05); }
-  .co-footer-bg::after { content: ""; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(7,13,24,0.86) 0%, rgba(7,13,24,0.48) 45%, rgba(7,13,24,0.90) 100%); }
-  footer > *:not(.co-footer-bg) { position: relative; z-index: 1; }
-  @media (prefers-reduced-motion: reduce) { .co-footer-bg video { display: none; } }
-</style>
-<div class="co-footer-bg" aria-hidden="true">
-  <video src="/assets/co-footer.mp4" poster="/assets/co-footer-poster.jpg" muted loop playsinline preload="none" tabindex="-1"></video>
-</div>
-    <div style="max-width: 1240px; margin: 0 auto; padding: 36px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-      <a href="/" style="display: flex; align-items: center; text-decoration: none;">
-        <img src="/assets/logo-white.png" alt="Code Orange Dev School" style="height: 39px; width: auto; display: block;" decoding="async" fetchpriority="high">
-      </a>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5A6377;">© 2026 Code Orange Dev School · Built with ⚡ in Singapore</span>
-      <div style="display: flex; gap: 16px;">
-        <a href="/rawbit" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C94A6; text-decoration: none;" style-hover="color: #F7931A;">rawBit →</a>
-        <a href="/apply" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #F7931A; text-decoration: none;" style-hover="color: #FFB347;">Apply →</a>
-      </div>
-    </div>
-  </footer>
-
-</div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  modules = [
-    { quarter: 'Q1 · Module 01', sessions: 'Sessions 01–06', emoji: '🤫', title: 'Silent Payments', desc: 'BIP352 from spec to implementation - static payment addresses without address reuse. Wallet and indexer internals, then straight into open issues.', repos: ['silent-pay-wallet', 'silent-pay-indexer', 'BIP352 spec'] },
-    { quarter: 'Q2 · Module 02', sessions: 'Sessions 07–12', emoji: '🤝', title: 'Payjoin', desc: 'BIP78 and async Payjoin (BIP77) - breaking the common-input heuristic at the transaction level. Deep work in the Rust implementation maintainers actually use.', repos: ['rust-payjoin', 'payjoin-cli', 'BIP77 spec'] },
-    { quarter: 'Q3 · Module 03', sessions: 'Sessions 13–18', emoji: '🌳', title: 'Node-level privacy', desc: 'What your node leaks and how to stop it - Floresta and utreexo, compact block filters, P2P transaction origin privacy.', repos: ['Floresta', 'utreexo', 'bitcoin-core'] },
-    { quarter: 'Q4 · Module 04', sessions: 'Sessions 19–24', emoji: '⚡', title: 'Fedimint, Lightning & CoinJoin', desc: 'Federated mints and Ecash, Lightning pathfinding privacy, and collaborative transactions - closing the loop on spending privately.', repos: ['fedimint', 'LDK', 'BDK'] }
-  ];
-
-  repos = [
-    { name: 'rust-payjoin', what: 'The Payjoin reference implementation in Rust - BIP77/78' },
-    { name: 'silent-pay', what: 'Silent Payments wallet + indexer (BIP352)' },
-    { name: 'Floresta', what: 'Lightweight utreexo-based Bitcoin node' },
-    { name: 'fedimint', what: 'Federated Ecash mints for community custody' },
-    { name: 'LDK', what: 'Lightning Dev Kit - pathfinding & onion routing' },
-    { name: 'BDK', what: 'Bitcoin Dev Kit - wallet privacy primitives' }
-  ];
-
-  renderVals() {
-    return { modules: this.modules, repos: this.repos };
-  }
-}
-
-</script>
-
-<script>
-/* Footer background video: re-queries the DOM on each check so it survives the
-   page framework re-rendering the footer. Nothing downloads until it's near view. */
-(function () {
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var ticking = false;
-  function check() {
-    ticking = false;
-    var v = document.querySelector('.co-footer-bg video');
-    if (!v) return;
-    var r = v.getBoundingClientRect();
-    if (!r.height && !r.width) return;
-    var near = r.top < window.innerHeight + 300 && r.bottom > -300;
-    if (near) {
-      if (v.preload !== 'auto') v.preload = 'auto';
-      if (v.paused) { v.muted = true; v.loop = true; v.playsInline = true; v.play().catch(function () {}); }
-    } else if (!v.paused) {
-      v.pause();
-    }
-  }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(check); } }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) check(); });
-  window.addEventListener('load', check);
-  document.addEventListener('DOMContentLoaded', check);
-  setTimeout(check, 800);
-  setTimeout(check, 2500);
-  check();
-})();
-</script>
+<header><div class="wrap"><nav><a href="/"><img class="logo" src="/assets/logo-white.png" alt="Code Orange Dev School"></a><div class="links"><a href="#pathway">Pathway</a><a href="#review">Review Club</a><a href="#outcomes">Outcomes</a><a class="btn" href="/apply?program=privacy">Apply</a></div></nav></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow mono">Advanced specialization · Bitcoin privacy · Open source</div><h1>Build Bitcoin privacy contributors, <span class="orange">not just PRs.</span></h1><p class="lead">Code Orange's Bitcoin Privacy Contributor Program develops developers who can understand privacy systems, navigate real codebases, test and review other contributors' work, communicate with maintainers, make useful contributions, and stay involved long after structured training ends.</p><div class="tags"><span class="tag">Privacy engineering</span><span class="tag">Code review</span><span class="tag">Testing & validation</span><span class="tag">Contributor residency</span><span class="tag">Selective fellowship</span></div><div class="principle">Our goal is not to optimize for developers who can produce PRs. Our goal is to develop contributors whom upstream projects actually want to keep working with.</div></div></section>
+<section id="pathway"><div class="wrap"><div class="eyebrow mono">How the programs fit together</div><h2>One contributor pathway.</h2><p class="intro">The Privacy Program is an advanced specialization built on Code Orange's existing foundations. Developers with equivalent skills can test out of prerequisites and enter at the right level.</p><div class="pipeline"><div class="step"><b>01 Discover</b><span>Workshops</span><small>Community, Bitcoin House and talent discovery.</small></div><div class="step"><b>02 Foundations</b><span>Dojo / rawBit</span><small>Bitcoin protocol and transaction foundations, or test out.</small></div><div class="step"><b>03 OSS Ready</b><span>Decoding Bitcoin</span><small>Codebase navigation and contributor workflows.</small></div><div class="step"><b>04 Specialize</b><span>Privacy Labs</span><small>Threat models, protocols, implementations and tests.</small></div><div class="step"><b>05 Contribute</b><span>Rotations</span><small>Explore several projects through real proof-of-work.</small></div><div class="step"><b>06 Go Deep</b><span>Residency</span><small>One primary project and real upstream priorities.</small></div><div class="step"><b>07 Stay</b><span>Fellowship</span><small>Sustained contribution, then mentor and multiply.</small></div></div></div></section>
+<section><div class="wrap"><div class="eyebrow mono">Program architecture</div><h2>Structured learning gets shorter. Contribution gets deeper.</h2><div class="grid"><div class="card"><h3>Privacy Engineering Foundations · 4–6 weeks</h3><p>Threat modeling, transaction graph analysis, wallet and network privacy, chain surveillance heuristics and a reusable framework: adversary → observations → heuristics → leakage → mitigation → trade-offs.</p></div><div class="card"><h3>Protocol & Code Labs · 8–10 weeks</h3><p>Study privacy systems through specifications, implementation, tests, historical issues, active PRs and real contribution opportunities. Candidate domains include Silent Payments, Payjoin, wallet privacy, network privacy and Lightning.</p></div><div class="card"><h3>Contributor Rotations · 6–8 weeks</h3><p>Explore 2–3 projects. Build them, test real changes, review work, investigate issues and produce useful evidence across multiple contribution modes.</p></div><div class="card"><h3>Contributor Residency · 12–16 weeks</h3><p>Choose one primary upstream project. Classroom instruction fades while participants identify useful work, engage maintainers and develop independence.</p></div><div class="card"><h3>Fellowship · 3–6 months</h3><p>Selective funded time for contributors demonstrating technical depth, reliability, review judgment, initiative and a credible path toward sustained project involvement.</p></div><div class="card"><h3>Alumni Retention · through 12 months</h3><p>Review Club, contributor calls and mentoring continue while Code Orange measures meaningful activity at 3, 6 and 12 months.</p></div></div></div></section>
+<section id="review"><div class="wrap"><div class="eyebrow mono">Core contributor loop</div><h2>Review is a contribution.</h2><p class="loop">READ → BUILD → TEST → REVIEW → CONTRIBUTE → MAINTAIN</p><p class="intro">The biweekly Code Orange Privacy Review Club uses real upstream PRs. Participants check out the branch, build it, run tests, read the surrounding code and history, discuss privacy and implementation trade-offs, and only then provide upstream feedback when they have something genuinely useful to add.</p><div class="review-levels"><div class="level"><strong>LEVEL 1</strong><h3>Reproduce</h3><p>Build and test the change; report reliable results.</p></div><div class="level"><strong>LEVEL 2</strong><h3>Explain</h3><p>Accurately explain motivation, code paths and implementation.</p></div><div class="level"><strong>LEVEL 3</strong><h3>Challenge</h3><p>Identify edge cases, missing tests or assumptions.</p></div><div class="level"><strong>LEVEL 4</strong><h3>Review</h3><p>Provide substantive conceptual or code feedback upstream.</p></div><div class="level"><strong>LEVEL 5</strong><h3>Own</h3><p>Independently review unfamiliar work and become a recurring reviewer.</p></div></div></div></section>
+<section><div class="wrap"><div class="eyebrow mono">What counts</div><h2>Proof-of-work is broader than authorship.</h2><p class="intro">Every technical module engages participants with a real open-source codebase and produces verifiable proof of work. We do not require a PR after every session.</p><div class="grid"><div class="card"><h3>Code & tests</h3><p>Patches, bug fixes, tests, fuzzing, benchmarks, refactors and implementation work.</p></div><div class="card"><h3>Review & validation</h3><p>Substantive reviews, PR testing, reproduction, edge-case analysis and review discussion.</p></div><div class="card"><h3>Issues & research</h3><p>Issue investigation, root-cause analysis, protocol research and privacy threat models.</p></div><div class="card"><h3>Communication & maintenance</h3><p>Documentation, maintainer discussions, triage, peer support, recurring review and mentoring.</p></div></div></div></section>
+<section id="outcomes"><div class="wrap"><div class="eyebrow mono">Measuring success</div><h2>Measure contributor maturity and retention.</h2><p class="intro">PR counts remain useful evidence, but they are not the objective. We separate activity outputs from outcomes that demonstrate contributor growth.</p><div class="metrics"><div class="metric"><strong>Contribution readiness</strong><p>Can independently build, navigate, test, review and communicate around scoped upstream work.</p></div><div class="metric"><strong>Meaningful activity</strong><p>Authorship, reviews, testing, issues, tests, research, documentation and technical discussion.</p></div><div class="metric"><strong>Contributor depth</strong><p>Repeated useful interactions with the same project and increasing scope of work.</p></div><div class="metric"><strong>Upstream usefulness</strong><p>Evidence that maintainers and experienced contributors value the participant's continued involvement.</p></div><div class="metric"><strong>Retention</strong><p>Meaningful open-source activity measured at 3, 6 and 12 months.</p></div><div class="metric"><strong>Progression</strong><p>Fellowships, grants, regular review, maintainer responsibility, OSS work and mentoring.</p></div></div><div class="north"><div class="mono">North-star outcome</div><p>Participants who remain meaningfully active in at least one Bitcoin privacy-related open-source project six months after structured training ends.</p></div></div></section>
+<section><div class="wrap"><div class="eyebrow mono">Depth over repository count</div><h2>Explore broadly. Contribute deeply.</h2><p class="intro">Instead of optimizing for contributions across 10+ repositories, participants explore 4–6 projects, rotate through 2–3, and ultimately develop depth in one primary project. Candidate ecosystems include Bitcoin Core, rust-bitcoin, BDK, Payjoin, Silent Payments tooling, Lightning projects, network-privacy tooling and Fedimint where relevant. Actual work follows active upstream priorities.</p></div></section>
+<section class="cta"><div class="wrap"><div class="eyebrow mono">Bitcoin Privacy Contributor Program</div><h2>Become useful upstream.</h2><p>For developers ready to move from learning Bitcoin privacy to sustained open-source contribution.</p><a class="btn" href="/apply?program=privacy">Apply to Code Orange</a></div></section>
+</main>
+<footer><div class="wrap">© 2026 Code Orange Dev School · Asia's Bitcoin developer community · <a href="/">codeorange.dev</a></div></footer>
 </body>
 </html>
